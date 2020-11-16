@@ -1,3 +1,13 @@
+    # t.string "email", null: false
+    # t.string "full_name", null: false
+    # t.string "password_digest", null: false
+    # t.string "session_token", null: false
+    # t.datetime "created_at", null: false
+    # t.datetime "updated_at", null: false
+    # t.index ["email"], name: "index_users_on_email", unique: true
+    # t.index ["full_name"], name: "index_users_on_full_name"
+    # t.index ["session_token"], name: "index_users_on_session_token", unique: true
+
 class User < ApplicationRecord
     attr_reader :password
     validates :username, presence: true, uniqueness: true
@@ -7,6 +17,7 @@ class User < ApplicationRecord
     after_initialize :ensure_session_token 
 
     def password=(password)
+        @password = password
         self.password_digest = BCrypt::Password.create(password)
     end 
 
@@ -26,7 +37,7 @@ class User < ApplicationRecord
 
     def reset_session_token!
         self.session_token = SecureRandom.urlsafe_base64
-        self.save
+        self.save!
         self.session_token
     end
 
