@@ -3,14 +3,19 @@ class Api::UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             login!(@user)
-            redirect_to poems_url
+            render "api/users/show"
         else 
-            flash[:errors] = @user.errors.full_messages
-            render :new
+            render json: @user.errors.full_messages, status:422
         end 
     end 
 
+    def destroy
+        @user = User.find(params[:id])
+        @user.destroy
+        render "api/users/show"
+    end
+
     def user_params
-        params.require(:user).permit(:username, :password)
+        params.require(:user).permit(:full_name, :email, :password)
     end 
 end
