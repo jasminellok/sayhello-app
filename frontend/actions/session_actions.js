@@ -19,7 +19,7 @@ const logoutCurrentUser = () => {
 
 const recSessErrors = (errors) => {
     return {
-        type: RECEIVE_ERRORS,
+        type: RECEIVE_SESSION_ERRORS,
         errors
     }
 };
@@ -31,6 +31,7 @@ export const signup = (user) => (dispatch) => {
 }
 
 export const login = (user) => (dispatch) => {
+    console.log(user);
     return ApiUtil.login(user)
         .then(user => dispatch(recCurrentUser(user)), 
             error => dispatch(recSessErrors(error.responseJSON)));
