@@ -2,7 +2,7 @@ import * as ApiUtil from '../util/session_api_util';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
-export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+export const RECEIVE_SESSION_ERRORS = 'RECEIVE_ERRORS';
 
 const recCurrentUser = (user) => {
     return {
@@ -17,7 +17,7 @@ const logoutCurrentUser = () => {
     }
 };
 
-const recErrors = (errors) => {
+const recSessErrors = (errors) => {
     return {
         type: RECEIVE_ERRORS,
         errors
@@ -27,19 +27,19 @@ const recErrors = (errors) => {
 export const signup = (user) => (dispatch) => {
     return ApiUtil.signup(user)
         .then(user => dispatch(recCurrentUser(user)), 
-        error => dispatch(recErrors(error.responseJSON)));
+            error => dispatch(recSessErrors(error.responseJSON)));
 }
 
 export const login = (user) => (dispatch) => {
     return ApiUtil.login(user)
         .then(user => dispatch(recCurrentUser(user)), 
-        error => dispatch(recErrors(error.responseJSON)));
+            error => dispatch(recSessErrors(error.responseJSON)));
 }
 
 export const logout = () => (dispatch) => {
     return ApiUtil.logout()
         .then(() => dispatch(logoutCurrentUser()), 
-        error => dispatch(recErrors(error.responseJSON)));
+            error => dispatch(recSessErrors(error.responseJSON)));
 }
 
 

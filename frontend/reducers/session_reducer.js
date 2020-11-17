@@ -17,4 +17,4 @@ const sessionReducer = (state = nullSession, action) => {//action passed in has 
             return state;
     }
 }
-export const sessionReducer;
+export default sessionReducer;
