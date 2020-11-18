@@ -34,19 +34,22 @@ export const clearErrors = () => {
 export const signup = (user) => (dispatch) => {
     return ApiUtil.signup(user)
         .then(user => dispatch(recCurrentUser(user)), 
-            error => dispatch(recSessErrors(error.responseJSON)));
+        error => dispatch(recSessErrors(error.responseJSON))
+    );
 }
 
 export const login = (user) => (dispatch) => {
     return ApiUtil.login(user)
         .then(user => dispatch(recCurrentUser(user)), 
-            error => dispatch(recSessErrors(error.responseJSON)));
+        error => dispatch(recSessErrors(error.responseJSON))
+    );
 }
 
 export const logout = () => (dispatch) => {
     return ApiUtil.logout()
         .then(() => dispatch(logoutCurrentUser()), 
-            error => dispatch(recSessErrors(error.responseJSON)));
+        error => dispatch(recSessErrors(error.responseJSON))
+    );
 }
 
 
