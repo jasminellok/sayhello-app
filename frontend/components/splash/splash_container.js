@@ -1,10 +1,18 @@
 import { connect } from 'react-redux';
 import Splash from './splash';
+import { login} from '../../actions/session_actions';
 
-const mstp = (state) => {
+// const mstp = (state) => {
+//     return {
+//         currentUser: state.entities.users[state.session.id]
+//     };
+// };
+
+const mdtp = dispatch => {
     return {
-        currentUser: state.entities.users[state.session.id]
-    };
+        login: (user) => dispatch(login(user))
+    }
 };
 
-export default connect(mstp, null)(Splash);
+
+export default connect(null, mdtp)(Splash);
