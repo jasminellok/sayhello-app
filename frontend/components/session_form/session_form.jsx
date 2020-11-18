@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -12,7 +13,6 @@ class SessionForm extends React.Component {
   }
 
   componentWillUnmount() {
-    debugger;
     this.props.clearErrors();
   }
 
@@ -48,7 +48,18 @@ class SessionForm extends React.Component {
         <br/>
       </>)
     };
-    return (
+    const signupLink = () => {
+      return(<div>
+        <Link to="/signup">Can't log in? • Sign up!</Link>
+      </div>)
+    }
+
+    const signinLink = () => {
+      return (<div>
+        <Link to="/login">Already have an account? Log In</Link>
+      </div>)
+    }
+    return (<div>
         <form onSubmit={this.handleSubmit} className="session-form">
           <h3>{this.props.formType}</h3>
           {this.showErrors()}
@@ -70,11 +81,13 @@ class SessionForm extends React.Component {
               onChange={this.handleChange('password')}
             />
           </label>
-
             <br />
           <button type="submit">Submit</button>
         </form>
-    );
+
+        {isSignup ? signinLink() : signupLink() }
+        
+    </div>);
   }
 }
 
