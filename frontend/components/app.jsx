@@ -12,7 +12,7 @@ const App = () => {
         <h1>say hello!</h1>
         <MainNav/>
         <ProtectedRoute path="/boards" component={BoardIndexContainer} />
-        <Route exact path="/" component={SplashContainer} />
+        <AuthRoute exact path="/" component={SplashContainer} />
         <AuthRoute path="/login" component={LoginContainer} />
         <AuthRoute path="/signup" component={SignupContainer} />
     </div>)
