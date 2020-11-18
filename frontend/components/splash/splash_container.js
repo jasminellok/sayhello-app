@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import { logout } from '../../actions/session_actions';
 import Splash from './splash';
 
 const mstp = (state) => {
@@ -8,8 +7,4 @@ const mstp = (state) => {
     };
 };
 
-const mdtp = dispatch => ({
-    logout: () => dispatch(logout())
-});
-
-export default connect(mstp, mdtp)(Splash);
+export default connect(mstp, null)(Splash);

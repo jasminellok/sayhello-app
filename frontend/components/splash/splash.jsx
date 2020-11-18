@@ -1,25 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Greeting = ({ currentUser, logout }) => {
-    const links = () => (
-        <section className="login-sign-up">
-            <Link to="/login">Login</Link>
-            <br/>
-            <Link to="/signup">Sign up!</Link>
-        </section>
-    );
+const Splash = ({ currentUser, logout }) => {
     const welcome = () => (
-        <section className="welcome">
-            <h3> sayHello to {currentUser.full_name}!</h3>
-            <button className="logout" onClick={logout}>Log Out</button>
-        </section>
+        <h4>say Hello to your buddies and get work done!</h4>
     );
 
-    return currentUser ? welcome() : links();
+    const user = () => (
+            <h3> sayHello to {currentUser.full_name}!</h3>
+            );
+
+    return currentUser ? user() : welcome();
 };
 
 
-export default Greeting;
-
-
+export default Splash;
