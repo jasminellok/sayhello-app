@@ -34,7 +34,7 @@ class Splash extends React.Component{
             <section className="splash-welcome">
                 <div className="splash-text">
                     <h1 className="splash-title"> Say hello to your buddies and get work done together.</h1>
-                    <p className="splash-content"> Use our oganizational boards, lists, and cards to finish work with your team like champs! Try out our demo for more information.</p>
+                    <p className="splash-content"> Use our organizational boards, lists, and cards to finish work with your team like champs! Try out our demo for more information.</p>
                 </div>
                 <div className="splash-img" ><img src={window.splash} alt="sayHello" /></div>
             </section>

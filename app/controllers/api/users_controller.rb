@@ -20,6 +20,7 @@ class Api::UsersController < ApplicationController
         render "api/users/show"
     end
 
+    protected 
     def user_params
         params.require(:user).permit(:full_name, :email, :password)
     end 
