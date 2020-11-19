@@ -1,7 +1,7 @@
 #splash-page {
     background-color: $midblue;
     color: $white;
-    height: 100vh;
+    height: auto;
     font-family: 'Ubuntu', sans-serif;
     padding-bottom: 69px;
 }
@@ -55,7 +55,7 @@
     font-weight: bold;
     line-height: 50px;  
     margin: 0 0 16px; 
-    padding-top: 50px;
+    padding-top: 55px;
     width: 550px;
     height: 150px;
 }
@@ -69,7 +69,7 @@
 }
 
 .splash-welcome > .splash-img {
-    padding-top: 20px;
+    padding-top: 10px;
     padding-left: 10px;
     display: flex;
     justify-content: center;
@@ -78,8 +78,8 @@
 
 img {
     border-radius: 10px;
-    width: 500px;
-    height: 330px;
+    width: 550px;
+    height: 380px;
 }
 
 
