@@ -1,3 +1,5 @@
+
+#resources :users, only: [:create, :show]
 class Api::UsersController < ApplicationController
     def create 
         @user = User.new(user_params)
@@ -13,12 +15,6 @@ class Api::UsersController < ApplicationController
         @user = User.find(params[:id])
         render "api/users/show"
     end 
-
-    def destroy
-        @user = User.find(params[:id])
-        @user.destroy
-        render "api/users/show"
-    end
 
     protected 
     def user_params

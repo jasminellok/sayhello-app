@@ -31,10 +31,14 @@ class Api::BoardsController < ApplicationController
         end
     end
     
-    def destroy
-        @board = Board.find(params[:id])
-        @board.destroy
-        render "api/boards/show"
+    def destroy 
+        @board = Board.find_by(params[:id])
+        if @board
+            @board.destroy
+            render json: {}
+        else
+            render json: ['Board could not be found'], status: 400
+        end
     end
   
 
