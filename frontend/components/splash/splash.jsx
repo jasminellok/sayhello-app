@@ -9,25 +9,37 @@ class Splash extends React.Component{
 
     handleSubmit(e) {
         e.preventDefault();
-        console.log(this.props.login)
+        //console.log(this.props.login)
         const user = { email: "demouser@example.com", password: "demouser" }
         this.props.login(user)
     }
     
     render () {
-        const user = () => (
-            <div>
-            <nav className="session-links">
-                <Link to="/login">Login</Link>
-                <Link to="/signup">Sign up!</Link>
-                <button onClick={this.handleSubmit}>Demo it out!</button>
+        const user = () => (<body id="splash-page">
+            <nav className="splash-nav">
+                <div >
+                    <Link to="/" className="go-to-splash">
+                        <img src={window.logo} alt="sayHello" className="nav-logo" />
+                        <p>Sayhello</p>
+                    </Link>
+                </div>
+
+                <div className="session-links">
+                    <Link to="/login">Log in</Link>
+                    <Link to="/signup">Sign up</Link>
+                    <button onClick={this.handleSubmit}>Demo</button>
+                </div>
             </nav>
 
             <section className="splash-welcome">
-                <h3> sayHello to your buddies and work together to get it done!</h3>
+                <div className="splash-text">
+                    <h1 className="splash-title"> Say hello to your buddies and get work done together.</h1>
+                    <p className="splash-content"> Use our oganizational boards, lists, and cards to finish work with your team like champs! Try out our demo for more information.</p>
+                </div>
+                <div className="splash-img" ><img src={window.splash} alt="sayHello" /></div>
             </section>
-            </div>
-        );
+
+        </body>);
 
         return user();
     }

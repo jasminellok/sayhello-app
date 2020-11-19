@@ -1,0 +1,121 @@
+.session-page {
+    height: 100vh;
+    font-family: 'Ubuntu', sans-serif;
+    background-color: rgb(249, 250, 252);
+}
+
+.session-logo > a > img {
+    height: 65px;
+    width: 129px;
+}
+
+form {
+    padding-top: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.session-logo {
+    padding-bottom: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+button:hover{
+    -webkit-filter: brightness(110%);  
+}
+
+
+.session-inputs {
+    background-color:rgb(255,255,255);
+    border: 1px solid rgb(240, 235, 235);
+    border-radius: 3px;
+    box-shadow: 0 0 15px rgba(8, 8, 8, 0.1);
+    padding-bottom: 40px;
+    padding-top: 30px;
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.session-inputs > ul {
+    background-color: rgb(235,90,70); 
+    border-radius: 3px;
+    margin-bottom: 15px;
+    justify-content: space-around;
+}
+
+.session-inputs > ul > li {
+    padding: 5px;
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    color: $white;
+    display: flex;
+}
+
+.session-inputs > h3 {
+
+    padding-bottom: 20px;
+    font-size: 15px;
+    font-weight: 700;
+    color: rgb(94,108,132)
+}
+
+.session-inputs > label > input{
+    width: 260px;
+    height: 32px;
+    border: 2px solid rgb(223,225,230);
+    border-radius: 2px;
+    background-color: rgb(250,251,252);
+}
+
+#session-submit {
+    padding-bottom: 20px;
+}
+
+.session-inputs > label > button {
+    width: 270px;
+    height: 32px;
+    border: 2px solid rgb(90,172,68);
+    border-radius: 2px;
+    background-color: rgb(90,172,68);
+    color: white;
+}
+
+.session-inputs > .alt-link {
+    border-top: 1px solid rgb(204,204,204);
+    width: 270px;
+    padding-top: 20px;
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    color: rgb(57, 123, 221);
+    display: flex;
+    justify-content: center;
+}
+
+footer {
+    display: flex;
+    align-items: flex-end;
+    align-content: flex-end;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px; 
+}
+
+footer > img {
+    width: 350px;
+    height: 240px;
+}

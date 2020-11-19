@@ -6,7 +6,7 @@ import SessionForm from './session_form';
 const mstp = (state, ownProps) => {
   return {
     errors: state.errors.session,
-    formType: 'Login'
+    formType: 'Log in'
   };
 };
 

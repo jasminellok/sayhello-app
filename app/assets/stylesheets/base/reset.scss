@@ -19,9 +19,15 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
+	font-size: inherit;
+	text-align: inherit;
+	font-weight: inherit;
 	font: inherit;
 	vertical-align: baseline;
+	color: inherit;
+	text-decoration: inherit;
+	box-sizing: inherit;
+  	background: transparent;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -34,6 +40,11 @@ body {
 ol, ul {
 	list-style: none;
 }
+
+a:link {
+  text-decoration: none;
+}
+
 blockquote, q {
 	quotes: none;
 }

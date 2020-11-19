@@ -9,7 +9,6 @@ import BoardIndexContainer from "./boards/board_index_container";
 
 const App = () => {
     return (<div>
-        <h1>say hello!</h1>
         <MainNav/>
         <ProtectedRoute path="/boards" component={BoardIndexContainer} />
         <AuthRoute exact path="/" component={SplashContainer} />

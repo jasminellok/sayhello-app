@@ -13,7 +13,9 @@ class BoardIndex extends React.Component{
     
     render () {
         const user = () => (
-            <h3>{this.props.currentUser.full_name}, are you ready to see your boards????</h3>
+            <section className="welcome-message">
+                <p >{this.props.currentUser.full_name}, are you ready to see your boards????</p>
+            </section>
         );
 
         return user();

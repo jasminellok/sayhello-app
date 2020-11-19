@@ -1,0 +1,86 @@
+#splash-page {
+    background-color: $midblue;
+    color: $white;
+    height: 100%;
+    font-family: 'Ubuntu', sans-serif;
+    padding-bottom: 69px;
+}
+.splash-nav {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10px 10px 10px;
+}
+.go-to-splash {
+    font-size: 43px;
+    font-family:'Yellowtail', cursive;
+    display: flex;
+    flex-direction: row;
+}
+
+.session-links{
+    display: flex;
+    justify-content: space-between; 
+    align-items: baseline;
+}
+
+.session-links > a {
+    margin: 10px 10px 0px 0px;
+    font-size: 15px;
+}
+
+.session-links > button {
+    color:rgb(68,155,206);
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 2px;
+    height: 33px;
+    border: 1px solid white;
+    background-color: white;
+    margin-left: 5px;
+}
+
+.splash-welcome {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-left: 80px;
+    margin-right: 20px;
+}
+
+.splash-text > h1{
+    font-size: 45px;
+    font-weight: bold;
+    line-height: 50px;  
+    margin: 0 0 16px; 
+    padding-top: 50px;
+    width: 550px;
+    height: 150px;
+}
+
+.splash-text > p{
+    font-size: 20px;
+    line-height: 30px;
+    margin: 0 0 16px; 
+    width: 550px;
+    height: 75px;
+}
+
+.splash-welcome > .splash-img {
+    padding-top: 20px;
+    padding-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    border-radius: 10px;
+    width: 500px;
+    height: 330px;
+}
+
+
+
