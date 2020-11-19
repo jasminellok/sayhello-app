@@ -98,13 +98,12 @@ class SessionForm extends React.Component {
                     {isSignup ? signinLink() : signupLink() }
                   </label>
               </section>
-
         </form>
 
-        <footer className="session-foot-img">
-          {/* <img src={window.session_left} alt="sayHello" className="session-img-left" />
-          <img src={window.session_right} alt="sayHello" className="session-img-left" /> */}
-        </footer>
+        <div className="session-foot-img">
+          <img src={window.session} alt="sayHello"  />
+        </div>
+
       </div>
     );
   }

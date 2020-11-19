@@ -1,8 +1,15 @@
 .session-page {
-    height: 100vh;
+    height: auto;
+    // width: 80%;
     font-family: 'Ubuntu', sans-serif;
     background-color: rgb(249, 250, 252);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-content: center;
+    flex-wrap: wrap;
 }
+
 
 .session-logo > a > img {
     height: 65px;
@@ -11,6 +18,7 @@
 
 form {
     padding-top: 70px;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -104,18 +112,15 @@ button:hover{
     justify-content: center;
 }
 
-footer {
+
+.session-foot-img {
     display: flex;
     align-items: flex-end;
     align-content: flex-end;
     justify-content: space-between;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 100px; 
+    // position: absolute;
+    // width: 100%;
+    height: 160px; 
+    padding: 20px
 }
 
-footer > img {
-    width: 350px;
-    height: 240px;
-}
