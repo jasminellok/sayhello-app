@@ -14,11 +14,12 @@ class User < ApplicationRecord
     attr_reader :password
     validates :email, uniqueness: true
     validates :email, :password_digest, :session_token, presence: true
+    validates :full_name, presence: true
     validates :password, length: {minimum: 6}, allow_nil: true
 
     after_initialize :ensure_session_token 
 
-    has_many :boards
+    has_many :boards,
         foreign_key: :author_id,
         class_name: :Board 
 

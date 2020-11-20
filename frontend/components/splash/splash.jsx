@@ -15,7 +15,7 @@ class Splash extends React.Component{
     }
     
     render () {
-        const user = () => (<body id="splash-page">
+        const user = () => (<div id="splash-page">
             <nav className="splash-nav">
                 <div >
                     <Link to="/" className="go-to-splash">
@@ -39,7 +39,7 @@ class Splash extends React.Component{
                 <div className="splash-img" ><img src={window.splash} alt="sayHello" /></div>
             </section>
 
-        </body>);
+        </div>);
 
         return user();
     }
