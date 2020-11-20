@@ -1,15 +1,17 @@
 import { connect } from 'react-redux';
 import BoardIndex from './board_index';
+import { fetchAllBoards, deleteBoard } from '../../actions/board_actions';
 
 const mstp = (state) => {
     return {
-        currentUser: state.entities.users[state.session.id]
+        currentUser: state.entities.users[state.session.id],
+        boards: Object.values(state.boards)
     };
 };
 
 const mdtp = dispatch => {
     return {
-        //login: (user) => dispatch(login(user))
+        fetchAllBoards: () => dispatch(fetchAllBoards())
     }
 };
 
