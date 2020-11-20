@@ -7,7 +7,7 @@ export const fetchBoard = boardId => {
 
 export const fetchAllBoards = () => {
     return $.ajax({
-        method: 'POST',
+        method: 'GET',
         url: 'api/boards'
     })
 };

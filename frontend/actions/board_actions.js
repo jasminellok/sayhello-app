@@ -3,8 +3,8 @@ import * as ApiUtil from '../util/board_api_util';
 export const REC_BOARD = 'REC_BOARD';//boards
 export const REC_ALL_BOARDS = 'REC_ALL_BOARDS';//boards
 export const REMOVE_BOARD = 'REMOVE_BOARD';//boards
-export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';//errors
-export const CLEAR_ERRORS = 'CLEAR_ERRORS';//errors
+export const RECEIVE_BOARD_ERRORS = 'RECEIVE_BOARD_ERRORS';//errors
+export const CLEAR_BOARD_ERRORS = 'CLEAR_BOARD_ERRORS';//errors
 
 const recAllBoards = (boards) => {
     return {
@@ -27,9 +27,9 @@ const removeBoard = (boardId) => {
     }
 }
 
-const recErrors = (errors) => {
+const recBoardErrors = (errors) => {
     return {
-        type: RECEIVE_ERRORS,
+        type: RECEIVE_BOARD_ERRORS,
         errors
     }
 };
@@ -44,37 +44,37 @@ export const clearErrors = () => {
 
 export const fetchAllBoards = () => dispatch => {
     return ApiUtil.fetchAllBoards()
-        .then((boards) => dispatch(recAllBoards(boards)),
-            error => dispatch(recErrors(error.responseJSON))
-        );
+        .then((boards) => dispatch(recAllBoards(boards)), 
+        error => {
+            dispatch(recBoardErrors(error.responseJSON))
+        });
 }
 
 export const fetchBoard = (boardId) => dispatch => {
     return ApiUtil.fetchBoard(boardId)
-        .then((post) => dispatch(recBoard(board)),
-            error => dispatch(recErrors(error.responseJSON))
-        );
+        .then((board) => dispatch(recBoard(board)),
+        error => dispatch(recBoardErrors(error.responseJSON)));
 }
 
 
 export const createBoard = (board) => dispatch => {
-    return PostApiUtil.createBoard(board)
+    return ApiUtil.createBoard(board)
         .then((board) => dispatch(recBoard(board)),
-            error => dispatch(recErrors(error.responseJSON))
+            error => dispatch(recBoardErrors(error.responseJSON))
         );
 }
 
 export const updateBoard = (board) => dispatch => {
-    return PostApiUtil.updateBoard(board)
+    return ApiUtil.updateBoard(board)
         .then((board) => dispatch(recBoard(board)),
-            error => dispatch(recErrors(error.responseJSON))
+            error => dispatch(recBoardErrors(error.responseJSON))
         );
 }
 
 export const deleteBoard = (boardId) => dispatch => {
-    return PostApiUtil.deleteBoard(boardId)
+    return ApiUtil.deleteBoard(boardId)
         .then((board) => dispatch(removeBoard(board.id)),
-            error => dispatch(recErrors(error.responseJSON))
+            error => dispatch(recBoardErrors(error.responseJSON))
         );
     
 }

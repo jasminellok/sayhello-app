@@ -21,7 +21,10 @@ class BoardShow extends React.Component {
     }
 
     render() {
-        return (<div>
+        //console.log(this.props)
+        if (!this.props.board) return null;
+
+        return (<div>-------------------------------
 
             <ul className="board-show-left">
                 <li> Board
@@ -46,4 +49,4 @@ class BoardShow extends React.Component {
     }
 }
 
-export default PostShow;
+export default BoardShow;

@@ -7,7 +7,7 @@
 #     t.index ["author_id"], name: "index_boards_on_author_id"
 
 class Board < ApplicationRecord
-    validates :title,  presence: true
+    validates :title, :author_id, presence: true
 
     belongs_to :author,
         foreign_key: :author_id,

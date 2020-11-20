@@ -1,16 +1,14 @@
 
-import { REC_BOARD, RECEIVE_ERRORS, CLEAR_ERRORS } from '../../actions/board_actions';
+import { RECEIVE_BOARD_ERRORS, CLEAR_BOARD_ERRORS } from '../../actions/board_actions';
 
 const defaultErrors = [];
 
 const boardErrorsReducer = (state = [], action) => {
     Object.freeze(state);
     switch (action.type) {
-        case REC_BOARD:
+        case CLEAR_BOARD_ERRORS:
             return defaultErrors;
-        case CLEAR_ERRORS:
-            return defaultErrors;
-        case RECEIVE_ERRORS:
+        case RECEIVE_BOARD_ERRORS:
             return action.errors;
         default:
             return state;

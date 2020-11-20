@@ -4,13 +4,17 @@ class Api::BoardsController < ApplicationController
     before_action :ensure_logged_in
 
     def show
-        @board = Board.find_by(params[:id])
+        @board = Board.find_by(id: params[:id])
         render "api/boards/show"
     end
     
     def index
-        @boards = Board.all.includes(:author).where(id: current_user.id)
-        render "api/boards/index"
+        @boards = current_user.boards
+        if @boards
+            render "api/boards/index"
+        else
+            render json: @board.errors.full_messages, status: 400
+        end 
     end
 
     def update
@@ -24,6 +28,7 @@ class Api::BoardsController < ApplicationController
 
     def create
         @board = Board.new(board_params)
+        @board.author_id = current_user.id
         if @board.save
             render "api/boards/show"
         else

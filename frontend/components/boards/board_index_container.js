@@ -5,7 +5,7 @@ import { fetchAllBoards, deleteBoard } from '../../actions/board_actions';
 const mstp = (state) => {
     return {
         currentUser: state.entities.users[state.session.id],
-        boards: Object.values(state.boards)
+        boards: Object.values(state.entities.boards)
     };
 };
 

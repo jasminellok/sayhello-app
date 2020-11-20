@@ -12,7 +12,7 @@ const App = () => {
     return (<div>
         <MainNav/>
         <ProtectedRoute path="/boards" component={BoardIndexContainer} />
-        <ProtectedRoute path="/boards/boardId" component={BoardShowContainer} />
+        <ProtectedRoute exact path="/boards/:boardId" component={BoardShowContainer} />
         <AuthRoute exact path="/" component={SplashContainer} />
         <AuthRoute path="/login" component={LoginContainer} />
         <AuthRoute path="/signup" component={SignupContainer} />
