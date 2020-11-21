@@ -1,8 +1,97 @@
 .main-nav {
+    font-family: sans-serif;
+    padding: 5px;
     position: relative;
     display: flex;
+    align-content: center;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;
+    background-color: rgb(4,106,167);
+}
 
+.nav-home-btn {
+    padding: 10px;
+    border: 1px solid white;
+    background-color: rgb(88,154,195);
+    border-radius: 5px;
+}
+
+.nav-home-btn:hover {
+    background-color: rgb(68, 137, 180);
+}
+
+.home-icon {
+    color:rgb(223,225,230);
+}
+
+.profile-letter {
+    padding:10px;
+    font-size: 18px;
+    background-color: rgb(223,225,230);
+    color: $darkblue;
+    border-radius: 28px;
+    cursor: pointer;
+}
+
+.profile-dropdown-btn {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-links {
+	position: absolute;
+	top: 50px;
+	right: 0;
+	background-color: rgb(255,255,255);
+	border: 1px solid rgb(221,224,229);
+	border-radius: 3px;
+	padding: 10px;
+    width: 230px;
+    font-size:14px;
+	color: rgb(61,76,104);
+	text-align: left;
+	box-shadow: 0 10px 15px -5px rgba(9,30,66,.25);
+}
+
+.accountx {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(228,230,232);
+}
+
+.accountx > p {
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+
+.profile-links li {
+    color: $darkblue;
+    text-decoration: none;
+    display: block;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    padding-left: 5px;
+    border-bottom: 1px solid rgb(228,230,232);
+}
+
+.profile-email{
+    color: rgb(183,189,199);
+    padding-top: 3px;
+}
+
+.nav-logout {
+    padding-bottom: 12px;
+    padding-top: 12px;
+    padding-left: 5px;
+}
+
+.nav-logout:hover {
+    background-color: rgb(242, 244, 247);
+    cursor: pointer;
 }
