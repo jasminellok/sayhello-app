@@ -24,27 +24,23 @@ class BoardShow extends React.Component {
         //console.log(this.props)
         if (!this.props.board) return null;
 
-        return (<div>
+        return (<div className="board-show-page">
+            <div className="board-show-bar">
+                <section className="board-show-left">
+                    <li> {this.props.board.title} 
+                        <p>{this.props.board.description}</p>
+                        {/* <p>EDIT DESCRIPTION ON ENTER</p> */}
+                    </li>
 
-            <section className="board-show-left">
-                <li> Board
-                    <p>{this.props.board.description}</p>
-                    <p>EDIT DESCRIPTION ON ENTER</p>
-                </li>
-                <li> 
-                    {this.props.board.title} 
-                    <p>EDIT TITLE ON ENTER</p>
-                </li>
-                <li> Team Icon </li>
-                <li> Invite </li>
-            </section>
+                </section>
 
-            <section className="board-show-right">
-                <li> Calendar </li>
-                <li className="logout" onClick={this.props.deleteBoard}>Log Out</li>
-            </section>
-
-
+                <section className="board-show-right">
+                    <li> Team Icon </li>
+                    <li> Invite </li>
+                    <li> Calendar </li>
+                    <li onClick={() => this.props.deleteBoard}>Delete</li>
+                </section>
+            </div>
         </div>)
     }
 }

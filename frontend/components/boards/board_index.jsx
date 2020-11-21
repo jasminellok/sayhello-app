@@ -21,21 +21,18 @@ class BoardIndex extends React.Component{
             return (<BoardIndexItem board={board} key={`board-index-item${i}`}/>)
         });
 
-        return (<div>
+        return (<div className="board-index-page">
+            <h3>Personal Boards</h3>
+
             <Modal />
 
-            <div>{this.props.currentUser.full_name}:</div>
-
-            <div>
-                <button onClick={() => this.props.openModal('createBoard')}>Create Board</button>
-            </div>
-
-            <ul>
+            <ul className="board-index">
                 {boardItems}
+                <li className="index-create-modal" onClick={() => this.props.openModal('createBoard')}>
+                    <p>Create Board</p>
+                </li>
             </ul>
 
-            <div>
-            </div>
         </div>)
     }
 

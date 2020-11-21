@@ -1,0 +1,27 @@
+.board-show-page {
+    background-color: rgb(5,121,191);
+    height: 100vh;
+    font-family: sans-serif;
+    color: white;
+}
+
+.board-show-bar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.board-show-left{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+li {
+    list-style: none;
+}
+
+.board-show-right{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
