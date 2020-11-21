@@ -23,11 +23,11 @@ time, mark, audio, video {
 	text-align: inherit;
 	font-weight: inherit;
 	font: inherit;
-	vertical-align: baseline;
 	color: inherit;
 	text-decoration: inherit;
 	box-sizing: inherit;
-  	background: transparent;
+	background: transparent;
+	vertical-align: inherit;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -57,5 +57,3 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
-

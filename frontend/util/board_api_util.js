@@ -31,7 +31,7 @@ export const createBoard = (board) => {
 export const deleteBoard = (boardId) => {
     return $.ajax({
         method: "DELETE",
-        url: `/api/board/${boardId}`
+        url: `/api/boards/${boardId}`
     })
 }
 

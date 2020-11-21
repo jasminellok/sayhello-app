@@ -6,7 +6,6 @@ import { fetchBoard, deleteBoard } from '../../actions/board_actions';
 const mstp = (state, ownProps) => {
     const boards = state.entities.boards
     const id = ownProps.match.params.boardId
-    console.log(state.entities.boards) 
     return {
         board: boards[id]
     }

@@ -58,7 +58,7 @@ class SessionForm extends React.Component {
     }
 
     return (
-      <div class="session-page">
+      <div className="session-page">
 
         <form onSubmit={this.handleSubmit} className="session-form">
               <div className="session-logo">

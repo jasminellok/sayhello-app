@@ -2,8 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import BoardIndexItem from './board_index_item';
 import Modal from "../modal";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 //need modals to create
+
+//const user = <FontAwesomeIcon icon={faUser} />
 
 class BoardIndex extends React.Component{
     constructor(props) {
@@ -22,7 +26,9 @@ class BoardIndex extends React.Component{
         });
 
         return (<div className="board-index-page">
-            <h3>Personal Boards</h3>
+            <h3>Personal Boards
+                {/* <div className="user-icon">{user}</div> */}
+            </h3>
 
             <Modal />
 
