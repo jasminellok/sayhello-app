@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// <|about dropdown descrip| title | team name icon | invite >         <| BONUS: calendar | delete |>
+// <|title | team name icon | invite >         <| BONUS: calendar | menu to edit and delete |>
 //LATER: teams comp need joins, calendar (link to cal component), invite comp later
 //NOW: edit on enter do i need form?, for delete do conditional logic to allow author delete + are you sure
 
@@ -24,9 +24,9 @@ class BoardShow extends React.Component {
         //console.log(this.props)
         if (!this.props.board) return null;
 
-        return (<div>-------------------------------
+        return (<div>
 
-            <ul className="board-show-left">
+            <section className="board-show-left">
                 <li> Board
                     <p>{this.props.board.description}</p>
                     <p>EDIT DESCRIPTION ON ENTER</p>
@@ -37,12 +37,12 @@ class BoardShow extends React.Component {
                 </li>
                 <li> Team Icon </li>
                 <li> Invite </li>
-            </ul>
+            </section>
 
-            <ul className="board-show-right">
+            <section className="board-show-right">
                 <li> Calendar </li>
                 <li className="logout" onClick={this.props.deleteBoard}>Log Out</li>
-            </ul>
+            </section>
 
 
         </div>)

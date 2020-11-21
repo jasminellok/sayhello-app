@@ -34,7 +34,7 @@ class CreateBoard extends React.Component {
     render() {
         return (<div className="create-board-modal">
             <form onSubmit={this.handleSubmit} className="create-board-form">
-                <div onClick={this.props.closeModal} className="close-x">X</div>
+                <div onClick={this.props.closeModal} className="close-x">x</div>
                 <input type="text"
                     value={this.state.title}
                     onChange={this.handleChange('title')}

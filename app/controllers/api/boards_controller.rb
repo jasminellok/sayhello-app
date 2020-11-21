@@ -9,7 +9,7 @@ class Api::BoardsController < ApplicationController
     end
     
     def index
-        @boards = current_user.boards
+        @boards = Board.all.includes(:author).where(author_id: current_user.id)
         if @boards
             render "api/boards/index"
         else
@@ -38,6 +38,9 @@ class Api::BoardsController < ApplicationController
     
     def destroy 
         @board = Board.find_by(params[:id])
+        if @board.author_id != current_user.id
+            render json: ['You are not the author and cannot delete board'], status: 422
+        end 
         if @board
             @board.destroy
             render json: {}
