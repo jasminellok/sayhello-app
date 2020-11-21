@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import BoardIndex from './board_index';
 import { fetchAllBoards, deleteBoard } from '../../actions/board_actions';
+import { openModal } from '../../actions/modal_action';
+
 
 const mstp = (state) => {
     console.log
@@ -12,7 +14,8 @@ const mstp = (state) => {
 
 const mdtp = dispatch => {
     return {
-        fetchAllBoards: () => dispatch(fetchAllBoards())
+        fetchAllBoards: () => dispatch(fetchAllBoards()),
+        openModal: (modal) => dispatch(openModal(modal))
     }
 };
 

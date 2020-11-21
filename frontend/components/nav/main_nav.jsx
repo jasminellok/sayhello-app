@@ -7,7 +7,6 @@ import { faHome } from '@fortawesome/free-solid-svg-icons';
 const home = <FontAwesomeIcon icon={faHome} />
 
 
-
 class MainNavBar extends React.Component {
     constructor(props) {
         super(props)

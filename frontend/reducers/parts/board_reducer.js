@@ -1,5 +1,5 @@
 
-import { REC_BOARD, REC_ALL_BOARDS, REMOVE_BOARD  } from '../actions/board_actions';
+import { REC_BOARD, REC_ALL_BOARDS, REMOVE_BOARD  } from '../../actions/board_actions';
 
 const boardsReducer = (state = {}, action) => {
     Object.freeze(state);

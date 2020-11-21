@@ -1,4 +1,5 @@
 import React from "react";
+import { Route, Switch } from "react-router";
 //import {Route, withRouter} from 'react-router-dom';
 import {AuthRoute, ProtectedRoute} from '../util/route_util';
 import MainNav from "./nav/main_nav_container";
@@ -10,9 +11,11 @@ import BoardShowContainer from "./boards/board_show_container";
 
 const App = () => {
     return (<div>
-        <MainNav/>
-        <ProtectedRoute path="/boards" component={BoardIndexContainer} />
-        <ProtectedRoute exact path="/boards/:boardId" component={BoardShowContainer} />
+        <MainNav />
+        <Switch>
+            <ProtectedRoute exact path="/boards" component={BoardIndexContainer} />
+            <ProtectedRoute path="/boards/:boardId" component={BoardShowContainer} />
+        </Switch>
         <AuthRoute exact path="/" component={SplashContainer} />
         <AuthRoute path="/login" component={LoginContainer} />
         <AuthRoute path="/signup" component={SignupContainer} />
