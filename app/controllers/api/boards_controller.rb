@@ -18,7 +18,8 @@ class Api::BoardsController < ApplicationController
     end
 
     def update
-        @board = Board.find_by(params[:id])
+        # debugger;
+        @board = Board.find_by(id: params[:id])
         if @board && @board.update(board_params)
             render "api/boards/show"
         else

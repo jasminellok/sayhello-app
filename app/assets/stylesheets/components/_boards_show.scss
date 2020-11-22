@@ -8,6 +8,7 @@
 .board-show-bar {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .board-show-left{

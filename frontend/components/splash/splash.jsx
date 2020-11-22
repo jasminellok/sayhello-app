@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Splash extends React.Component{
     constructor(props) {
@@ -27,7 +28,7 @@ class Splash extends React.Component{
                 <div className="session-links">
                     <Link to="/login">Log in</Link>
                     <Link to="/signup">Sign up</Link>
-                    <button onClick={this.handleSubmit}>Demo</button>
+                    <button type="submit" onClick={this.handleSubmit}>Demo</button>
                 </div>
             </nav>
 
@@ -38,6 +39,9 @@ class Splash extends React.Component{
                 </div>
                 <div className="splash-img" ><img src={window.splash} alt="sayHello" /></div>
             </section>
+
+            <footer>
+            </footer>
 
         </div>);
 

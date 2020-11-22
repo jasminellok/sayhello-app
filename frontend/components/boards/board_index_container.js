@@ -5,7 +5,7 @@ import { openModal } from '../../actions/modal_action';
 
 
 const mstp = (state) => {
-    console.log
+    //console.log
     return {
         currentUser: state.entities.users[state.session.id],
         boards: Object.values(state.entities.boards)

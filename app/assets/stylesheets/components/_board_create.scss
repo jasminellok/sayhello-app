@@ -5,13 +5,12 @@ form.create-board-form {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: stretch;
-    padding-top: 0px;
-    padding-left: 10px;
-    padding-right: 10px;
-    background-color: $lightblue;
+    padding: 10px;
+    padding-top:0px ;
     border-radius: 3px;
     height: 120px;
     width: 180px;
+    background-color: $lightblue;
 }
 
 .create-board-form > .close-x {
@@ -42,6 +41,7 @@ form.create-board-form {
     color: $white;
     background-color: rgb(90,172,68);
 }
+
 
 .create-board-form > .create-board-errors {
     color: rgb(182, 67, 67) ;

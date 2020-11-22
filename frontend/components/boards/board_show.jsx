@@ -1,5 +1,7 @@
 import React from 'react';
 import { Redirect, Link } from 'react-router-dom';
+// UpdateBoardContainer from "./bfrom_edit_container";
+import Modal from "../modal";
 
 // <|title | team name icon | invite >         <| BONUS: calendar | menu to edit and delete |>
 //LATER: teams comp need joins, calendar (link to cal component), invite comp later
@@ -8,11 +10,10 @@ import { Redirect, Link } from 'react-router-dom';
 class BoardShow extends React.Component {
     constructor(props) {
         super(props)
-        this.state = this.props.board
     }
 
     componentDidMount() {
-        this.props.fetchBoard(this.props.match.params.boardId);
+        this.props.fetchBoard(this.props.match.params.boardId) 
     }
 
     handleChange(field) {
@@ -23,23 +24,22 @@ class BoardShow extends React.Component {
     handleDelete(id) {
         this.props.deleteBoard(id)
         .then(() => this.props.history.push('/boards'));
-
     }
 
-    render() {
-        //console.log(this.props)
+    render() { 
         if (!this.props.board) return null;
 
-        return (<div className="board-show-page">
+        return (<div className="board-show-page" >
             <div className="board-show-bar">
-
+                <Modal board={this.props.board}/>
                 <section className="board-show-left">
-                    <li> {this.props.board.title} 
-                        <p>{this.props.board.description}</p>
-                        {/* <p>EDIT DESCRIPTION ON ENTER</p> */}
-                    </li>
+                    <div className="edit-board-container" onClick={() => this.props.openModal('editBoard')}> 
+                        Board
+                    </div>
+                    <li>{this.props.board.title}</li>
                     <li onClick={() => this.handleDelete(this.props.board.id)}>Delete</li>
                 </section>
+                
 
                 <section className="board-show-right">
                     <li> Team Icon </li>
