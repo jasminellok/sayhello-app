@@ -1,19 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { closeModal } from '../actions/modal_action';
-import BoardCreateContainer from './boards/bform_create_container';
-import BoardEditContainer from './boards/bfrom_edit_container';
+import { closeModal } from '../../actions/modal_action';
+import BoardEditContainer from '../boards/bfrom_edit_container';
 
 function Modal({ modal, editBoard, closeModal }) {
     if (!modal) return null;
 
     let component;
     switch (modal) {
-        case 'createBoard':
-            component = <BoardCreateContainer />;
-            break;
+        // case 'createBoard':
+        //     component = <BoardCreateContainer />;
+        //     break;
         case 'editBoard':
-            component = <BoardEditContainer editBoard={editBoard}/>;
+            component = <BoardEditContainer editBoard={editBoard} />;
             break;
 
         default:

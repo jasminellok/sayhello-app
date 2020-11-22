@@ -51,17 +51,24 @@ class MainNavBar extends React.Component {
 
     showProfile() {
         return (
-        <div className="profile-links">
+        <div className="profile-content">
             <span className="accountx">
                 <li> </li>
                 <li> Account </li>
                 <p> x </p>
             </span>
             <li className="profile-info">  
+                <div><p></p></div>
                 <p className="profile-name">{this.props.currentUser.full_name}</p>
                 <p className="profile-email">{this.props.currentUser.email}</p>
+                <div><p></p></div>
             </li>
-            <p className="nav-logout" onClick={this.props.logout}>Log Out</p>
+            <li className="profile-logout">
+                <div className="logout-cont">
+                    <p className="nav-logout" onClick={this.props.logout}>Log Out</p>
+                </div>
+            </li>
+            
         </div>
         )
     }
@@ -79,7 +86,7 @@ class MainNavBar extends React.Component {
 
                 <div className="logo-boards">
                     <Link className="logo-board-index" to="/boards">
-                        <img src={window.logo} alt="sayHello" className="nav-logo" /> 
+                        <img src={window.logo} alt="sayHello" className="main-nav-logo" /> 
                     </Link>
                 </div>
 

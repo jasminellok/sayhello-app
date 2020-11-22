@@ -5,6 +5,12 @@
     font-family: 'Ubuntu', sans-serif;
     padding-bottom: 69px;
 }
+
+.splash-logo {
+    width: 75px;
+    height: 42px;
+}
+
 .splash-nav {
     position: relative;
     display: flex;
@@ -17,6 +23,11 @@
     font-family:'Yellowtail', cursive;
     display: flex;
     flex-direction: row;
+    text-decoration: none;
+}
+
+.go-to-splash:hover {
+    text-decoration: none;
 }
 
 .session-links{

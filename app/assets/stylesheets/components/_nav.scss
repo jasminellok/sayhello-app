@@ -9,6 +9,11 @@
     background-color: rgb(4,106,167);
 }
 
+.main-nav-logo {
+    width: 50px;
+    height: 30px;
+}
+
 .main-nav .nav-logo:hover {
     animation: shake 0.5s;
     animation-iteration-count: infinite;
@@ -20,9 +25,9 @@
 }
 
 .nav-home-btn {
-    padding: 10px;
-    border: 1px solid white;
-    background-color: rgb(88,154,195);
+    padding: 7px;
+    // border: 1px solid white;
+    background-color: rgb(100, 165, 206);
     border-radius: 5px;
 }
 
@@ -31,84 +36,117 @@
 }
 
 .home-icon {
-    color:rgb(223,225,230);
-}
-
-.profile-letter {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 15px;
-    width: 15px;
-    padding:12px;
-    font-weight: bold;
-    font-size: 16px;
-    background-color: rgb(223,225,230);
-    color: $darkblue;
-    border-radius: 28px;
-    cursor: pointer;
+    color:rgb(227, 229, 236);
 }
 
 .profile-dropdown-btn {
     position: relative;
     display: inline-block;
     z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.profile-links {
-	position: absolute;
-	top: 50px;
+.profile-letter {
+    height: 13px;
+    width: 13px;
+    padding:10px;
+    // font-weight: bold;
+    font-size: 15px;
+    background-color: rgb(223,225,230);
+    color: $darkblue;
+    border-radius: 28px;
+    cursor: pointer;
+}
+
+.profile-content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+	text-align: left;
+	top: 43px;
 	right: 0;
 	background-color: rgb(255,255,255);
 	border: 1px solid rgb(221,224,229);
 	border-radius: 3px;
-	padding: 10px;
+	// padding: 9px;
     width: 230px;
     font-size:14px;
 	color: rgb(61,76,104);
-	text-align: left;
-	box-shadow: 0 10px 15px -5px rgba(9,30,66,.25);
+    box-shadow: 0 10px 15px -5px rgba(9,30,66,.25);
+}
+
+.profile-content li {
+    color: $darkblue;
+    text-decoration: none;
+    display: block;
 }
 
 .accountx {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid rgb(228,230,232);
+    padding: 12px;
+    align-items: center;
+    align-content: center;
 }
 
 .accountx > p {
-    padding-bottom: 10px;
     cursor: pointer;
-}
-
-.profile-links li {
-    color: $darkblue;
-    text-decoration: none;
-    display: block;
+    font-size: 16px;
+    width: 10px;
+    height: 16;
 }
 
 .profile-info {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    padding-bottom: 12px;
-    padding-top: 12px;
-    padding-left: 5px;
-    border-bottom: 1px solid rgb(228,230,232);
+}
+
+.profile-info > div {
+    display: flex;
+    justify-content: center;
+}
+
+.profile-info > div > p {
+    width: 210px;
+    border-top: 1px solid rgb(228,230,232);
+}
+
+.profile-name {
+    padding-top: 15px;
+    padding-left: 10px;
+    padding-bottom: 4px
 }
 
 .profile-email{
     color: rgb(183,189,199);
-    padding-top: 3px;
+    padding-left: 10px;
+    padding-bottom: 15px;
 }
 
-.nav-logout {
+
+.logout-cont{
+    
+}
+
+.profile-logout:hover {
+    background-color: rgb(242, 244, 247);
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+
+.profile-links > .profile-logout > .nav-logout {
     padding-bottom: 12px;
     padding-top: 12px;
     padding-left: 5px;
+    display: block;
 }
 
-.nav-logout:hover {
-    background-color: rgb(242, 244, 247);
-    cursor: pointer;
-}
+// .nav-logout:hover {
+//     background-color: rgb(242, 244, 247);
+//     cursor: pointer;
+// }

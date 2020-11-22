@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import BoardIndexItem from './board_index_item';
-import Modal from "../modal";
+import Modal from "../modal/modal";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 
@@ -26,11 +26,11 @@ class BoardIndex extends React.Component{
         });
 
         return (<div className="board-index-page">
+            <Modal />
+
             <h3>Personal Boards
                 {/* <div className="user-icon">{user}</div> */}
             </h3>
-
-            <Modal />
 
             <ul className="board-index">
                 {boardItems}

@@ -3,12 +3,6 @@ html {
     min-height: 100%;
 }
 
-
-.nav-logo {
-    width: 75px;
-    height: 40px;
-}
-
 .modal-background {
   position: fixed;
   top: 0;
@@ -21,11 +15,11 @@ html {
 
 .modal-child {
     position: absolute;
-    top: 20%;
+    top: 10%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 120px;
-    width: 200px;
+    // height: 120px;
+    // width: 200px;
 
 }
 

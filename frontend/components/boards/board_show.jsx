@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect, Link } from 'react-router-dom';
 // UpdateBoardContainer from "./bfrom_edit_container";
-import Modal from "../modal";
+import TranspModal from "../modal/transparent-modal";
 
 // <|title | team name icon | invite >         <| BONUS: calendar | menu to edit and delete |>
 //LATER: teams comp need joins, calendar (link to cal component), invite comp later
@@ -31,7 +31,7 @@ class BoardShow extends React.Component {
 
         return (<div className="board-show-page" >
             <div className="board-show-bar">
-                <Modal board={this.props.board}/>
+                <TranspModal board={this.props.board}/>
                 <section className="board-show-left">
                     <div className="edit-board-container" onClick={() => this.props.openModal('editBoard')}> 
                         Board

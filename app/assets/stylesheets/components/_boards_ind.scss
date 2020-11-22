@@ -1,11 +1,12 @@
 .board-index-page {
     padding-top: 70px;
-    height: auto;
+    height: 100vh;
     font-family: sans-serif;
     display: flex;
     flex-direction: column;
     align-content: center;
     flex-wrap: wrap;
+    background-color: rgb(250,251,252);
 }
 
 .board-index-page > h3 {
@@ -29,14 +30,14 @@
     height: 40px;
     padding: 25px;
     background-color:rgb(4,105,166) ;
-    color:rgb(255,255,255);
+    color:rgb(250,251,252);
     margin: 10px;
     border-radius: 4px;
     cursor: pointer;
 }
 
 .board-index > li:hover{
-        -webkit-filter: brightness(96%); 
+    -webkit-filter: brightness(96%); 
 }
 
 .board-index > .index-create-modal {

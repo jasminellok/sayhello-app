@@ -20,7 +20,7 @@ class Splash extends React.Component{
             <nav className="splash-nav">
                 <div >
                     <Link to="/" className="go-to-splash">
-                        <img src={window.logo} alt="sayHello" className="nav-logo" />
+                        <img src={window.logo} alt="sayHello" className="splash-logo" />
                         <p>Sayhello</p>
                     </Link>
                 </div>
