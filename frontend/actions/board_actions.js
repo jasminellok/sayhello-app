@@ -4,7 +4,7 @@ export const REC_BOARD = 'REC_BOARD';//boards
 export const REC_ALL_BOARDS = 'REC_ALL_BOARDS';//boards
 export const REMOVE_BOARD = 'REMOVE_BOARD';//boards
 export const RECEIVE_BOARD_ERRORS = 'RECEIVE_BOARD_ERRORS';//errors
-export const CLEAR_ERRORS = 'CLEAR_BOARD_ERRORS';//errors
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';//errors
 
 const recAllBoards = (boards) => {
     return {
