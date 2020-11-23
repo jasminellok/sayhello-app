@@ -1,7 +1,10 @@
 import React from 'react';
 import { Redirect, Link } from 'react-router-dom';
 // UpdateBoardContainer from "./bfrom_edit_container";
-import TranspModal from "../modal/transparent-modal";
+import EditModal from "../modal/edit-modal";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+const angleDown = <FontAwesomeIcon icon={faAngleDown} />
 
 // <|title | team name icon | invite >         <| BONUS: calendar | menu to edit and delete |>
 //LATER: teams comp need joins, calendar (link to cal component), invite comp later
@@ -29,27 +32,34 @@ class BoardShow extends React.Component {
     render() { 
         if (!this.props.board) return null;
 
-        return (<div className="board-show-page" >
-            <div className="board-show-bar">
-                <TranspModal board={this.props.board}/>
-                <section className="board-show-left">
-                    <div className="edit-board-container" onClick={() => this.props.openModal('editBoard')}> 
-                        Board
-                    </div>
-                    <li>{this.props.board.title}</li>
-                    <li onClick={() => this.handleDelete(this.props.board.id)}>Delete</li>
-                </section>
-                
+        return (<>
+            <div className="board-show-page" >
+                <div className="board-show-bar">
+                    <section className="board-show-left">
+                        <li className="edit-board-button" onClick={() => this.props.openModal('editBoard')}> 
+                            Board {angleDown}
+                        </li>
+                        <div className="show-title">{this.props.board.title}</div>
+                        {/* <li onClick={() => this.handleDelete(this.props.board.id)}>Delete</li> */}
+                        <div className="edit-modal-cont">
+                            <EditModal board={this.props.board} />
+                        </div>
+                    </section>
+                    
 
-                <section className="board-show-right">
-                    <li> Team Icon </li>
-                    <li> Invite </li>
-                    <li> Calendar </li>
+                    <section className="board-show-right">
+                        <li className="divider"></li>
+                        <li> Team Icon </li>
+                        <li> Invite </li>
+                        <li> Calendar </li>
+                    </section>
+                </div>
 
-                </section>
-                
+                <div className="list-items">
+
+                </div>
             </div>
-        </div>)
+        </>)
     }
 }
 

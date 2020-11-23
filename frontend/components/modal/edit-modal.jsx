@@ -3,14 +3,11 @@ import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_action';
 import BoardEditContainer from '../boards/bfrom_edit_container';
 
-function Modal({ modal, editBoard, closeModal }) {
+function EditModal({ modal, editBoard, closeModal }) {
     if (!modal) return null;
 
     let component;
     switch (modal) {
-        // case 'createBoard':
-        //     component = <BoardCreateContainer />;
-        //     break;
         case 'editBoard':
             component = <BoardEditContainer editBoard={editBoard} />;
             break;
@@ -20,8 +17,8 @@ function Modal({ modal, editBoard, closeModal }) {
     }
 
     return (
-        <div className="modal-background" onClick={closeModal}>
-            <div className="modal-child" onClick={e => e.stopPropagation()}>
+        <div className="edit-modal-background" onClick={closeModal}>
+            <div className="edit-modal-child" onClick={e => e.stopPropagation()}>
                 {component}
             </div>
         </div>
@@ -44,4 +41,4 @@ const mdtp = dispatch => {
 };
 
 
-export default connect(mstp, mdtp)(Modal);
+export default connect(mstp, mdtp)(EditModal);

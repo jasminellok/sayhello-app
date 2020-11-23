@@ -4,7 +4,7 @@ import { closeModal } from '../../actions/modal_action';
 import BoardCreateContainer from '../boards/bform_create_container';
 //import BoardEditContainer from '../boards/bfrom_edit_container';
 
-function Modal({ modal, editBoard, closeModal }) {
+function Modal({ modal, closeModal }) {
     if (!modal) return null;
 
     let component;
@@ -12,10 +12,6 @@ function Modal({ modal, editBoard, closeModal }) {
         case 'createBoard':
             component = <BoardCreateContainer />;
             break;
-        // case 'editBoard':
-        //     component = <BoardEditContainer editBoard={editBoard}/>;
-        //     break;
-
         default:
             return null;
     }
@@ -31,7 +27,7 @@ function Modal({ modal, editBoard, closeModal }) {
 }
 
 
-const mstp = (state, props) => {
+const mstp = (state) => {
     return {
         modal: state.ui.modal,
         //editBoard: props.board ? props.board : null

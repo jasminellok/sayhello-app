@@ -57,17 +57,17 @@ class MainNavBar extends React.Component {
                 <li> Account </li>
                 <p> x </p>
             </span>
-            <li className="profile-info">  
+            <span className="profile-info">  
                 <div><p></p></div>
                 <p className="profile-name">{this.props.currentUser.full_name}</p>
                 <p className="profile-email">{this.props.currentUser.email}</p>
                 <div><p></p></div>
-            </li>
-            <li className="profile-logout">
+            </span>
+            <span className="profile-logout">
                 <div className="logout-cont">
                     <p className="nav-logout" onClick={this.props.logout}>Log Out</p>
                 </div>
-            </li>
+            </span>
             
         </div>
         )

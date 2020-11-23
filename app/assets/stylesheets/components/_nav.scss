@@ -1,8 +1,11 @@
 .main-nav {
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 44px;
     font-family: sans-serif;
-    padding: 5px;
     position: relative;
     display: flex;
+    flex-direction: row;
     align-content: center;
     align-items: center;
     justify-content: space-between;
@@ -10,11 +13,11 @@
 }
 
 .main-nav-logo {
-    width: 50px;
-    height: 30px;
+    width: 52px;
+    height: 32px;
 }
 
-.main-nav .nav-logo:hover {
+.main-nav .logo-boards:hover {
     animation: shake 0.5s;
     animation-iteration-count: infinite;
 }
@@ -46,18 +49,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 13px;
+    width: 14px;
+    padding: 10px;
+    background-color: rgb(223,225,230);
+    color: $darkblue;
+    border-radius: 28px;
 }
 
 .profile-letter {
     height: 13px;
-    width: 13px;
-    padding:10px;
+    width: 14px;
+    padding: 10px;
     // font-weight: bold;
     font-size: 15px;
-    background-color: rgb(223,225,230);
-    color: $darkblue;
-    border-radius: 28px;
     cursor: pointer;
+    background-color: transparent;
 }
 
 .profile-content {
@@ -127,26 +134,20 @@
     padding-bottom: 15px;
 }
 
-
-.logout-cont{
-    
+.profile-logout {
+    padding-bottom: 6px;
+    padding-top: 6px;
 }
 
-.profile-logout:hover {
+.logout-cont:hover {
     background-color: rgb(242, 244, 247);
     cursor: pointer;
-    margin: 0;
-    padding: 0;
 }
 
-.profile-links > .profile-logout > .nav-logout {
-    padding-bottom: 12px;
-    padding-top: 12px;
-    padding-left: 5px;
+.nav-logout {
+    padding-bottom: 6px;
+    padding-top: 6px;
+    padding-left: 10px;
     display: block;
 }
 
-// .nav-logout:hover {
-//     background-color: rgb(242, 244, 247);
-//     cursor: pointer;
-// }

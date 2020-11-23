@@ -1,7 +1,7 @@
 //
 import React from 'react';
 import { connect } from 'react-redux';
-import EditBoardForm from './board_edit_form';
+//import EditBoardForm from './board_edit_form';
 import { updateBoard, fetchBoard, clearErrors } from '../../actions/board_actions';
 import { closeModal } from '../../actions/modal_action';
 
@@ -15,22 +15,67 @@ class EditBoard extends React.Component {
             description: (this.props.editBoard.description ? this.props.editBoard.description : ""),
             author_id: this.props.editBoard.author_id
         }
+        this.handleSubmit = this.handleSubmit.bind(this);
     };
 
+    handleSubmit(e) {
+        e.preventDefault();
+        this.props.updateBoard(this.state)
+        window.location.reload();
+    }
+
+    handleChange(field) {
+        return e => {
+            e.preventDefault()
+            this.setState({ [field]: e.currentTarget.value })
+        }
+    }
+
+    componentWillUnmount() {
+        this.props.clearErrors();
+    }
+
+    showErrors() {
+        const liErrors = this.props.errors.map((error, i) => {
+            return (<li key={`edit-board-errors${i}`}>{error}</li>)
+        })
+        return (
+            <ul className="edit-board-errors">{liErrors}</ul>
+        );
+    }
+
+
     render() {
-        const { updateBoard, errors, clearErrors } = this.props;
+        const { updateBoard, errors, clearErrors, closeModal} = this.props;
         if (!this.state) return null;
-        return (<div className="edit-board-container">
-            <div className="close-x">
-                <div onClick={this.props.closeModal} >x</div>
+        return (
+            <div className="edit-board-container">
+                <form onSubmit={this.handleSubmit} className="edit-board-form">
+
+                    {this.showErrors()}
+
+                    <section className="edit-board-title">
+                        {/* <div onClick={this.props.closeModal} className="edit-board-closex">x</div> */}
+                        <div className="edit-board-title">Title </div>
+                        <input type="text"
+                            value={this.state.title}
+                            onChange={this.handleChange("title")} />
+                    </section>
+
+                    <section className="edit-board-descp">
+                        <div className="edit-board-description"> Description </div>
+                        <textarea row="2"
+                            value={this.state.description}
+                            onChange={this.handleChange("description")} />
+                    </section>
+
+                    <section className="edit-board-submit">
+                        <p></p>
+                        <button className="edit-board-btn" >Make Changes!</button>
+                    </section>
+                </form>
             </div>
-            <EditBoardForm
-                updateBoard={updateBoard}
-                board={this.state}
-                errors={errors}
-                clearErrors={clearErrors}
-            />
-        </div>);
+        );
     }
 }
 
