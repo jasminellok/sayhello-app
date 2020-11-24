@@ -11,7 +11,7 @@ class Api::ListsController < ApplicationController
         if @lists
             render "api/lists/index"
         else
-            render json: @list.errors.full_messages, status: 400
+            render json: @lists.errors.full_messages, status: 400
         end 
     end
 
