@@ -15,7 +15,7 @@ class Card < ApplicationRecord
         class_name: :List
     
     has_one :board, 
-        through: :list
+        through: :list,
         source: :board
 
 end

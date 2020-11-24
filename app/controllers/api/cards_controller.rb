@@ -7,7 +7,8 @@ class Api::CardsController < ApplicationController
     end
     
     def index
-        @cards = Card.all.includes(:list).where(list_id: params[:listId])
+        debugger;
+        @cards = List.find_by(id: params[:list_id]).cards
         if @cards
             render "api/cards/index"
         else

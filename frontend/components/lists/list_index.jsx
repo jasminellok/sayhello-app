@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import EditListItem from './edit_list_item'
+import ShowEditListItem from './show_edit_list_item'
 import CreateListItem from './create_list_item'
 //import Modal from "../modal/modal";
 
@@ -31,14 +31,14 @@ class ListIndex extends React.Component{
         const sortedList = Object.values(lists).sort((a, b) => (a.ord > b.ord) ? 1 : -1);
         const nxtOrd = sortedList.length+1;
         const listItems = sortedList.map((list,i) => {
-            return (<EditListItem key={`list-item${i}`} 
+            return (<ShowEditListItem key={`list-item${i}`} 
                     list={list} editList={updateList} deleteList={deleteList}
                     clearErrors={this.props.clearErrors}/>)
             });
 
         return (
         <div className="list-area">
-            <section className="list-index-item">
+            <section className="list-index-items">
                 {listItems}
             </section>
 

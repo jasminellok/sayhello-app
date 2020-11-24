@@ -49,8 +49,12 @@ export const fetchCard = (cardId) => dispatch => {
 
 export const fetchAllCards = (listId) => dispatch => {
     return ApiUtil.fetchAllCards(listId)
-        .then((cards) => { dispatch(recAllCards(cards)) },
+        .then((cards) => { 
+            debugger;
+            dispatch(recAllCards(cards)) 
+        },
             error => {
+                debugger;
                 dispatch(recCardErrors(error.responseJSON))
             });
 }
