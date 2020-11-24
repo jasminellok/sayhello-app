@@ -1,13 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import BoardIndexItem from './board_index_item';
 import Modal from "../modal/modal";
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faUser } from '@fortawesome/free-solid-svg-icons';
-
-//need modals to create
-
 //const user = <FontAwesomeIcon icon={faUser} />
+
+
+const BoardIndexItem = props => {
+    return (<li>
+        <Link to={`/boards/${props.board.id}`}>{props.board.title}</Link>
+    </li>)
+}
+
 
 class BoardIndex extends React.Component{
     constructor(props) {

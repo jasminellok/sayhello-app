@@ -2,12 +2,12 @@ class Api::ListsController < ApplicationController
         before_action :ensure_logged_in
 
     def show
-        @list = list.find_by(id: params[:id])
+        @list = List.find_by(id: params[:id])
         render "api/lists/show"
     end
     
     def index
-        @lists = list.all.includes(:board).where(board_id: current_user.id)
+        @lists = Board.find_by(id: params[:board_id]).lists
         if @lists
             render "api/lists/index"
         else
@@ -16,7 +16,7 @@ class Api::ListsController < ApplicationController
     end
 
     def update
-        @list = list.find_by(id: params[:id])
+        @list = List.find_by(id: params[:id])
         if @list && @list.update(list_params)
             render "api/lists/show"
         else
@@ -25,8 +25,8 @@ class Api::ListsController < ApplicationController
     end
 
     def create
-        @list = list.new(list_params)
-        @list.board_id = params[:id]  
+        @list = List.new(list_params)
+        #@list.board_id = params[:id]  
         if @list.save  
             render "api/lists/show"
         else
@@ -35,7 +35,7 @@ class Api::ListsController < ApplicationController
     end
     
     def destroy 
-        @list = list.find_by(id: params[:id]0
+        @list = List.find_by(id: params[:id])
         if @list
             @list.destroy
             render json: {}

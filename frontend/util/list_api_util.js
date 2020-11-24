@@ -38,7 +38,7 @@ export const createList = (boardId, list) => {
 export const deleteList = (listId) => {
     return $.ajax({
         method: "DELETE",
-        url: `/api/boards/${listId}`
+        url: `/api/lists/${listId}`
     })
 }
 

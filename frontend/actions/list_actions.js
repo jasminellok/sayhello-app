@@ -41,36 +41,36 @@ export const clearErrors = () => {
 }
 
 //thunk actions
-export const fetchlist = (listId) => dispatch => {
-    return ApiUtil.fetchlist(listId)
+export const fetchList = (listId) => dispatch => {
+    return ApiUtil.fetchList(listId)
         .then((list) => dispatch(recList(list)),
             error => dispatch(recListErrors(error.responseJSON)));
 }
 
 export const fetchAllLists = (boardId) => dispatch => {
-    return ApiUtil.fetchAlllists(boardId)
-        .then((lists) => dispatch(recAllLists(lists)),
+    return ApiUtil.fetchAllLists(boardId)
+        .then((lists) => {dispatch(recAllLists(lists))},
             error => {
                 dispatch(recListErrors(error.responseJSON))
             });
 }
 
-export const createlist = (boardId, list) => dispatch => {
-    return ApiUtil.createlist(boardId, list)
+export const createList = (boardId, list) => dispatch => {
+    return ApiUtil.createList(boardId, list)
         .then((list) => dispatch(recList(list)),
             error => dispatch(recListErrors(error.responseJSON))
         );
 }
 
-export const updatelist = (list) => dispatch => {
-    return ApiUtil.updatelist(list)
+export const updateList = (list) => dispatch => {
+    return ApiUtil.updateList(list)
         .then((list) => dispatch(recList(list)),
             error => dispatch(recListErrors(error.responseJSON))
         );
 }
 
-export const deletelist = (listId) => dispatch => {
-    return ApiUtil.deletelist(listId)
+export const deleteList = (listId) => dispatch => {
+    return ApiUtil.deleteList(listId)
         .then((list) => dispatch(removeList(list.id)),
             error => dispatch(recListErrors(error.responseJSON))
         );

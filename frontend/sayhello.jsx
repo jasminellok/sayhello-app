@@ -26,5 +26,5 @@ document.addEventListener("DOMContentLoaded", () => {
     //testing
     // window.deleteBoard = deleteBoard;
     window.getState = store.getState;
-    // window.dispatch = store.dispatch;
+    window.dispatch = store.dispatch;
 });

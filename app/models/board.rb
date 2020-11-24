@@ -15,5 +15,5 @@ class Board < ApplicationRecord
 
     has_many :lists,
         foreign_key: :board_id,
-        class_name: :Board 
+        class_name: :List  
 end

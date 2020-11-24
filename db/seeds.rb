@@ -23,13 +23,25 @@ User.create(
 
 
 Board.create(
-    title: "demo1",
-    description: "for demo 1 test",
+    title: "demo how to crying",
+    description: "crying all night long, thanks fullstack TT-TT",
     author_id: 1
 )
 
 Board.create(
-    title: "jane1",
-    description: "for jane user 1 test",
+    title: "jane needs help",
+    description: "plz help, medic medic!",
     author_id: 2
+)
+
+List.create(
+    title: "cry doing",
+    ord: 1,
+    board_id: 1
+)
+
+List.create(
+    title: "finish crying",
+    ord: 2,
+    board_id: 1
 )

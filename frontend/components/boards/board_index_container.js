@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import BoardIndex from './board_index';
-import { fetchAllBoards, deleteBoard } from '../../actions/board_actions';
+import { fetchAllBoards } from '../../actions/board_actions';
 import { openModal } from '../../actions/modal_action';
 
 
