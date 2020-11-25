@@ -7,7 +7,8 @@ import { withRouter } from "react-router";
 const mstp = (state, props) => {
     return {
         currentUser: state.entities.users[state.session.id],
-        listId: props.listId
+        listId: props.listId,
+        cards: state.entities.cards
     };
 };
 

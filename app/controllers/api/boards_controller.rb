@@ -39,7 +39,6 @@ class Api::BoardsController < ApplicationController
     
     def destroy 
         @board = Board.find_by(id: params[:id])
-        debugger;
         if @board.author_id != current_user.id
             render json: ['You are not the author and cannot delete board'], status: 422
         end 

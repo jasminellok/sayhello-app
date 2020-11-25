@@ -5,7 +5,6 @@ const defaultErrors = [];
 
 const CardErrorsReducer = (state = [], action) => {
     Object.freeze(state);
-    debugger;
     switch (action.type) {
         case CLEAR_ERRORS:
             return defaultErrors;

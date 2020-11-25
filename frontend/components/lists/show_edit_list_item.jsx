@@ -40,7 +40,7 @@ class ShowListItem extends React.Component {
     }
 
     render () {
-        const list =this.props.list
+        const list = this.props.list
         return ( <div className="list-show">
             <section className="edit-list-container">
                     <form onSubmit={this.handleSubmit} className="create-list-form">

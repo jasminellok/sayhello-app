@@ -50,24 +50,25 @@ export const fetchCard = (cardId) => dispatch => {
 export const fetchAllCards = (listId) => dispatch => {
     return ApiUtil.fetchAllCards(listId)
         .then((cards) => { 
-            debugger;
             dispatch(recAllCards(cards)) 
         },
             error => {
-                debugger;
                 dispatch(recCardErrors(error.responseJSON))
             });
 }
 
 export const createCard = (listId, card) => dispatch => {
     return ApiUtil.createCard(listId, card)
-        .then((card) => dispatch(recCard(card)),
-            error => dispatch(recCardErrors(error.responseJSON))
-        );
+        .then((card) => {
+            dispatch(recCard(card))
+        },
+            error => {
+                dispatch(recCardErrors(error.responseJSON))
+        });
 }
 
-export const updateCard = (cardId) => dispatch => {
-    return ApiUtil.updateCard(cardId)
+export const updateCard = (card) => dispatch => {
+    return ApiUtil.updateCard(card)
         .then((card) => dispatch(recCard(card)),
             error => dispatch(reccardErrors(error.responseJSON))
         );
