@@ -19,7 +19,7 @@ class CreateCard extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.createCard(this.props.listId, this.state)
-        window.location.reload();
+        //window.location.reload();
     }
 
 
