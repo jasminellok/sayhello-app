@@ -2,15 +2,19 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_action';
 import BoardCreateContainer from '../boards/bform_create_container';
-//import BoardEditContainer from '../boards/bfrom_edit_container';
+import CardEditContainer from '../cards/card-edit-container';
 
-function Modal({ modal, closeModal }) {
+function Modal({ modal, card, closeModal }) {
     if (!modal) return null;
 
     let component;
     switch (modal) {
         case 'createBoard':
             component = <BoardCreateContainer />;
+            break;
+        case 'editCard':
+            debugger;
+            component = <CardEditContainer card={card}/>;
             break;
         default:
             return null;
@@ -27,10 +31,11 @@ function Modal({ modal, closeModal }) {
 }
 
 
-const mstp = (state) => {
+const mstp = (state, props) => {
+    debugger;
     return {
         modal: state.ui.modal,
-        //editBoard: props.board ? props.board : null
+        card: props.card ? props.card : null
     };
 };
 

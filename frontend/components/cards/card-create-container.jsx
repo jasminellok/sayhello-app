@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router";
-import { createCard, clearErrors, fetchCard } from '../../actions/card_actions';
+import { createCard, clearErrors, fetchAllCards } from '../../actions/card_actions';
 
 class CreateCard extends React.Component {
     constructor(props) {
@@ -19,12 +19,7 @@ class CreateCard extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.createCard(this.props.listId, this.state)
-    }
-
-    componentDidUpdate(prevProps) {
-        if (this.props.userID !== prevProps.userID) {
-            this.fetchData(this.props.userID);
-        }
+        window.location.reload();
     }
 
 
@@ -63,6 +58,7 @@ class CreateCard extends React.Component {
 
 const mdtp = dispatch => {
     return {
+        fetchAllCards: (listId) => dispatch(fetchAllCards(listId)),
         createCard: (listId, card) => dispatch(createCard(listId, card)),
         clearErrors: () => {
             return dispatch(clearErrors())
