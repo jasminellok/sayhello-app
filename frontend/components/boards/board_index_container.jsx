@@ -1,3 +1,6 @@
+import { connect } from 'react-redux';
+import { fetchAllBoards } from '../../actions/board_actions';
+import { openModal } from '../../actions/modal_action';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Modal from "../modal/modal";
@@ -5,15 +8,13 @@ import Modal from "../modal/modal";
 // import { faUser } from '@fortawesome/free-solid-svg-icons';
 //const user = <FontAwesomeIcon icon={faUser} />
 
-
 const BoardIndexItem = props => {
     return (<li>
         <Link to={`/boards/${props.board.id}`}>{props.board.title}</Link>
     </li>)
 }
 
-
-class BoardIndex extends React.Component{
+class BoardIndex extends React.Component {
     constructor(props) {
         super(props)
     }
@@ -22,32 +23,43 @@ class BoardIndex extends React.Component{
         this.props.fetchAllBoards();
     }
 
-    render () {
+    render() {
         const boards = this.props.boards;
-
         const boardItems = boards.map((board, i) => {
-            return (<BoardIndexItem board={board} key={`board-index-item${i}`}/>)
+            return (<BoardIndexItem board={board} key={`board-index-item${i}`} />)
         });
-
         return (<div className="board-index-page">
             <Modal />
-
             <h3>Personal Boards
                 {/* <div className="user-icon">{user}</div> */}
             </h3>
-
             <ul className="board-index">
                 {boardItems}
                 <li className="index-create-modal" onClick={() => this.props.openModal('createBoard')}>
                     <p>Create Board</p>
                 </li>
             </ul>
-
         </div>)
     }
 
 };
 
+const mstp = (state) => {
+    //console.log
+    return {
+        currentUser: state.entities.users[state.session.id],
+        boards: Object.values(state.entities.boards)
+    };
+};
 
-export default BoardIndex;
+const mdtp = dispatch => {
+    return {
+        fetchAllBoards: () => dispatch(fetchAllBoards()),
+        openModal: (modal) => dispatch(openModal(modal))
+    }
+};
+
+
+export default connect(mstp, mdtp)(BoardIndex);
+
 

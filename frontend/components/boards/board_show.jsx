@@ -13,11 +13,19 @@ const angleDown = <FontAwesomeIcon icon={faAngleDown} />
 class BoardShow extends React.Component {
     constructor(props) {
         super(props)
+        this.state 
     }
 
     componentDidMount() {
         this.props.fetchBoard(this.props.match.params.boardId) 
     }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.listIds.length !== prevProps.listIds.length) {
+            this.props.fetchBoard(this.props.match.params.boardId) 
+        }
+    }
+
 
     handleChange(field) {
         return e =>
@@ -31,6 +39,7 @@ class BoardShow extends React.Component {
 
     render() { 
         if (!this.props.board) return null;
+        
 
         return (<>
             <div className="board-show-page" >

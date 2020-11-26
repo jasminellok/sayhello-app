@@ -13,7 +13,6 @@ function Modal({ modal, card, closeModal }) {
             component = <BoardCreateContainer />;
             break;
         case 'editCard':
-            debugger;
             component = <CardEditContainer card={card}/>;
             break;
         default:
@@ -32,7 +31,6 @@ function Modal({ modal, card, closeModal }) {
 
 
 const mstp = (state, props) => {
-    debugger;
     return {
         modal: state.ui.modal,
         card: props.card ? props.card : null

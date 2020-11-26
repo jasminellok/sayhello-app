@@ -172,7 +172,6 @@ export default connect(mstp, mdtp)(EditBoard);
 // }
 
 // const mstp = (state, ownProps) => {
-//     // debugger;
 //     // const boards = state.entities.boards;
 //     // const id = ownProps.match.params.boardId;
 //     return {

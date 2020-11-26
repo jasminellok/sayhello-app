@@ -18,7 +18,6 @@ class CreateList extends React.Component {
         window.location.reload();
     }
 
-
     handleChange(field) {
         return (e) => this.setState({ [field]: e.currentTarget.value });
     }

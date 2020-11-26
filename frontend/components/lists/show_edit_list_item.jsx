@@ -11,6 +11,7 @@ class ShowListItem extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.editList(this.state)
+        window.location.reload();
     }
 
     handleChange(field) {
