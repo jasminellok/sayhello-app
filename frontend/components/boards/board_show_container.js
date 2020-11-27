@@ -10,7 +10,8 @@ const mstp = (state, ownProps) => {
     return {
         board: boards[id], 
         currentUser: state.entities.users[state.session.id],
-        listIds: boards[id] ? boards[id].listIds : []
+        listIds: boards[id] ? boards[id].listIds : [],
+        lists: state.entities.lists
     }
 }
 

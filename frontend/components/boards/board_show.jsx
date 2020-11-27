@@ -1,5 +1,4 @@
 import React from 'react';
-import { Redirect, Link } from 'react-router-dom';
 import EditModal from "../modal/edit-modal";
 import ListIndexContainer from '../lists/list_index_container';
 
@@ -13,7 +12,6 @@ const angleDown = <FontAwesomeIcon icon={faAngleDown} />
 class BoardShow extends React.Component {
     constructor(props) {
         super(props)
-        this.state 
     }
 
     componentDidMount() {
@@ -21,15 +19,9 @@ class BoardShow extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.listIds.length !== prevProps.listIds.length) {
+        if (this.props.board.id !== prevProps.board.id) {
             this.props.fetchBoard(this.props.match.params.boardId) 
         }
-    }
-
-
-    handleChange(field) {
-        return e =>
-            this.setState({ [field]: e.currentTarget.value })
     }
 
     handleDelete(id) {
@@ -63,7 +55,10 @@ class BoardShow extends React.Component {
                 </div>
 
                 <div className="all-lists-container">
-                    <ListIndexContainer />
+                    <ListIndexContainer 
+                        listIds={this.props.board.listIds}
+                        board={this.props.board}
+                        />
                 </div>
             </div>
         </>)

@@ -4,7 +4,6 @@ import { withRouter } from "react-router";
 import React from 'react';
 import ShowEditListItem from './show_edit_list_item'
 import CreateListItem from './create_list_item'
-
 import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
 // const list = [...this.state.ordList]; //copy
 // const move = result.splice(startInd, 1); //take one ele from startindx
@@ -16,7 +15,7 @@ class ListIndex extends React.Component {
         super(props)
         this.state ={
             ordList: [],
-            cardUpdate: {} //{id:result.draggableId, pos:[result.source.index, result.destination.indexend]}
+            //cardUpdate: {} //{id:result.draggableId, pos:[result.source.index, result.destination.indexend]}
         }
         this.onDragEnd = this.onDragEnd.bind(this);
         this.listItems = this.listItems.bind(this);
@@ -34,13 +33,16 @@ class ListIndex extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.listIds.length !== prevProps.listIds.length) {
-            this.props.fetchAllLists(this.props.match.params.boardId)
-            .then ( () => {
-                const lists = this.props.lists;
-                const sortedList = Object.values(lists).sort((a, b) => (a.ord > b.ord) ? 1 : -1);
-                this.setState({ ordList: sortedList })
-            })
+        if (this.props.listIds){
+            if (this.props.listIds !== prevProps.listIds) {
+                this.props.fetchAllLists(this.props.match.params.boardId)
+                .then ( () => {
+                    const lists = this.props.lists;
+                    const sortedList = Object.values(lists).sort((a, b) => (a.ord > b.ord) ? 1 : -1);
+                    this.setState({ ordList: sortedList })
+                })
+            }
+
         }
     }
 
@@ -80,18 +82,18 @@ class ListIndex extends React.Component {
             this.setState({ ordList: sortedList })
             listNeedUpdate.forEach((list) => {
                 this.props.updateList(list)
-            });
-        } else if (result.type === "card-drop") {
-            this.setState({ cardUpdate: { id: result.draggableId, pos: [startInd, endInd]}})
-        }
+            })
+        } 
+        
+        // else if (result.type === "card-drop") {
+        //     this.setState({ cardUpdate: { id: result.draggableId, pos: [startInd, endInd]}})
+        // }
     }
 
     listItems() {
-        const { updateList, deleteList } = this.props;
         const listInBoard = this.state.ordList.map((list, i) => {
             return (<ShowEditListItem key={`list-item${i}`}
-                list={list} editList={updateList} deleteList={deleteList}
-                clearErrors={this.props.clearErrors} />)
+                list={list}/>)
         })
 
         return listInBoard;
@@ -103,9 +105,7 @@ class ListIndex extends React.Component {
         const createNxtOrd = orderedList.length + 1;
         return (<CreateListItem
             boardId={this.props.match.params.boardId}
-            createList={createList}
-            ord={createNxtOrd}
-            clearErrors={this.props.clearErrors} />)
+            ord={createNxtOrd} />)
     }
 
 
@@ -139,13 +139,11 @@ class ListIndex extends React.Component {
 
 
 
-const mstp = (state, ownProps) => {
-    const boards = state.entities.boards
-    const id = ownProps.match.params.boardId
-    //debugger;
+const mstp = (state, props) => {
     return {
         currentUser: state.entities.users[state.session.id],
-        listIds: boards[id] ? boards[id].listIds : [],
+        listIds: props.listIds,
+        boardId: props.board.id,
         lists: state.entities.lists
     };
 };
@@ -153,9 +151,7 @@ const mstp = (state, ownProps) => {
 const mdtp = dispatch => {
     return {
         fetchAllLists: (boardId) => dispatch(fetchAllLists(boardId)),
-        deleteList: (listId) => dispatch(deleteList(listId)),
         createList: (boardId, list) => dispatch(createList(boardId, list)),
-        updateList: (list) => dispatch(updateList(list)),
         clearErrors: () => {
             return dispatch(clearErrors())
         }

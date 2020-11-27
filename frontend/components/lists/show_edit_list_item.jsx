@@ -1,7 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from "react-router";
 import CardIndexCont from "../cards/card-index-container"
+import { fetchList, deleteList, updateList, clearErrors } from '../../actions/list_actions';
+import {Droppable, Draggable } from 'react-beautiful-dnd';
 
-class ShowListItem extends React.Component {
+class ShowEditListItem extends React.Component {
     constructor(props) {
         super(props)
         this.state = this.props.list // title ,ord, board_id
@@ -10,8 +14,19 @@ class ShowListItem extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.editList(this.state)
-        window.location.reload();
+        this.props.updateList(this.state)
+        // window.location.reload();
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.listIds.length !== prevProps.listIds.length) {
+            this.props.fetchAllLists(this.props.match.params.boardId)
+                .then(() => {
+                    const lists = this.props.lists;
+                    const sortedList = Object.values(lists).sort((a, b) => (a.ord > b.ord) ? 1 : -1);
+                    this.setState({ ordList: sortedList })
+                })
+        }
     }
 
     handleChange(field) {
@@ -64,4 +79,23 @@ class ShowListItem extends React.Component {
     }
 }
 
-export default ShowListItem;
+const mstp = (state, props) => {
+    //debugger;
+    return {
+        currentUser: state.entities.users[state.session.id],
+        list: props.list
+    };
+};
+
+const mdtp = dispatch => {
+    return {
+        fetchList: (listId) => dispatch(fetchList(listId)),
+        deleteList: (listId) => dispatch(deleteList(listId)),
+        updateList: (list) => dispatch(updateList(list)),
+        clearErrors: () => {
+            return dispatch(clearErrors())
+        }
+    }
+};
+
+export default withRouter(connect(mstp, mdtp)(ShowEditListItem));
