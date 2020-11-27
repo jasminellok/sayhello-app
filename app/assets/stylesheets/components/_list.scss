@@ -7,18 +7,14 @@
     left:100;
     width: 100%;
     height: 100%;
-    color: pink
 }
 
 .list-area {
     display: flex;
 }
 
-.list-index-items {
+.list-items {
     display: flex;
-}
-
-.list-edit-form-spec {
-    display: flex;
-    margin:0 10px;
+    background-color: rgb(235,236,240);
+    color: rgb(23,43,77);
 }

@@ -36,12 +36,12 @@ Board.create(
 
 List.create(
     title: "cry doing",
-    ord: 1,
+    ord: 0,
     board_id: 1
 )
 
 List.create(
     title: "finish crying",
-    ord: 2,
+    ord: 1,
     board_id: 1
 )

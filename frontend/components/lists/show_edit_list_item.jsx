@@ -52,7 +52,7 @@ class ShowListItem extends React.Component {
                                 onChange={this.handleChange('title')}
                                 placeholder={this.state.title}
                             />
-                            <p onClick={() => this.handleDelete(this.props.list.id)}>Remove</p>
+                            <p onClick={() => this.handleDelete(this.props.list.id)}>-</p>
                         </div>
                     </form>
                 </section>
