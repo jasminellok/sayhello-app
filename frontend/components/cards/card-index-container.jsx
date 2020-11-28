@@ -9,7 +9,9 @@ import CardIndexItem from "./card-index-item";
 class CardIndex extends React.Component {
     constructor(props) {
         super(props)
-        this.state = this.props.cards
+        this.state = {
+            cards: this.props.cards
+        }
     }
 
     componentDidMount() {
@@ -32,7 +34,7 @@ class CardIndex extends React.Component {
     render() {
         if (!this.state.cards) return null;
         const cards = this.state.cards;
-        const sortedCards = Object.values(cards).sort((a, b) => (a.id > b.id) ? 1 : -1);
+        const sortedCards = cards.sort((a, b) => (a.id > b.id) ? 1 : -1);
         const nxtOrd = sortedCards.length + 1;
 
         const cardItems = sortedCards.map((card, i) => {
@@ -59,7 +61,7 @@ const mstp = (state, props) => {
     return {
         currentUser: state.entities.users[state.session.id],
         listId: props.listId,
-        cards: state.entities.cards,
+        cards: Object.values(state.entities.cards).filter(card => card.list_id === listId),
         cardIds: Object.keys(state.entities.cards)
     };
 };
