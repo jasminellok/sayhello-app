@@ -19,7 +19,13 @@ class CreateCard extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.createCard(this.props.listId, this.state)
-        window.location.reload();
+        this.setState({
+            title: "",
+            description: "",
+            deadline: "",
+            ord: this.props.ord,
+            list_id: this.props.listId
+        })
     }
 
 
@@ -58,6 +64,15 @@ class CreateCard extends React.Component {
     }
 }
 
+const mstp = (state, props) => {
+    return {    
+        currentUser: state.entities.users[state.session.id],
+        listId: props.listId,
+        cards: state.entities.cards,
+        cardIds: Object.keys(state.entities.cards)
+    };
+};
+
 const mdtp = dispatch => {
     return {
         fetchAllCards: (listId) => dispatch(fetchAllCards(listId)),
@@ -68,4 +83,4 @@ const mdtp = dispatch => {
     }
 };
 
-export default withRouter(connect(null, mdtp)(CreateCard));
+export default withRouter(connect(mstp, mdtp)(CreateCard));

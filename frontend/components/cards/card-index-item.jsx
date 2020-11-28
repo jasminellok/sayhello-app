@@ -9,9 +9,6 @@ class CardIndexItem extends React.Component {
     }
 
     // componentDidUpdate(prevProps) {
-    //     if (this.props.card != prevProps.card) {
-
-    //     }
     // }
 
     render () {

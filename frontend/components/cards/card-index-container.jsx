@@ -20,17 +20,19 @@ class CardIndex extends React.Component {
             })
     }
 
-    // componentDidUpdate(prevProps) {
-    //     if (this.props.cardIds !== prevProps.cardIds) {
-    //         let cards = this.props.cards
-    //         this.setState({ cards })
-    //     }
-    // }
+    componentDidUpdate(prevProps) {
+        // console.log("cdm this.props", this.props)
+        // console.log("cdm prevprops", prevProps)
+        if (this.props.cardIds !== prevProps.cardIds) {
+            let cards = this.props.cards
+            this.setState({ cards })
+        }
+    }
 
     render() {
         if (!this.state.cards) return null;
         const cards = this.state.cards;
-        const sortedCards = Object.values(cards).sort((a, b) => (a.ord > b.ord) ? 1 : -1);
+        const sortedCards = Object.values(cards).sort((a, b) => (a.id > b.id) ? 1 : -1);
         const nxtOrd = sortedCards.length + 1;
 
         const cardItems = sortedCards.map((card, i) => {
@@ -52,6 +54,8 @@ class CardIndex extends React.Component {
 };
 
 const mstp = (state, props) => {
+    // console.log("mstp card state", state)
+    // console.log("mdtp card props", props)
     return {
         currentUser: state.entities.users[state.session.id],
         listId: props.listId,
