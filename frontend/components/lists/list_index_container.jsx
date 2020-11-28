@@ -22,16 +22,16 @@ class ListIndex extends React.Component {
         this.props.fetchAllLists(this.props.match.params.boardId)
             .then(() => {
                 const lists = this.props.lists;
-                const sortedList = Object.values(lists).sort((a, b) => (a.ord > b.ord) ? 1 : -1);
+                const sortedList = Object.values(lists).sort((a, b) => (a.id > b.id) ? 1 : -1);
                 this.setState({ ordList: sortedList })
             })
     }
 
     componentDidUpdate(prevProps) {
         if (this.props.listIds !== prevProps.listIds) {
-                    const lists = this.props.lists;
-                    const sortedList = Object.values(lists).sort((a, b) => (a.ord > b.ord) ? 1 : -1);
-                    this.setState({ ordList: sortedList })
+            const lists = this.props.lists;
+            const sortedList = Object.values(lists).sort((a, b) => (a.id > b.id) ? 1 : -1);
+            this.setState({ ordList: sortedList })
         }
     }
 
