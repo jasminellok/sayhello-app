@@ -59,6 +59,7 @@ class BoardShow extends React.Component {
                         boardId={this.props.boardId}
                         listIds={this.props.listIds}
                         />
+                    
                 </div>
             </div>
         </>)

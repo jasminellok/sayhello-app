@@ -54,7 +54,7 @@ class ListIndex extends React.Component {
 
 
     render() {
-        if (this.state.ordList.length<1) return null;
+        // if (this.state.ordList.length<1) return null;
         const showEditItem = this.listItems();
         const createList = this.createList();
         const boardId = this.props.match.params.boardId;
