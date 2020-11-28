@@ -82,8 +82,8 @@ class ShowEditListItem extends React.Component {
 }
 
 const mstp = (state, props) => {
-    console.log("mstp state", state)
-    console.log("mstp props", props)
+    // console.log("mstp state", state)
+    // console.log("mstp props", props)
     return {
         currentUser: state.entities.users[state.session.id],
         list: props.list, 

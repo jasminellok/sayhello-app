@@ -12,8 +12,8 @@ const ListReducer = (state = {}, action) => {
             return action.lists;
         case REMOVE_LIST:
             delete newState[action.listId]
-            console.log("list reducer newState", newState)
-            console.log("list reducer action", action)
+            // console.log("list reducer newState", newState)
+            // console.log("list reducer action", action)
             return newState;
         default:
             return state;
