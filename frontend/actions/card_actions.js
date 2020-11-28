@@ -68,6 +68,7 @@ export const createCard = (listId, card) => dispatch => {
 }
 
 export const updateCard = (card) => dispatch => {
+    //console.log("card-thunk action", card)
     return ApiUtil.updateCard(card)
         .then((card) => dispatch(recCard(card)),
             error => dispatch(reccardErrors(error.responseJSON))
@@ -76,7 +77,7 @@ export const updateCard = (card) => dispatch => {
 
 export const deleteCard = (cardId) => dispatch => {
     return ApiUtil.deleteCard(cardId)
-        .then((card) => dispatch(removeCard(card.id)),
+        .then((card) => dispatch(removeCard(card)),
             error => dispatch(recCardErrors(error.responseJSON))
         );
 

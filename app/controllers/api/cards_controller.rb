@@ -17,6 +17,7 @@ class Api::CardsController < ApplicationController
     end
 
     def update
+        debugger
         @card = Card.find_by(id: params[:cardId])
         if @card && @card.update(card_params)
             render "api/cards/show"
@@ -36,12 +37,12 @@ class Api::CardsController < ApplicationController
     end
     
     def destroy 
-        @card = Card.find_by(id: params[:cardId])
+        @card = Card.find_by(id: params[:id])
         if @card
             @card.destroy
             render json: {}
         else
-            render json: ['list could not be found'], status: 400
+            render json: ['card could not be found'], status: 400
         end
     end
   

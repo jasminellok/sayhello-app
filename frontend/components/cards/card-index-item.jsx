@@ -1,17 +1,31 @@
 import React from 'react';
 import Modal from "../modal/modal";
 
-const CardIndexItem = props => {
+class CardIndexItem extends React.Component {
+    handleDelete() {
+        console.log('card delete id', this.props.card.id)
+        this.props.deleteCard(this.props.card.id)
+        window.location.reload();
+    }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.card != prevProps.card) {
 
-    return (<div className="card-index-item">
-        <div className="card-item-info">
-            <li className="card-item-title">{props.card.title}</li>
-            {/* <li className="index-edit-modal" onClick={() => props.openModal('editCard')}>
-                <div>Edit</div>
-            </li> */}
-        </div>
-        <Modal card={props.card}/>
-    </div>)
+        }
+    }
+
+    render () {
+        console.log("props in create", this.props)
+        return (<div className="card-index-item">
+            <div className="card-item-info">
+                <li>{this.props.card.title}</li>
+                <li onClick={() => this.handleDelete()}>Delete</li>
+                {/* <li className="index-edit-modal" onClick={() => props.openModal('editCard')}>
+                    <p>(edit)</p>
+                </li> */}
+            </div>
+            <Modal card={this.props.card}/>
+        </div>)
+    }
 }
 export default CardIndexItem;

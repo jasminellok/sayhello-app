@@ -35,7 +35,10 @@ class CardIndex extends React.Component {
 
         const cardItems = sortedCards.map((card, i) => {
             return (
-                <CardIndexItem card={card} deleteCard={this.props.deleteCard} key={`card-index-${i}`} openModal={this.props.openModal} />
+                <CardIndexItem card={card} 
+                deleteCard={this.props.deleteCard} 
+                key={`card-index-${i}`} 
+                openModal={this.props.openModal} />
             )
         });
 

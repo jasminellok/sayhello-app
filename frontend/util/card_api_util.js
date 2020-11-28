@@ -17,10 +17,11 @@ export const fetchAllCards = (listId) => {
 
 
 //  PATCH / api / cards /: id(.: format)                                 api / cards#update {: format =>: json }
-export const updateCard = (cardId) => {
+export const updateCard = (card) => {
+    //console.log("ajax -card id",card.id)
     return $.ajax({
         method: "PATCH",
-        url: `/api/cards/${cardId}`,
+        url: `/api/cards/${card.id}`,
         data: { card }
     })
 }
