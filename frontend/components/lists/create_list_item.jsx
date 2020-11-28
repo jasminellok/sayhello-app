@@ -17,7 +17,11 @@ class CreateList extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.createList(this.props.boardId,this.state)
-        window.location.reload();
+        this.setState({
+            title: "",
+            ord: this.props.ord,
+            board_id: this.props.boardId
+        })
     }
 
     handleChange(field) {
@@ -42,12 +46,14 @@ class CreateList extends React.Component {
         return (
                 <form onSubmit={this.handleSubmit} className="create-list-form">
                     {this.showErrors()}
-                    <input type="text"
-                        value={this.state.title}
-                        onChange={this.handleChange('title')}
-                        placeholder="Add List Name"
-                    />
-                    <button type="submit"> + </button>
+                    <div className="create-list-input">
+                        <input type="text"
+                            value={this.state.title}
+                            onChange={this.handleChange('title')}
+                            placeholder="Enter List Title ..."
+                        />
+                    </div>
+                    <button type="submit" className="create-list-submit"> Add List </button>
                 </form>
         )
     }

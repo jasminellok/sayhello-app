@@ -15,7 +15,13 @@ class ShowEditListItem extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.updateList(this.state)
-        window.location.reload();
+        // window.location.reload();
+    }
+
+    componentDidUpdate(prevProps) {
+        //if (this.props.list !== prevProps.list) {
+        //    this.props.
+        //}
     }
 
     handleChange(field) {
@@ -29,6 +35,7 @@ class ShowEditListItem extends React.Component {
         this.props.clearErrors();
     }
 
+
     showErrors() {
         const errors = getState().errors.list;
         const liErrors = errors.map((error, i) => {
@@ -39,36 +46,33 @@ class ShowEditListItem extends React.Component {
         );
     }
 
-    handleDelete(id) {
-        this.props.deleteList(id)
-        window.location.reload();
+    handleDelete() {
+        this.props.deleteList(this.props.listId)
+        // window.location.reload();
     }
 
     render () {
         const list = this.props.list
         return ( <div className="list-show">
-            
-            <section className="edit-list-container">
-                    <form onSubmit={this.handleSubmit} className="create-list-form">
-                        {this.showErrors()}
-                        <div className="list-edit-form-spec">
-                            <input type="text"
-                                value={this.state.title}
-                                onChange={this.handleChange('title')}
-                                placeholder={this.state.title}
-                            />
-                        </div>
-                        <div className="list-edit-ord">
-                            <input type="number"
-                                value={this.state.ord}
-                                onChange={this.handleChange('ord')}
-                                placeholder="New Order"
-                            />
-                        </div>
-                        <button type="submit"> Submit </button>
-                    </form>
-                    <p onClick={() => this.handleDelete(this.props.list.id)}>-</p>  
-                </section>
+                {this.showErrors()} 
+                <form onSubmit={this.handleSubmit} className="edit-list-form">
+                    <div className="list-edit-title">
+                        <input type="text"
+                            value={this.state.title}
+                            onChange={this.handleChange('title')}
+                            placeholder={this.state.title}
+                        />
+                    </div>
+                    {/* <div className="list-edit-ord">
+                        <input type="number"
+                            value={this.state.ord}
+                            onChange={this.handleChange('ord')}
+                            placeholder="New Order"
+                        />
+                    </div> */}
+                    {/* <button type="submit"> Submit </button> */}
+                    <p onClick={() => this.handleDelete()}>x</p>
+                </form>
 
                 <section className="card-index-container">
                     <CardIndexCont listId={this.state.id}/>
@@ -78,12 +82,14 @@ class ShowEditListItem extends React.Component {
 }
 
 const mstp = (state, props) => {
-    //debugger;
+    console.log("mstp state", state)
+    console.log("mstp props", props)
     return {
         currentUser: state.entities.users[state.session.id],
         list: props.list, 
-        listId: props.list.id, 
-        listIds: props.listIds
+        listId: props.list.id,
+        listsOrd: Object.values(state.entities.lists).map((v)=>{return v.ord}),
+        listIds: Object.keys(state.entities.lists)
     };
 };
 

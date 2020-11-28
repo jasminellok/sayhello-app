@@ -38,7 +38,7 @@ class Api::ListsController < ApplicationController
         @list = List.find_by(id: params[:id])
         if @list
             @list.destroy
-            render json: {}
+            render json: {id: params[:id]}
         else
             render json: ['list could not be found'], status: 400
         end

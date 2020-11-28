@@ -15,19 +15,16 @@ class CardIndex extends React.Component {
     componentDidMount() {
         this.props.fetchAllCards(this.props.listId)
             .then(() => {
-                let cards = getState().entities.cards;
+                let cards = this.props.cards
                 this.setState({ cards })
             })
     }
 
     // componentDidUpdate(prevProps) {
-    //     // const prevLength = Object.keys(this.prevProps.cards).length
-    //     // const newLength = Object.keys(this.props.cards).length
-    //     // if (prevLength) {
-    //     //     if (prevLength !== newLength) {
-    //     //         this.props.fetchAllCards(this.props.listId)
-    //     //     }
-    //     // } 
+    //     if (this.props.cardIds !== prevProps.cardIds) {
+    //         let cards = this.props.cards
+    //         this.setState({ cards })
+    //     }
     // }
 
     render() {
@@ -38,18 +35,14 @@ class CardIndex extends React.Component {
 
         const cardItems = sortedCards.map((card, i) => {
             return (
-                <CardIndexItem card={card} key={`card-index-${i}`} openModal={this.props.openModal} />
+                <CardIndexItem card={card} deleteCard={this.props.deleteCard} key={`card-index-${i}`} openModal={this.props.openModal} />
             )
         });
 
         return (
             <div className="card-index-items">
-                <section className="list-index-item">
-                    {cardItems}
-                </section>
-                <section className="create-card-cont">
-                    <CreateCardCont listId={this.props.listId} ord={nxtOrd} />
-                </section>
+                {cardItems}
+                <CreateCardCont listId={this.props.listId} ord={nxtOrd} />
             </div>)
     }
 
@@ -59,7 +52,8 @@ const mstp = (state, props) => {
     return {
         currentUser: state.entities.users[state.session.id],
         listId: props.listId,
-        cards: state.entities.cards
+        cards: state.entities.cards,
+        cardIds: Object.keys(state.entities.cards)
     };
 };
 

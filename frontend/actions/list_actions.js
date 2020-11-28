@@ -71,7 +71,7 @@ export const updateList = (list) => dispatch => {
 
 export const deleteList = (listId) => dispatch => {
     return ApiUtil.deleteList(listId)
-        .then((list) => dispatch(removeList(list.id)),
+        .then((response) => dispatch(removeList(response.id)),
             error => dispatch(recListErrors(error.responseJSON))
         );
 

@@ -16,14 +16,99 @@
 
 .list-items {
     display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    align-content: center;
+    margin:5px;
 
 }
 
 .list-show{
-    width: 280px;
+    width: 270px;
+    height: auto;
     display: flex;
     flex-direction: column;
-    justify-content: space space-evenly;
     background-color: rgb(235,236,240);
     color: rgb(23,43,77);
+    border-radius:3px;
+    padding: 5px;
+    margin: 5px;
 }
+
+.edit-list-form {
+    display:flex;
+    justify-content: space-between;
+    align-items:flex-start;
+    padding:3px;
+    margin-bottom: 10px;
+
+}
+
+.list-edit-title > input{
+    border:none;
+    background-color: rgb(235,236,240);
+    font-weight: bold;
+    font-size: 15px ;
+ 
+}
+
+.list-edit-title > input:hover{
+    cursor: pointer;
+}
+
+.list-edit-title > input[type=text]:focus{
+  background-color:white;  
+}
+
+.create-list-container {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 260px;
+    height: 32px;
+    padding: 15px 10px;
+    margin-top: 9px;
+    background-color:rgb(71,156,207) ;
+    border-radius: 3px;
+}
+
+.input {
+    color:inherit
+}
+
+.create-list-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.create-list-input > *::-webkit-input-placeholder {
+    color: white;
+}
+
+.create-list-input > input {
+    padding-top: 5px;;
+    background-color:rgb(71,156,207) ;
+    border:none;
+    font-size: 15px ;
+}
+
+.create-list-input > input[type=text]:focus{
+    background-color:white;  
+    > *::-webkit-input-placeholder {
+        color: rgb(0,0,0);
+    }
+}
+
+.create-list-form > .create-list-submit {
+    border-radius: 3px;
+    width: 76px;
+    height: 25px;
+    font-size:15px;
+    border:none;
+    color: white;
+    margin-left: 10px;
+    background-color:rgb(90,172,68) ;
+}
+
+

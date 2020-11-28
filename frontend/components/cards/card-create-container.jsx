@@ -19,7 +19,7 @@ class CreateCard extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.createCard(this.props.listId, this.state)
-        window.location.reload();
+        // window.location.reload();
     }
 
 
@@ -42,17 +42,19 @@ class CreateCard extends React.Component {
     }
 
     render() {
-        return (
-            <form onSubmit={this.handleSubmit} className="create-list-form">
-                {this.showErrors()}
-                <input type="text"
-                    value={this.state.title}
-                    onChange={this.handleChange('title')}
-                    placeholder="Enter a title for this card..."
-                />
-                <button type="submit"> Add Card </button>
+        return (<div>
+            {this.showErrors()}
+            <form onSubmit={this.handleSubmit} className="create-card-form">
+                <div className="create-card-title">
+                    <input type="text"
+                        value={this.state.title}
+                        onChange={this.handleChange('title')}
+                        placeholder="Enter a title for this card..."
+                    />
+                </div>
+                <button type="submit"> + </button>
             </form>
-        )
+        </div>)
     }
 }
 

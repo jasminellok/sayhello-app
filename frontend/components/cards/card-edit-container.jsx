@@ -95,6 +95,7 @@ const mdtp = dispatch => {
         fetchCard: (id) => dispatch(fetchCard(id)),
         updateCard: (card) => dispatch(updateCard(card)),
         closeModal: () => dispatch(closeModal()),
+        deleteCard: (card) => dispatch(deleteCard(card.id)),
         clearErrors: () => {
             return dispatch(clearErrors())
         }

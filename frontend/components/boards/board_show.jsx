@@ -41,7 +41,7 @@ class BoardShow extends React.Component {
                             Board {angleDown}
                         </li>
                         <div className="show-title">{this.props.board.title}</div>
-                        <li onClick={() => this.handleDelete(this.props.board.id)}>Delete</li>
+                        {/* <li onClick={() => this.handleDelete(this.props.board.id)}>Delete</li> */}
                         <div className="edit-modal-cont">
                             <EditModal board={this.props.board} />
                         </div>
