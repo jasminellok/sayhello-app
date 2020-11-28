@@ -1,5 +1,7 @@
 import React from 'react';
 import { withRouter } from "react-router";
+import { createList, clearErrors } from '../../actions/list_actions';
+import { connect } from 'react-redux';
 
 class CreateList extends React.Component {
     constructor(props) {
@@ -51,4 +53,16 @@ class CreateList extends React.Component {
     }
 }  
 
-export default withRouter(CreateList);
+
+const mdtp = dispatch => {
+    return {
+        fetchAllLists: (boardId) => dispatch(fetchAllLists(boardId)),
+        createList: (boardId, list) => dispatch(createList(boardId, list)),
+        clearErrors: () => {
+            return dispatch(clearErrors())
+        }
+    }
+};
+
+
+export default withRouter(connect(null, mdtp)(CreateList));

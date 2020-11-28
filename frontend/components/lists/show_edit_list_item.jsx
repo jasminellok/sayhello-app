@@ -8,25 +8,14 @@ import {Droppable, Draggable } from 'react-beautiful-dnd';
 class ShowEditListItem extends React.Component {
     constructor(props) {
         super(props)
-        this.state = this.props.list // title ,ord, board_id
+        this.state = this.props.list 
         this.handleSubmit = this.handleSubmit.bind(this);
     } 
 
     handleSubmit(e) {
         e.preventDefault();
         this.props.updateList(this.state)
-        // window.location.reload();
-    }
-
-    componentDidUpdate(prevProps) {
-        if (this.props.listIds.length !== prevProps.listIds.length) {
-            this.props.fetchAllLists(this.props.match.params.boardId)
-                .then(() => {
-                    const lists = this.props.lists;
-                    const sortedList = Object.values(lists).sort((a, b) => (a.ord > b.ord) ? 1 : -1);
-                    this.setState({ ordList: sortedList })
-                })
-        }
+        window.location.reload();
     }
 
     handleChange(field) {
@@ -58,6 +47,7 @@ class ShowEditListItem extends React.Component {
     render () {
         const list = this.props.list
         return ( <div className="list-show">
+            
             <section className="edit-list-container">
                     <form onSubmit={this.handleSubmit} className="create-list-form">
                         {this.showErrors()}
@@ -67,9 +57,17 @@ class ShowEditListItem extends React.Component {
                                 onChange={this.handleChange('title')}
                                 placeholder={this.state.title}
                             />
-                            <p onClick={() => this.handleDelete(this.props.list.id)}>-</p>
                         </div>
+                        <div className="list-edit-ord">
+                            <input type="number"
+                                value={this.state.ord}
+                                onChange={this.handleChange('ord')}
+                                placeholder="New Order"
+                            />
+                        </div>
+                        <button type="submit"> Submit </button>
                     </form>
+                    <p onClick={() => this.handleDelete(this.props.list.id)}>-</p>  
                 </section>
 
                 <section className="card-index-container">
@@ -83,7 +81,9 @@ const mstp = (state, props) => {
     //debugger;
     return {
         currentUser: state.entities.users[state.session.id],
-        list: props.list
+        list: props.list, 
+        listId: props.list.id, 
+        listIds: props.listIds
     };
 };
 

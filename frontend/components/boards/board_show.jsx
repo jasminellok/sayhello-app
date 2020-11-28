@@ -19,8 +19,8 @@ class BoardShow extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.board.id !== prevProps.board.id) {
-            this.props.fetchBoard(this.props.match.params.boardId) 
+        if (this.props.boardId !== prevProps.boardId) {
+            this.props.fetchBoard(this.props.boardId)
         }
     }
 
@@ -56,8 +56,8 @@ class BoardShow extends React.Component {
 
                 <div className="all-lists-container">
                     <ListIndexContainer 
-                        listIds={this.props.board.listIds}
-                        board={this.props.board}
+                        boardId={this.props.boardId}
+                        listIds={this.props.listIds}
                         />
                 </div>
             </div>

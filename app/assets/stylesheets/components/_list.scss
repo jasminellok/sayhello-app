@@ -11,10 +11,19 @@
 
 .list-area {
     display: flex;
+
 }
 
 .list-items {
     display: flex;
+
+}
+
+.list-show{
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space space-evenly;
     background-color: rgb(235,236,240);
     color: rgb(23,43,77);
 }

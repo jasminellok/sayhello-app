@@ -6,12 +6,12 @@ import { openModal, closeModal} from '../../actions/modal_action';
 
 const mstp = (state, ownProps) => {
     const boards = state.entities.boards
-    const id = ownProps.match.params.boardId
+    const id = parseInt(ownProps.match.params.boardId)
     return {
         board: boards[id], 
+        boardId: id,
         currentUser: state.entities.users[state.session.id],
         listIds: boards[id] ? boards[id].listIds : [],
-        lists: state.entities.lists
     }
 }
 
