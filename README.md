@@ -1,24 +1,4 @@
-# README
+# SayHello
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+SayHello is a clone of Trello, a todo board app that helps you organize and proritize your tasks so that you can efficently get work done with others. This clone is in progress. Below are some of the current working features: 
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
