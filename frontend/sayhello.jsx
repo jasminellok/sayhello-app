@@ -1,6 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
-//import { deleteBoard } from './actions/board_actions';
+import ReactDOM from "react-dom";;
 import configureStore from "./store/store";
 import Root from "./components/root";
 
@@ -23,8 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("root");
     ReactDOM.render(<Root store={store} />, root);
     
-    //testing
-    // window.deleteBoard = deleteBoard;
-    window.getState = store.getState;
-    window.dispatch = store.dispatch;
+    // //testing
+    // window.getState = store.getState;
+    // window.dispatch = store.dispatch;
 });

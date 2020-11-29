@@ -38,7 +38,7 @@ class CreateCard extends React.Component {
     }
 
     showErrors() {
-        const errors = getState().errors.list;
+        const errors = this.props.errors;
         const liErrors = errors.map((error, i) => {
             return (<li key={`create-list-errors${i}`}>{error}</li>)
         })
@@ -69,7 +69,9 @@ const mstp = (state, props) => {
         currentUser: state.entities.users[state.session.id],
         listId: props.listId,
         cards: state.entities.cards,
-        cardIds: Object.keys(state.entities.cards)
+        cardIds: Object.keys(state.entities.cards),
+        //cardIds: state.entities.lists[listId].cardIds
+        errors: state.errors.card
     };
 };
 

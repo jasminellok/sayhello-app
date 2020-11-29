@@ -37,7 +37,7 @@ class ShowEditListItem extends React.Component {
 
 
     showErrors() {
-        const errors = getState().errors.list;
+        const errors = this.props.errors;
         const liErrors = errors.map((error, i) => {
             return (<li key={`edit-list-errors${i}`}>{error}</li>)
         })
@@ -48,7 +48,6 @@ class ShowEditListItem extends React.Component {
 
     handleDelete(id) {
         this.props.deleteList(id)
-        // window.location.reload();
     }
 
     render () {
@@ -80,11 +79,13 @@ class ShowEditListItem extends React.Component {
     }
 }
 
+
 const mstp = (state, props) => {
     return {
         currentUser: state.entities.users[state.session.id],
         list: props.list, 
         listId: props.list.id,
+        errors: state.errors.list
     };
 };
 

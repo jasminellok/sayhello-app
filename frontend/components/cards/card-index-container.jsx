@@ -23,8 +23,6 @@ class CardIndex extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        // console.log("cdm this.props", this.props)
-        // console.log("cdm prevprops", prevProps)
         if (this.props.cardIds !== prevProps.cardIds) {
             let cards = this.props.cards
             this.setState({ cards })
@@ -56,13 +54,12 @@ class CardIndex extends React.Component {
 };
 
 const mstp = (state, props) => {
-    // console.log("mstp card state", state)
-    // console.log("mdtp card props", props)
     return {
         currentUser: state.entities.users[state.session.id],
         listId: props.listId,
         cards: Object.values(state.entities.cards).filter(card => card.list_id === props.listId),
         cardIds: Object.keys(state.entities.cards)
+        //cardIds: state.entities.lists[listId].cardIds
     };
 };
 

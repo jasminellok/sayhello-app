@@ -45,7 +45,6 @@ class BoardIndex extends React.Component {
 };
 
 const mstp = (state) => {
-    //console.log
     return {
         currentUser: state.entities.users[state.session.id],
         boards: Object.values(state.entities.boards)

@@ -6,8 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 const angleDown = <FontAwesomeIcon icon={faAngleDown} />
 
-// <|title | team name icon | invite >         <| BONUS: calendar | menu to edit and delete |>
-
 
 class BoardShow extends React.Component {
     constructor(props) {
@@ -57,7 +55,6 @@ class BoardShow extends React.Component {
                 <div className="all-lists-container">
                     <ListIndexContainer 
                         boardId={this.props.boardId}
-                        listIds={this.props.listIds}
                         />
                     
                 </div>

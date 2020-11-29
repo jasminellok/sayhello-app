@@ -26,7 +26,6 @@ class Api::ListsController < ApplicationController
 
     def create
         @list = List.new(list_params)
-        #@list.board_id = params[:id]  
         if @list.save  
             render "api/lists/show"
         else

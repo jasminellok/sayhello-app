@@ -5,25 +5,6 @@ import { faHome } from '@fortawesome/free-solid-svg-icons';
 const home = <FontAwesomeIcon icon={faHome} />
 //  |home|BONUS:index dropdown/link|           |logo|          |BONUS:create modal|profile dropdown|
 
-// const handleEditDropDown = (e) => {
-//     e.preventDefault();
-//     e.stopPropagation();
-//     const editDropDown = e.currentTarget.lastElementChild;
-//     if (editDropDown.style.display === 'none') {
-//         editDropDown.style.display = "block"
-//     } else {
-//         editDropDown.style.display = "none"
-//     };
-
-//     return document.addEventListener("click", (evt) => {
-//         console.log(evt)
-//         if (evt.currentTarget !== editDropDown.target) {
-//             editDropDown.style.display = 'none'
-//         }
-//     });
-// }
-
-
 class MainNavBar extends React.Component {
     constructor(props) {
         super(props)

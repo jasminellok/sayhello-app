@@ -1,5 +1,5 @@
 class Api::CardsController < ApplicationController
-            before_action :ensure_logged_in
+    before_action :ensure_logged_in
 
     def show
         @card = Card.find_by(id: params[:cardId])

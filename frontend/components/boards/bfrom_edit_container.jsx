@@ -52,7 +52,7 @@ class EditBoard extends React.Component {
 
 
     render() {
-        //const { updateBoard, errors, clearErrors, closeModal} = this.props;
+        //const { closeModal} = this.props;
         if (!this.state) return null;
         return (
             <div className="edit-board-container">

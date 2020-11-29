@@ -33,7 +33,7 @@ class CreateList extends React.Component {
     }
 
     showErrors() {
-        const errors = getState().errors.list;
+        const errors = this.props.errors;
         const liErrors = errors.map((error, i) => {
             return (<li key={`create-list-errors${i}`}>{error}</li>)
         })
@@ -59,6 +59,13 @@ class CreateList extends React.Component {
     }
 }  
 
+const mstp = (state, props) => {
+    return {    
+        currentUser: state.entities.users[state.session.id],
+        errors: state.errors.list
+    };
+};
+
 
 const mdtp = dispatch => {
     return {
@@ -71,4 +78,4 @@ const mdtp = dispatch => {
 };
 
 
-export default withRouter(connect(null, mdtp)(CreateList));
+export default withRouter(connect(mstp, mdtp)(CreateList));

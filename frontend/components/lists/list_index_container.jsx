@@ -13,7 +13,6 @@ class ListIndex extends React.Component {
         this.state ={
             ordList: [],
         }
-        //this.orderLists = this.orderLists.bind(this);
         this.listItems = this.listItems.bind(this);
         this.createList = this.createList.bind(this);
     }
@@ -54,11 +53,8 @@ class ListIndex extends React.Component {
 
 
     render() {
-        // if (this.state.ordList.length<1) return null;
         const showEditItem = this.listItems();
         const createList = this.createList();
-        const boardId = this.props.match.params.boardId;
-        // debugger;
         return (
             <div className="list-area">
                 <div className="list-items">
@@ -81,6 +77,7 @@ const mstp = (state, props) => {
         boardId: props.boardId,
         lists: state.entities.lists,
         listIds: Object.keys(state.entities.lists)
+        //listIds: state.entities.boards[props.boardId].listIds
     };
 };
 

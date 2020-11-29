@@ -10,7 +10,6 @@ class Splash extends React.Component{
 
     handleSubmit(e) {
         e.preventDefault();
-        //console.log(this.props.login)
         const user = { email: "demouser@example.com", password: "demouser" }
         this.props.login(user)
     }
