@@ -9,7 +9,7 @@ const CardReducer = (state = {}, action) => {
         case REC_CARD:
             return Object.assign({}, state, { [action.card.id]: action.card })
         case REC_ALL_CARDS:
-            return action.cards;
+            return Object.assign({}, state, action.cards);
         case REMOVE_CARD:
             delete newState[action.cardId]
             return newState;

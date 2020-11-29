@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router";
 import CardIndexCont from "../cards/card-index-container"
-import { fetchList, deleteList, updateList, clearErrors } from '../../actions/list_actions';
-import {Droppable, Draggable } from 'react-beautiful-dnd';
+import { fetchList, fetchAllLists, deleteList, updateList, clearErrors } from '../../actions/list_actions';
+//import {Droppable, Draggable } from 'react-beautiful-dnd';
 
 class ShowEditListItem extends React.Component {
     constructor(props) {
@@ -15,13 +15,16 @@ class ShowEditListItem extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.updateList(this.state)
-        // window.location.reload();
     }
 
     componentDidUpdate(prevProps) {
-        //if (this.props.list !== prevProps.list) {
-        //    this.props.
-        //}
+        if (this.props.list !== prevProps.list) {
+            console.log("cdU prevprops list", prevProps.list)
+            console.log("cdU this.props list", this.props.list)
+            const newState = {...this.props.list}
+            console.log("newState", newState)
+            this.setState(newState)
+        }
     }
 
     handleChange(field) {
@@ -46,13 +49,12 @@ class ShowEditListItem extends React.Component {
         );
     }
 
-    handleDelete() {
-        this.props.deleteList(this.props.listId)
+    handleDelete(id) {
+        this.props.deleteList(id)
         // window.location.reload();
     }
 
     render () {
-        const list = this.props.list
         return ( <div className="list-show">
                 {this.showErrors()} 
                 <form onSubmit={this.handleSubmit} className="edit-list-form">
@@ -71,30 +73,27 @@ class ShowEditListItem extends React.Component {
                         />
                     </div> */}
                     {/* <button type="submit"> Submit </button> */}
-                    <p onClick={() => this.handleDelete()}>x</p>
+                    <p onClick={() => this.handleDelete(this.state.id)}>x</p>
                 </form>
 
                 <section className="card-index-container">
-                    <CardIndexCont listId={this.state.id}/>
+                    <CardIndexCont listId={this.props.listId}/>
                 </section>
         </div>)
     }
 }
 
 const mstp = (state, props) => {
-    // console.log("mstp state", state)
-    // console.log("mstp props", props)
     return {
         currentUser: state.entities.users[state.session.id],
         list: props.list, 
         listId: props.list.id,
-        listsOrd: Object.values(state.entities.lists).map((v)=>{return v.ord}),
-        listIds: Object.keys(state.entities.lists)
     };
 };
 
 const mdtp = dispatch => {
     return {
+        fetchAllLists: (boardId) => dispatch(fetchAllLists(boardId)),
         fetchList: (listId) => dispatch(fetchList(listId)),
         deleteList: (listId) => dispatch(deleteList(listId)),
         updateList: (list) => dispatch(updateList(list)),
