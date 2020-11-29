@@ -5,7 +5,7 @@ class CardIndexItem extends React.Component {
     handleDelete() {
         //console.log('card delete id', this.props.card.id)
         this.props.deleteCard(this.props.card.id)
-        window.location.reload();
+        //window.location.reload();
     }
 
     // componentDidUpdate(prevProps) {

@@ -21,7 +21,7 @@ class EditBoard extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.updateBoard(this.state)
-        window.location.reload();
+        //window.location.reload();
     }
 
     handleChange(field) {

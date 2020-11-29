@@ -23,7 +23,7 @@ class EditBoard extends React.Component {
         e.preventDefault();
         //console.log("card submit", this.state)
         this.props.updateCard(this.state)
-        window.location.reload();
+        //window.location.reload();
     }
 
     handleChange(field) {
