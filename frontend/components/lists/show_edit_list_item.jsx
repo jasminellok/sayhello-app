@@ -19,10 +19,7 @@ class ShowEditListItem extends React.Component {
 
     componentDidUpdate(prevProps) {
         if (this.props.list !== prevProps.list) {
-            console.log("cdU prevprops list", prevProps.list)
-            console.log("cdU this.props list", this.props.list)
             const newState = {...this.props.list}
-            console.log("newState", newState)
             this.setState(newState)
         }
     }

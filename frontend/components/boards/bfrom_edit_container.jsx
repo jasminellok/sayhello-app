@@ -1,7 +1,5 @@
-//
 import React from 'react';
 import { connect } from 'react-redux';
-//import EditBoardForm from './board_edit_form';
 import { updateBoard, fetchBoard, clearErrors } from '../../actions/board_actions';
 import { closeModal } from '../../actions/modal_action';
 
@@ -21,7 +19,7 @@ class EditBoard extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.updateBoard(this.state)
-        //window.location.reload();
+        this.props.closeModal();
     }
 
     handleChange(field) {
@@ -35,6 +33,14 @@ class EditBoard extends React.Component {
         this.props.clearErrors();
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.editBoard !== prevProps.editBoard) {
+            const newState = {...this.props.editBoard}
+            this.setState(newState)
+        }
+    }
+
+
     showErrors() {
         const liErrors = this.props.errors.map((error, i) => {
             return (<li key={`edit-board-errors${i}`}>{error}</li>)
@@ -46,7 +52,7 @@ class EditBoard extends React.Component {
 
 
     render() {
-        const { updateBoard, errors, clearErrors, closeModal} = this.props;
+        //const { updateBoard, errors, clearErrors, closeModal} = this.props;
         if (!this.state) return null;
         return (
             <div className="edit-board-container">
@@ -98,94 +104,3 @@ const mdtp = dispatch => {
 }
 
 export default connect(mstp, mdtp)(EditBoard);
-
-
-
-
-
-
-
-
-
-
-
-
-// import React from 'react';
-// import { connect } from 'react-redux';
-// import { updateBoard, fetchBoard } from '../../actions/board_actions';
-
-// class UpdateBoard extends React.Component {
-//     constructor(props) {
-//         super(props)
-//         this.state = this.props.board
-//         this.handleSubmit = this.handleSubmit.bind(this);
-//     };
-
-//     componentDidMount() {
-//         this.props.fetchBoard(this.props.board.id)
-//         if (this.state.board.description === null) {
-//             this
-//         }
-//     }
-
-//     handleChange(field) {
-//         return (e) => this.setState({ [field]: e.currentTarget.value });
-//     }
-
-//     handleSubmit(e) {
-//         e.preventDefault();
-//         this.props.updateBoard(this.state)
-//     }
-
-//     showErrors() {
-//         const liErrors = this.props.errors.map((error, i) => {
-//             return (<li key={`edit-board-errors${i}`}>{error}</li>)
-//         })
-//         return (
-//             <ul className="edit-board-errors">{liErrors}</ul>
-//         );
-//     }
-
-//     render() {
-//         if (!this.state) return null;
-//         return (
-//             <form onSubmit={this.handleSubmit} className="edit-board-form">
-//                 {this.showErrors()}
-//                 <label> Title:
-//                     <input type="text"
-//                         value={this.props.board.title}
-//                         onChange={this.handleChange('title')}
-//                     /> 
-//                 </label>
-
-//                 <label>Description:
-//                 <textarea
-//                     value={this.props.board.description}
-//                     onChange={this.handleChange('description')}
-//                 /> 
-//                 </label>
-
-//                 <button type="submit">Edit Board</button>
-//             </form>
-//         )
-//     }
-// }
-
-// const mstp = (state, ownProps) => {
-//     // const boards = state.entities.boards;
-//     // const id = ownProps.match.params.boardId;
-//     return {
-//         currentUser: state.entities.users[state.session.id],
-//         errors: state.errors.board,
-//         // board: boards[id]
-//     };
-// };
-
-// const mdtp = dispatch => {
-//     return {
-//         fetchBoard: (id) => dispatch(fetchBoard(id)),
-//         updateBoard: (board) => dispatch(updateBoard(board))
-//     };
-// };
-
-// export default connect(mstp, mdtp)(UpdateBoard);
