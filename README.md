@@ -10,13 +10,13 @@ Users can create their own log in to access their boards, list, and cards. Alter
 
 ### Boards
 Users can create and edit a board for their projects to keep track of progress of project
-![Create Board](fullstack-clone-trello/trello_clone_app/app/assets/images/readme/create-board.png)
-![Edit Board](fullstack-clone-trello/trello_clone_app/app/assets/images/readme/ediit-board.png)
+![Create Board](assets/images/readme/create-board.png)
+![Edit Board](assets/images/readme/ediit-board.png)
 
 ### Lists & Cards
 Users can create and remove lists on their boards to organize the the tasks that needs to be done. 
 Similarly, users can add task cards to the different lists, and remove them accordingly. 
-![List & Cards](fullstack-clone-trello/trello_clone_app/app/assets/images/readme/cards-list.png)
+![List & Cards](assets/images/readme/cards-list.png)
 
 ## Technologies
 Backend: Ruby on Rails, PostgreSQL
