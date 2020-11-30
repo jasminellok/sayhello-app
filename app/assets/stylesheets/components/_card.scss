@@ -96,11 +96,17 @@
 .edit-card-title > .edit-card-closex{
     cursor: pointer;
 }
+
+.edit-card-descp{
+    height: 300px;
+    width: 400px;
+}
+
 .edit-card-descp > textarea {
     border: none;
     font-size: 13px;
     height: 100px;
-    width: 400px;
+    width: 200px;
     font-family: sans-serif;
     background-color: rgb(244,245,247);
     resize: none;
