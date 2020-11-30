@@ -18,4 +18,5 @@ Similarly, users can add task cards to the different lists, and remove them acco
 
 ## Technologies
 Backend: Ruby on Rails, PostgreSQL
+
 Frontend: React, Redux, CSS, HTML5
