@@ -4,7 +4,7 @@ import { withRouter } from "react-router";
 import React from 'react';
 import ShowEditListItem from './show_edit_list_item'
 import CreateListItem from './create_list_item'
-import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
+//import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
 
 
 class ListIndex extends React.Component {

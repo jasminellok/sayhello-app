@@ -1,4 +1,3 @@
-// container and presentation in one + modals
 
 import React from 'react';
 import { connect } from 'react-redux';
