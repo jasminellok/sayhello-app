@@ -10,8 +10,6 @@ Users can create their own log in to access their boards, list, and cards. Alter
 
 ### Boards
 Users can create and edit a board for their projects to keep track of progress of project
-![Create Board](app/assets/images/readme/create-board.png)
-![Edit Board](app/assets/images/readme/ediit-board.png)
 
 ### Lists & Cards
 Users can create and remove lists on their boards to organize the the tasks that needs to be done. 
