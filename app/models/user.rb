@@ -21,7 +21,7 @@ class User < ApplicationRecord
 
     has_many :boards,
         foreign_key: :author_id,
-        class_name: :Board 
+        class_name: :Board
 
     has_many :lists, 
         through: :boards,

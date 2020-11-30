@@ -44,7 +44,7 @@ class Api::BoardsController < ApplicationController
         end 
         if @board
             @board.destroy
-            render json: {}
+            render json: {id: params[:id]}
         else
             render json: ['Board could not be found'], status: 400
         end

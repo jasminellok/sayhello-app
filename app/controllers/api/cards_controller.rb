@@ -28,7 +28,6 @@ class Api::CardsController < ApplicationController
 
     def create
         @card = Card.new(card_params)
-        #@list.board_id = params[:id]  
         if @card.save  
             render "api/cards/show"
         else
