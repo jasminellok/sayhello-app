@@ -49,16 +49,15 @@ class EditBoard extends React.Component {
         if (!this.state) return null;
         return (
             <div className="edit-card-container">
+                {this.showErrors()}
                 <form onSubmit={this.handleSubmit} className="edit-card-form">
-
-                    {this.showErrors()}
-
                     <section className="edit-card-title">
-                        <div onClick={this.props.closeModal} className="edit-card-closex">x</div>
-                        <div className="edit-card-title">Title </div>
                         <input type="text"
+                            className="edit-card-title"
                             value={this.state.title}
-                            onChange={this.handleChange("title")} />
+                            onChange={this.handleChange("title")} 
+                            placeholder={this.state.title}/>
+                        <div onClick={this.props.closeModal} className="edit-card-closex">x</div>
                     </section>
 
                     <section className="edit-card-descp">
@@ -68,9 +67,9 @@ class EditBoard extends React.Component {
                             onChange={this.handleChange("description")} />
                     </section>
 
-                    <section className="edit-card-deadline">
+                    {/* <section className="edit-card-deadline">
                         need deadline input
-                    </section>
+                    </section> */}
 
                     <section className="edit-card-submit">
                         <button className="edit-card-btn" >Make Changes!</button>

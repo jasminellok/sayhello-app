@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from "../modal/modal";
+import CardEditModal from "../modal/card_edit_modal";
 
 class CardIndexItem extends React.Component {
     handleDelete() {
@@ -9,13 +9,10 @@ class CardIndexItem extends React.Component {
     render () {
         return (<div className="card-index-item">
             <div className="card-item-info">
-                <li>{this.props.card.title}</li>
+                <li onClick={() => this.props.openModal('editCard')}>{this.props.card.title}</li>
                 <li onClick={() => this.handleDelete()}>Delete</li>
-                {/* <li className="index-edit-modal" onClick={() => props.openModal('editCard')}>
-                    <p>(edit)</p>
-                </li> */}
             </div>
-            <Modal card={this.props.card}/>
+            <CardEditModal card={this.props.card}/>
         </div>)
     }
 }
