@@ -18,6 +18,7 @@ class CreateCard extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        if (this.state.title.trim().length === 0) return null;
         this.props.createCard(this.props.listId, this.state)
         this.setState({
             title: "",

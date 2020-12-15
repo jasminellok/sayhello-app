@@ -14,6 +14,7 @@ class CreateBoard extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        if (this.state.title.trim().length === 0) return null;
         this.props.createBoard(this.state).then(() => { this.props.closeModal()})
     }
 
@@ -46,7 +47,8 @@ class CreateBoard extends React.Component {
                     onChange={this.handleChange('title')}
                     placeholder="Add board title"
                 /> 
-                <button type="submit">Create Board</button>               
+                {this.state.title.trim().length === 0 ? <button  className="incomplete-btn">Create Board</button> 
+                : <button type="submit" className="completed-btn">Create Board</button> }           
             </form>
         </div>
         )

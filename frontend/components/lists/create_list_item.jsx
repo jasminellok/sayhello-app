@@ -16,6 +16,7 @@ class CreateList extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        if (this.state.title.trim().length === 0) return null;
         this.props.createList(this.props.boardId,this.state)
         this.setState({
             title: "",

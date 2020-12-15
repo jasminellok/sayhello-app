@@ -68,7 +68,6 @@ export const createCard = (listId, card) => dispatch => {
 }
 
 export const updateCard = (card) => dispatch => {
-    //console.log("card-thunk action", card)
     return ApiUtil.updateCard(card)
         .then((card) => dispatch(recCard(card)),
             error => dispatch(reccardErrors(error.responseJSON))

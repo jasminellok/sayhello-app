@@ -18,6 +18,7 @@ class EditBoard extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        if (this.state.title.trim().length === 0) return null;
         this.props.updateBoard(this.state)
         this.props.closeModal();
     }

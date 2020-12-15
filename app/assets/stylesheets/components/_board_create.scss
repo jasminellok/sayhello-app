@@ -28,7 +28,8 @@ form.create-board-form {
     border: none;
 }
 
-.create-board-form > button {
+
+.incomplete-btn {
     background-color:rgb(244,245,247);
     border: none;
     color: rgb(166,174,187);
@@ -37,14 +38,15 @@ form.create-board-form {
     border-radius: 2px;
 }
 
-.create-board-form > button:hover {
-    color: $white;
-    background-color: rgb(90,172,68);
+.incomplete-btn:hover{
+    cursor: not-allowed;
 }
 
-
-.create-board-form > .create-board-errors {
-    color: rgb(182, 67, 67) ;
-    font-size: 14px;
+.completed-btn {
+    background-color:#5AAC44;
+    border: none;
+    color: rgb(242, 245, 248);
+    height: 25px;
+    width: 100px;
+    border-radius: 2px;
 }
-

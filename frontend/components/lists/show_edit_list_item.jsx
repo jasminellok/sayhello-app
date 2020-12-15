@@ -14,6 +14,7 @@ class ShowEditListItem extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        if (this.state.title.trim().length === 0) this.state.title =  this.props.list.title;
         this.props.updateList(this.state)
     }
 
@@ -61,14 +62,6 @@ class ShowEditListItem extends React.Component {
                             placeholder={this.state.title}
                         />
                     </div>
-                    {/* <div className="list-edit-ord">
-                        <input type="number"
-                            value={this.state.ord}
-                            onChange={this.handleChange('ord')}
-                            placeholder="New Order"
-                        />
-                    </div> */}
-                    {/* <button type="submit"> Submit </button> */}
                     <p onClick={() => this.handleDelete(this.state.id)}>x</p>
                 </form>
 
