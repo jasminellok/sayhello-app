@@ -4,9 +4,10 @@
     <title>TrelloCloneApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <meta property="og:image" content=<%=asset_path('sayhello.gif')%>/>
-    <meta property="og:description" content= "Sayhello is a clone of Trello, a todo board app that helps you organize and prioritize your tasks so that you can efficiently get work done with others. This app is created using JS, React, Redux, Ruby, Ruby on Rails and PostgreSQL" />
-
+    <meta property="og:title" content="Sayhello" />
+     <meta property='og:image' content="<%= image_url('sayhello.gif') %>"/>
+     <meta property="og:description" content="Sayhello is a clone of Trello, a todo board app that helps you organize and prioritize your tasks so that you can efficiently get work done with others. This app is created using JS, React, Redux, Ruby, Ruby on Rails and PostgreSQL"/>
+     <meta property="og:url" content="https://sayhello-aa.herokuapp.com/"/>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     
