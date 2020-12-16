@@ -12,7 +12,7 @@ Users can create their own log in to access their boards, list, and cards. Alter
 Users can create and edit a board for their projects to keep track of progress of project
 
 ### Lists & Cards
-Users can create and remove lists on their boards to organize the the tasks that needs to be done. 
+Users can create and remove lists on their boards to organize the tasks that needs to be done. 
 Similarly, users can add task cards to the different lists, and remove them accordingly. 
 ![List & Cards](app/assets/images/readme/cards-list.png)
 
