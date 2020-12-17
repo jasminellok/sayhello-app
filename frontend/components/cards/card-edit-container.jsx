@@ -56,7 +56,8 @@ class EditBoard extends React.Component {
                             className="edit-card-title"
                             value={this.state.title}
                             onChange={this.handleChange("title")} 
-                            placeholder={this.state.title}/>
+                            placeholder={this.state.title}
+                            onBlur={this.handleSubmit}/>
                         <div onClick={this.props.closeModal} className="edit-card-closex">x</div>
                     </section>
 
@@ -64,16 +65,13 @@ class EditBoard extends React.Component {
                         <div className="edit-card-description"> Description </div>
                         <textarea row="5"
                             value={this.state.description}
-                            onChange={this.handleChange("description")} />
+                            onChange={this.handleChange("description")} 
+                            onBlur={this.handleSubmit}/>
                     </section>
 
-                    {/* <section className="edit-card-deadline">
-                        need deadline input
-                    </section> */}
-
-                    <section className="edit-card-submit">
+                    {/* <section className="edit-card-submit">
                         <button className="edit-card-btn" >Make Changes!</button>
-                    </section>
+                    </section> */}
 
                 </form>
             </div>

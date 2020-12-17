@@ -60,6 +60,7 @@ class ShowEditListItem extends React.Component {
                             value={this.state.title}
                             onChange={this.handleChange('title')}
                             placeholder={this.state.title}
+                            onBlur={this.handleSubmit}
                         />
                     </div>
                     <p onClick={() => this.handleDelete(this.state.id)}>x</p>
