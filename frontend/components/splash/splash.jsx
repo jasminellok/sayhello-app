@@ -39,9 +39,6 @@ class Splash extends React.Component{
                 <div className="splash-img" ><img src={window.splash} alt="sayHello" /></div>
             </section>
 
-            <footer>
-            </footer>
-
         </div>);
 
         return user();
