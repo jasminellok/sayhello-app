@@ -24,8 +24,12 @@ class User < ApplicationRecord
         class_name: :Board
 
     has_many :lists, 
-        through: :boards,
+        through: :boards, 
         source: :lists
+    
+    has_many :board_users, 
+        foreign_key: :user_id,
+        class_name: :BoardUser
 
     def password=(password)
         @password = password

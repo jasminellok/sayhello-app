@@ -17,4 +17,8 @@ class Board < ApplicationRecord
         foreign_key: :board_id,
         class_name: :List,  
         dependent: :destroy
+
+    has_many :board_users, 
+        foreign_key: :board_id,
+        class_name: :BoardUser
 end
