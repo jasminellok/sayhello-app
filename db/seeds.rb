@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(
+user_1 = User.create(
     full_name: 'Demo User', 
     email: 'demouser@example.com',  
     password_digest: BCrypt::Password.create('demouser'),  
@@ -14,7 +14,7 @@ User.create(
     )
 
 
-User.create(
+user_2 = User.create(
     full_name: 'Jane', 
     email: 'jane@example.com',  
     password_digest: BCrypt::Password.create('chicago'),  
@@ -22,13 +22,13 @@ User.create(
     )
 
 
-Board.create(
+board_1 = Board.create(
     title: "demo how to crying",
     description: "crying all night long, thanks fullstack TT-TT",
     author_id: 1
 )
 
-Board.create(
+board_2 = Board.create(
     title: "jane needs help",
     description: "plz help, medic medic!",
     author_id: 2
@@ -45,3 +45,7 @@ List.create(
     ord: 1,
     board_id: 1
 )
+
+BoardUser.create(user_id: user_1.id, board_id:  board_1.id)
+BoardUser.create(user_id: user_1.id, board_id:  board_2.id)
+BoardUser.create(user_id: user_2.id, board_id:  board_2.id)

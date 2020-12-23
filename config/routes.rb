@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     end 
 
     resources :comments, only:[:show, :update, :destroy]
+    resources :board_shares, only: [:create, :destroy]
   end
 end
 

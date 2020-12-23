@@ -30,6 +30,10 @@ class User < ApplicationRecord
     has_many :board_users, 
         foreign_key: :user_id,
         class_name: :BoardUser
+    
+    has_many :shared_boards, 
+        through: :board_users,
+        source: :board
 
     def password=(password)
         @password = password
