@@ -76,5 +76,18 @@ export const deleteBoard = (boardId) => dispatch => {
         .then((board) => dispatch(removeBoard(board.id)),
             error => dispatch(recBoardErrors(error.responseJSON))
         );
-    
+}
+
+export const createBoardUser = (boardId) => dispatch => {
+  return ApiUtil.postBoardUser(boardId)
+        .then((board) => dispatch(recBoard(board)),
+            error => dispatch(recBoardErrors(error.responseJSON))
+        );
+}
+
+export const removeBoardUser = (boardId) => dispatch => {
+  return ApiUtil.deleteBoardUsers(boardId)
+        .then((board) => dispatch(recBoard(board)),
+            error => dispatch(recBoardErrors(error.responseJSON))
+        );
 }
