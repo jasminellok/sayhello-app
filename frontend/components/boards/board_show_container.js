@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import BoardShow from './board_show';
-import { fetchBoard, deleteBoard} from '../../actions/board_actions';
+import { fetchBoard, deleteBoard, createBoardUser, removeBoardUser } from '../../actions/board_actions';
 import { openModal, closeModal} from '../../actions/modal_action';
 
 

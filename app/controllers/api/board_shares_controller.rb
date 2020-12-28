@@ -21,7 +21,4 @@ class Api::BoardSharesController < ApplicationController
     end
 end
 
-# from console
-# board_id = BoardUser.find(1).board_id
-# Board.find(board_id) ... shows the board with that id, demo how to cry
-# 
+
