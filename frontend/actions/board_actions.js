@@ -78,6 +78,7 @@ export const deleteBoard = (boardId) => dispatch => {
         );
 }
 
+//Board users shares ... need testing and review 
 export const createBoardUser = (boardId) => dispatch => {
   return ApiUtil.postBoardUser(boardId)
         .then((board) => dispatch(recBoard(board)),

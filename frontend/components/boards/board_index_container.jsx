@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchAllBoards } from '../../actions/board_actions';
+import { fetchAllBoards, createBoardUser, removeBoardUser } from '../../actions/board_actions';
 import { openModal } from '../../actions/modal_action';
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -47,13 +47,15 @@ class BoardIndex extends React.Component {
 const mstp = (state) => {
     return {
         currentUser: state.entities.users[state.session.id],
-        boards: Object.values(state.entities.boards)
+        boards: Object.values(state.entities.boards) //might need to change this to reflect keys BOARD_USER
     };
 };
 
 const mdtp = dispatch => {
     return {
         fetchAllBoards: () => dispatch(fetchAllBoards()),
+        createBoardUser: (id) => dispatch(createBoardUser(id)),
+        removeBoardUser: (id) => dispatch(removeBoardUser(id)),
         openModal: (modal) => dispatch(openModal(modal))
     }
 };
