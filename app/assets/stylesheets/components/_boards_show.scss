@@ -75,8 +75,19 @@ li {
     color: white;
 }
 
+.share-input:hover {
+    background-color:rgb(71,156,207) ;
+    border-radius: 3px;
+}
+
 .share-input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: white;
+}
+
+.share-input:focus {
+    outline: none; 
+    background-color:rgb(71,156,207) ;
+    border-radius: 3px;
 }
 
 li:hover {
