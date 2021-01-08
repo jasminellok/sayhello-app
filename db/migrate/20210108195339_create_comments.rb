@@ -4,7 +4,6 @@ class CreateComments < ActiveRecord::Migration[5.2]
       t.text :body, null: false
       t.integer :author_id, null:false
       t.integer :card_id, null:false
-      t.datetime :deadline
       t.timestamps
     end
     add_index :comments , :card_id

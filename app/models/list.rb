@@ -14,4 +14,8 @@ class List < ApplicationRecord
         class_name: :Card,  
         dependent: :destroy
 
+    has_many :comments, 
+        through: :cards,
+        source: :comments
+
 end
