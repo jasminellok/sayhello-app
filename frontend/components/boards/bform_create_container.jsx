@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import { createBoard, clearErrors } from '../../actions/board_actions';
+import { createBoard, clearErrors, createBoardUser } from '../../actions/board_actions';
 import { closeModal } from '../../actions/modal_action';
 
 
@@ -14,8 +14,13 @@ class CreateBoard extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        let currentUserEmail = this.props.currentUser.email
         if (this.state.title.trim().length === 0) return null;
-        this.props.createBoard(this.state).then(() => { this.props.closeModal()})
+        this.props.createBoard(this.state).then((board) => { 
+            this.props.closeModal();
+            this.props.createBoardUser(board.board.id, currentUserEmail)
+        });
+        
     }
 
 
@@ -65,9 +70,10 @@ const mstp = (state) => {
 const mdtp = dispatch => {
     return {
         createBoard: (board) => dispatch(createBoard(board)),
+        createBoardUser: (boardId, userId) => dispatch(createBoardUser(boardId, userId)),
         closeModal: () => dispatch(closeModal()),
         clearErrors: () => {
-            return dispatch(clearErrors())
+            return dispatch(clearErrors()) 
         }
     };
 };

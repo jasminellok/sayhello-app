@@ -18,6 +18,7 @@ const mstp = (state, ownProps) => {
 const mdtp = dispatch => {
     return {
         fetchBoard: (id) => dispatch(fetchBoard(id)),
+        createBoardUser: (boardId, userId) => dispatch(createBoardUser(boardId, userId)),
         deleteBoard: (id) => dispatch(deleteBoard(id)),
         openModal: (modal) => dispatch(openModal(modal)),
         closeModal: () => dispatch(closeModal()),

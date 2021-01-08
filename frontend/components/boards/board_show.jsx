@@ -10,6 +10,39 @@ const angleDown = <FontAwesomeIcon icon={faAngleDown} />
 class BoardShow extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            showShareForm: "", //change to none and add onClick if want to toggle
+            email:""
+        }
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        let userEmail = this.state.email
+        let boardId = this.props.boardId
+        debugger;
+        this.props.createBoardUser(boardId, userEmail).then((board) => { 
+            this.setState({
+                email:"",
+                showShareForm:"none"
+            })
+        });
+        
+    }
+
+    handleClick(e) {
+        if (this.state.showShareForm === "none"){
+            this.setState({showShareForm:""})
+        } else if (this.state.showShareForm === "") {
+            this.setState({showShareForm:"none"})
+        }
+        
+    }
+
+    handleChange(field) {
+        return (e) => this.setState({ [field]: e.currentTarget.value });
     }
 
     componentDidMount() {
@@ -29,10 +62,9 @@ class BoardShow extends React.Component {
 
     render() { 
         if (!this.props.board) return null;
-        
 
         return (<>
-            <div className="board-show-page" >
+            <div className="board-show-page">
                 <div className="board-show-bar">
                     <section className="board-show-left">
                         <li className="edit-board-button" onClick={() => this.props.openModal('editBoard')}> 
@@ -46,9 +78,17 @@ class BoardShow extends React.Component {
                     </section>
                     <section className="board-show-right">
                         <li className="divider"></li>
-                        <li> Team Icon </li>
-                        <li> Invite </li>
-                        <li> Calendar </li>
+                        <div className="share-ctn" style={{display:`${this.state.showShareForm}`}}>
+                            <form onSubmit={this.handleSubmit} className="share-form">
+                                <input type="text"
+                                className= "share-input"
+                                    value={this.state.email}
+                                    onChange={this.handleChange('email')}
+                                    placeholder="Enter email to share board"
+                                /> 
+                                {/* <button type="submit">Share Board</button> */}
+                            </form>
+                        </div>
                     </section>
                 </div>
 
@@ -56,7 +96,6 @@ class BoardShow extends React.Component {
                     <ListIndexContainer 
                         boardId={this.props.boardId}
                         />
-                    
                 </div>
             </div>
         </>)

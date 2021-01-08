@@ -36,22 +36,22 @@ export const deleteBoard = (boardId) => {
 }
 
 //  api_board_shares POST   /api/board_shares(.:format)                   api/board_shares#create {:format=>:json}
-export const postBoardUser = (boardId) => { //id is board id 
+export const postBoardUser = (boardId, email) => { //id is board id 
     return $.ajax({ 
         method: 'POST',
         url: '/api/board_shares',
-        data: {boardId},
+        data: {board_id: boardId, email},
     })
 };
 
 //   api_board_share DELETE /api/board_shares/:id(.:format)               api/board_shares#destroy {:format=>:json}
-export const deleteBoardUsers = (boardId) => { //id is board id 
-    return $.ajax({ 
-        method: 'DELETE',
-        url: `/api/board_shares/${boardId}`,
-        data: {boardId},
-        });
-};
+// export const deleteBoardUsers = (boardId, userId) => { //id is board id 
+//     return $.ajax({ 
+//         method: 'DELETE',
+//         url: `/api/board_shares/${boardId}`,
+//         data: {board_id: boardId, user_id: userId},
+//         });
+// };
 
 
 // #        api_boards GET / api / boards(.: format)                                  api / boards#index {: format =>: json }

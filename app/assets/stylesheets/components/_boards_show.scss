@@ -65,6 +65,18 @@ li {
     }
 }
 
+.share-input{
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: transparent;
+    padding: 5px 15px;
+}
+
+input::-webkit-input-placeholder {
+    color: white;
+}
+
 li:hover {
     cursor: pointer;
     -webkit-filter:brightness(110%);
@@ -188,3 +200,4 @@ li:hover {
         -webkit-filter:brightness(90%);
     }
 }
+
