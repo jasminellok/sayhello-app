@@ -22,13 +22,13 @@ class BoardShow extends React.Component {
         e.preventDefault();
         let userEmail = this.state.email
         let boardId = this.props.boardId
-        debugger;
-        this.props.createBoardUser(boardId, userEmail).then((board) => { 
-            this.setState({
-                email:"",
-                showShareForm:"none"
-            })
-        });
+        this.props.createBoardUser(boardId, userEmail)
+        // this.props.createBoardUser(boardId, userEmail).then((board) => { 
+        //     this.setState({
+        //         email:"",
+        //         showShareForm:"none"
+        //     })
+        // });
         
     }
 
