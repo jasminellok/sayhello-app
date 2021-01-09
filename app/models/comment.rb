@@ -1,7 +1,3 @@
-    t.text "body", null: false
-    t.integer "author_id", null: false
-    t.integer "card_id", null: false
-
 
 class Comment < ApplicationRecord
     validates :body, :card_id, :author_id, presence: true

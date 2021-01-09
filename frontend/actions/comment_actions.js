@@ -76,7 +76,7 @@ export const updateComment = (comment) => dispatch => {
 
 export const deleteComment = (commentId) => dispatch => {
     return ApiUtil.deleteComment(commentId)
-        .then((comment) => dispatch(removeComment(comment.commentId)),
+        .then((comment) => dispatch(removeComment(comment.id)),
             error => dispatch(recCommentErrors(error.responseJSON))
         );
 

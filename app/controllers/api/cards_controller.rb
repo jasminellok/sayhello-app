@@ -39,7 +39,7 @@ class Api::CardsController < ApplicationController
         @card = Card.find_by(id: params[:id])
         if @card
             @card.destroy
-            render json: {cardId: params[:id]}
+            render json: {id: params[:id]}
         else
             render json: ['card could not be found'], status: 400
         end
