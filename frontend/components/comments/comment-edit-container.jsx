@@ -1,7 +1,7 @@
 //
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateComment, fetchComment, clearErrors } from '../../actions/comment_actions';
+import { updateComment, fetchComment, clearErrors, deleteComment } from '../../actions/comment_actions';
 
 class EditComment extends React.Component {
     constructor(props) {
@@ -13,11 +13,18 @@ class EditComment extends React.Component {
             author_id: this.props.comment.author_id,
         }
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
     };
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.updateCard(this.state)
+        this.props.updateComment(this.state)
+    }
+
+    handleDelete(e) {
+        ////;
+        e.preventDefault();
+        this.props.deleteComment(this.state.id)
     }
 
     handleChange(field) {
@@ -45,8 +52,8 @@ class EditComment extends React.Component {
         if (!this.state) return null;
         return (
             <div className="edit-comment-container">
-                {this.showErrors()}
-                <form onSubmit={this.handleSubmit} className="edit-comment-form">
+                {/* {this.showErrors()} */}
+                {/* <form onSubmit={this.handleSubmit} className="edit-comment-form">
                     <section className="edit-comment-body">
                         <input type="text"
                             className="edit-comment-body"
@@ -55,8 +62,10 @@ class EditComment extends React.Component {
                             placeholder={this.state.body}
                             onBlur={this.handleSubmit}/>
                     </section>
+                </form> */}
 
-                </form>
+                <p>{this.state.body}</p>
+                <button onClick= {this.handleDelete}>Delete Comment</button>
             </div>
         );
     }
@@ -64,7 +73,7 @@ class EditComment extends React.Component {
 
 const mstp = (state, props) => {
     return {
-        errors: state.errors.card,
+        errors: state.errors.comment,
         comment: props.comment
     }
 }
@@ -73,7 +82,7 @@ const mdtp = dispatch => {
     return {
         fetchComment: (commentid) => dispatch(fetchComment(commentid)),
         updateComment: (comment) => dispatch(updateComment(comment)),
-        deleteComment: (comment) => dispatch(deleteComment(comment.id)),
+        deleteComment: (commentid) => dispatch(deleteComment(commentid)),
         clearErrors: () => {
             return dispatch(clearErrors())
         }

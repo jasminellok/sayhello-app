@@ -56,12 +56,13 @@
 
 
 .edit-card-container {
+    padding: 20px 0 20px 0 ;
     position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 500px;
+    height: auto;
     width: 500px;
     background-color: rgb(244,245,247);
     border-radius: 3px;
@@ -70,7 +71,7 @@
 .edit-card-container > .edit-card-form{
     display: flex;
     flex-direction: column;
-    height: 450px;
+    height: 135px;
     width: 450px;
 }
 
@@ -102,6 +103,7 @@
 }
 
 .edit-card-descp > textarea {
+    margin-top: 8px;
     border: none;
     font-size: 13px;
     height: 50px;
@@ -113,4 +115,19 @@
 
 .edit-card-descp > textarea:focus{
   background-color:white;  
+}
+
+.card-comment-index-ctn{
+    width: 450px;
+    display: flex;
+}
+
+.comment-headr{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.card-comment-index-ctn{
+    display: flex;
+    flex-direction: column;
 }

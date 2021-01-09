@@ -34,19 +34,19 @@ class CreateComment extends React.Component {
         this.props.clearErrors();
     }
 
-    showErrors() {
-        const errors = this.props.errors;
-        const liErrors = errors.map((error, i) => {
-            return (<li key={`create-omment-errors${i}`}>{error}</li>)
-        })
-        return (
-            <ul className="create-comment-errors">{liErrors}</ul>
-        );
-    }
+    // showErrors() {
+    //     const errors = this.props.errors;
+    //     const liErrors = errors.map((error, i) => {
+    //         return (<li key={`create-omment-errors${i}`}>{error}</li>)
+    //     })
+    //     return (
+    //         <ul className="create-comment-errors">{liErrors}</ul>
+    //     );
+    // }
 
     render() {
         return (<div>
-            {this.showErrors()}
+            {/* {this.showErrors()} */}
             <form onSubmit={this.handleSubmit} className="create-comment-form">
                 <div className="create-comment-title">
                     <input type="text"
@@ -65,6 +65,7 @@ const mstp = (state, props) => {
     return {    
         currentUser: state.entities.users[state.session.id],
         commentId: props.commentId,
+        errors: state.errors.comments,
     };
 };
 

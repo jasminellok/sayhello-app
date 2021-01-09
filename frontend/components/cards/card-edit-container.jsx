@@ -3,16 +3,17 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { updateCard, fetchCard, clearErrors } from '../../actions/card_actions';
 import { closeModal } from '../../actions/modal_action';
+import CommentIndex from "../comments/comment-index-container"
 
 
-class EditBoard extends React.Component {
+class EditCard extends React.Component { 
     constructor(props) {
         super(props)
         this.state = {
             id: this.props.card.id,
             title: this.props.card.title,
             description: (this.props.card.description ? this.props.card.description : ""),
-            deadline: (this.props.card.deadlined ? this.props.card.deadline : ""),
+            deadline: (this.props.card.deadlined ? this.props.card.deadline : ""), //edit date
             list_id: this.props.card.listId,
             ord: this.props.card.ord,
         }
@@ -50,9 +51,9 @@ class EditBoard extends React.Component {
         return (
             <div className="edit-card-container">
                 {this.showErrors()}
-                <form onSubmit={this.handleSubmit} className="edit-card-form">
+                <form className="edit-card-form">
                     <section className="edit-card-title">
-                        <input type="text"
+                        <input type="text" 
                             className="edit-card-title"
                             value={this.state.title}
                             onChange={this.handleChange("title")} 
@@ -68,12 +69,13 @@ class EditBoard extends React.Component {
                             onChange={this.handleChange("description")} 
                             onBlur={this.handleSubmit}/>
                     </section>
-
-                    {/* <section className="edit-card-submit">
-                        <button className="edit-card-btn" >Make Changes!</button>
-                    </section> */}
-
                 </form>
+                
+                <section className="card-comment-index-ctn">
+                    <div className="comment-headr">Comments</div>
+                    <CommentIndex cardId={this.props.card.id}/>
+                </section>
+            
             </div>
         );
     }
@@ -98,4 +100,4 @@ const mdtp = dispatch => {
     }
 }
 
-export default connect(mstp, mdtp)(EditBoard);
+export default connect(mstp, mdtp)(EditCard);

@@ -22,6 +22,8 @@ class CommentIndex extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
+        console.log("prevprops", prevProps.commentIds)
+        console.log("this.props", this.props.commentIds)
         if (this.props.commentIds !== prevProps.commentIds) {
             let comments = this.props.comments
             this.setState({ comments })

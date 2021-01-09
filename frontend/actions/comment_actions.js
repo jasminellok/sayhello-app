@@ -58,6 +58,7 @@ export const fetchAllComments = (cardId) => dispatch => {
 }
 
 export const createComment = (cardId, comment) => dispatch => {
+    //;
     return ApiUtil.createComment(cardId, comment)
         .then((comment) => {
             dispatch(recComment(comment))
@@ -75,9 +76,13 @@ export const updateComment = (comment) => dispatch => {
 }
 
 export const deleteComment = (commentId) => dispatch => {
+    //
     return ApiUtil.deleteComment(commentId)
-        .then((comment) => dispatch(removeComment(comment.id)),
-            error => dispatch(recCommentErrors(error.responseJSON))
-        );
-
+        .then((comment) => {
+            //;
+            dispatch(removeComment(comment.commentId))
+        },
+            error => {
+                dispatch(recCommentErrors(error.responseJSON))
+        });
 }

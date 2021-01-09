@@ -8,7 +8,7 @@ class Api::CardsController < ApplicationController
     
     def index
         @cards = Card.all.includes(:list).where(list_id: params[:list_id])
-        #debugger;
+        #//;
         if @cards
             render "api/cards/index"
         else
@@ -17,7 +17,7 @@ class Api::CardsController < ApplicationController
     end
 
     def update
-        # debugger;
+        # //;
         @card = Card.find_by(id: params[:id])
         if @card && @card.update(card_params)
             render "api/cards/show"

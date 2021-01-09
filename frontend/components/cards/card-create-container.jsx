@@ -9,7 +9,7 @@ class CreateCard extends React.Component {
         this.state = {
             title: "",
             description: "",
-            deadline: "",
+            deadline: "", //add date
             ord: this.props.ord,
             list_id: this.props.listId
         }

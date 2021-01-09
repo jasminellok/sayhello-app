@@ -15,7 +15,7 @@ class Api::CommentsController < ApplicationController
     
     def index
         @comments = Comment.all.includes(:card).where(card_id: params[:card_id]) #need to pass back cardid
-        #debugger;
+        #//;
         if @comments
             render "api/comments/index"
         else 
@@ -24,7 +24,7 @@ class Api::CommentsController < ApplicationController
     end
 
     def update
-        # debugger;
+        # //;
         @comment = Comment.find_by(id: params[:id])
         if @comment && @comment.update(comment_params)
             render "api/comments/show"
@@ -54,6 +54,6 @@ class Api::CommentsController < ApplicationController
 
     protected
     def comment_params
-        params.require(:comment).permit(:body :card_id, :author_id)
+        params.require(:comment).permit(:body, :card_id, :author_id)
     end 
 end
