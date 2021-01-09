@@ -9,7 +9,7 @@ class Api::CommentsController < ApplicationController
     before_action :ensure_logged_in
 
     def show
-        @comment = Comment.find_by(id: params[:cardId])
+        @comment = Comment.find_by(id: params[:id])
         render "api/comments/show"
     end
     
