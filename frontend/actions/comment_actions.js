@@ -21,6 +21,7 @@ const recComment = (comment) => {
 }
 
 const removeComment = (commentId) => {
+    //;
     return {
         commentId,
         type: REMOVE_COMMENT
@@ -58,7 +59,6 @@ export const fetchAllComments = (cardId) => dispatch => {
 }
 
 export const createComment = (cardId, comment) => dispatch => {
-    //;
     return ApiUtil.createComment(cardId, comment)
         .then((comment) => {
             dispatch(recComment(comment))
@@ -76,7 +76,6 @@ export const updateComment = (comment) => dispatch => {
 }
 
 export const deleteComment = (commentId) => dispatch => {
-    //
     return ApiUtil.deleteComment(commentId)
         .then((comment) => {
             //;

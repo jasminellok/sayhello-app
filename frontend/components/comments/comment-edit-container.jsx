@@ -12,17 +12,16 @@ class EditComment extends React.Component {
             card_id: this.props.comment.card_id,
             author_id: this.props.comment.author_id,
         }
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleUpdate = this.handleUpdate.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
     };
 
-    handleSubmit(e) {
+    handleUpdate(e) {
         e.preventDefault();
         this.props.updateComment(this.state)
     }
 
     handleDelete(e) {
-        ////;
         e.preventDefault();
         this.props.deleteComment(this.state.id)
     }
@@ -34,9 +33,9 @@ class EditComment extends React.Component {
         }
     }
 
-    componentWillUnmount() {
-        this.props.clearErrors();
-    }
+    // componentWillUnmount() {
+    //     this.props.clearErrors();
+    // }
 
     showErrors() {
         const liErrors = this.props.errors.map((error, i) => {
@@ -50,22 +49,22 @@ class EditComment extends React.Component {
 
     render() {
         if (!this.state) return null;
+        console.log("edit item", this.state)
         return (
             <div className="edit-comment-container">
                 {/* {this.showErrors()} */}
-                {/* <form onSubmit={this.handleSubmit} className="edit-comment-form">
-                    <section className="edit-comment-body">
-                        <input type="text"
-                            className="edit-comment-body"
-                            value={this.state.body}
-                            onChange={this.handleChange("body")} 
-                            placeholder={this.state.body}
-                            onBlur={this.handleSubmit}/>
-                    </section>
-                </form> */}
 
                 <p>{this.state.body}</p>
-                <button onClick= {this.handleDelete}>Delete Comment</button>
+                <div>
+                    <input type="text"
+                        className="edit-comment-body"
+                        value={this.state.body}
+                        onChange={this.handleChange("body")} 
+                        placeholder="Edit"
+                        onBlur={this.handleUpdate}/>
+                    <button onClick= {this.handleDelete}>Delete Comment</button>
+                </div>
+
             </div>
         );
     }

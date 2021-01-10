@@ -22,8 +22,6 @@ class CommentIndex extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        console.log("prevprops", prevProps.commentIds)
-        console.log("this.props", this.props.commentIds)
         if (this.props.commentIds !== prevProps.commentIds) {
             let comments = this.props.comments
             this.setState({ comments })
@@ -33,13 +31,12 @@ class CommentIndex extends React.Component {
     render() {
         if (!this.state.comments) return null;
         const comments = this.state.comments;
-
-        const commentItems = comments.map((comment, i) => {
+        const commentItems = comments.map((comment) => {
             return (
                 <CommentEdit comment={comment} 
                 deleteComment={this.props.deleteComment} 
                 updateComment={this.props.updateComment} 
-                key={`comment-index-${i}`}/>
+                key={`comment-index-${comment.id}`}/>
             )
         });
 
@@ -53,10 +50,11 @@ class CommentIndex extends React.Component {
 };
 
 const mstp = (state, props) => {
+    let comments=  Object.values(state.entities.comments).filter(comment => comment.card_id === props.cardId)
     return {
         currentUser: state.entities.users[state.session.id],
         cardId: props.cardId,
-        comments: Object.values(state.entities.comments).filter(comment => comment.card_id === props.cardId),
+        comments,
         commentIds: Object.keys(state.entities.comments)
     };
 };

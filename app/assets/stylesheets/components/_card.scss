@@ -49,7 +49,7 @@
 .edit-card-modal-child {
     position: absolute;
     top: 10%;
-    left: 20%;
+    left: 30%;
     transform: translate(-50%, -50%);
     padding:0;
 }
@@ -105,7 +105,7 @@
 .edit-card-descp > textarea {
     margin-top: 8px;
     border: none;
-    font-size: 13px;
+    font-size: 14px;
     height: 50px;
     width: 400px;
     font-family: sans-serif;
@@ -117,17 +117,3 @@
   background-color:white;  
 }
 
-.card-comment-index-ctn{
-    width: 450px;
-    display: flex;
-}
-
-.comment-headr{
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.card-comment-index-ctn{
-    display: flex;
-    flex-direction: column;
-}
