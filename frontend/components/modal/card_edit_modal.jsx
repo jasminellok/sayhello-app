@@ -27,9 +27,10 @@ function Modal({ modal, card, closeModal }) {
 
 
 const mstp = (state, props) => {
+    if (!state.ui.modal) return {}
     return {
-        modal: state.ui.modal,
-        card: props.card ? props.card : null
+        modal: state.ui.modal.modal,
+        card: (state.ui.modal.card ? state.ui.modal.card : null)
     };
 };
 

@@ -13,7 +13,7 @@ class EditCard extends React.Component {
             id: this.props.card.id,
             title: this.props.card.title,
             description: (this.props.card.description ? this.props.card.description : ""),
-            deadline: (this.props.card.deadlined ? this.props.card.deadline : ""), //edit date
+            deadline: (this.props.card.deadline ? this.props.card.deadline : ""), //edit date
             list_id: this.props.card.listId,
             ord: this.props.card.ord,
         }
@@ -32,26 +32,33 @@ class EditCard extends React.Component {
         }
     }
 
-    componentWillUnmount() {
-        this.props.clearErrors();
-    }
+    // componentWillUnmount() {
+    //     this.props.clearErrors();
+    // }
 
-    showErrors() {
-        const liErrors = this.props.errors.map((error, i) => {
-            return (<li key={`edit-card-errors${i}`}>{error}</li>)
-        })
-        return (
-            <ul className="edit-card-errors">{liErrors}</ul>
-        );
-    }
+    // showErrors() {
+    //     const liErrors = this.props.errors.map((error, i) => {
+    //         return (<li key={`edit-card-errors${i}`}>{error}</li>)
+    //     })
+    //     return (
+    //         <ul className="edit-card-errors">{liErrors}</ul>
+    //     );
+    // }
 
 
     render() {
         if (!this.state) return null;
-        console.log("edit-card", this.props.card)
+        let dateTime;
+        if (this.state.deadline.length>0) {
+            let dateArr = this.state.deadline.split("-")
+            let month = dateArr[1];
+            let date = dateArr[2].slice(0,2);
+            let year = dateArr[0];
+            dateTime = `${month} ${date}, ${year}`
+        }
+
         return (
             <div className="edit-card-container">
-                {this.showErrors()}
                 <form className="edit-card-form">
                     <section className="edit-card-title">
                         <input type="text" 
@@ -65,6 +72,11 @@ class EditCard extends React.Component {
 
                     <div className="card-edit-form-info">
                         <section className="edit-card-descp">
+                            <div>
+                                <h3>{ dateTime ? 'DUE DATE' : null}</h3>
+                                <h3>{ dateTime ? new Date(dateTime).toDateString() : null} </h3>        
+                            </div>
+                            
                             <div className="edit-card-description"> Description </div>
                             <textarea row="5"
                                 value={this.state.description}
@@ -72,15 +84,14 @@ class EditCard extends React.Component {
                                 onBlur={this.handleSubmit}/>
                         </section>
 
-                        <section className="edit-card-side">
-                            <h2>ADD TO CARD</h2>
+                        <section className="edit-card-deadline">
+                            <h2 className="deadline-title">ADD TO CARD</h2>
                             <div className="edit-card-deadline"> 
-                                <h3>Deadline</h3>
+                                
+                                <h4>Set new deadline:</h4>
                                 <input type="date" 
                                     className="edit-card-deadline"
-                                    value={this.state.deadline}
                                     onChange={this.handleChange("deadline")} 
-                                    placeholder={this.state.deadline}
                                     onBlur={this.handleSubmit}/>
                             </div>
                         </section>

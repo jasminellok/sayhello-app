@@ -1,9 +1,4 @@
-#      resources :cards, only: [:index, :create]
-#    end 
-#resources :cards, only: [:show, :update, :destroy] do 
-#      resources :comments, only:[:index, :create]
-#end 
-#resources :comments, only:[:show, :update, :destroy]
+require 'date'
 
 class Api::CommentsController < ApplicationController
     before_action :ensure_logged_in
@@ -15,7 +10,7 @@ class Api::CommentsController < ApplicationController
     
     def index
         @comments = Comment.all.includes(:card).where(card_id: params[:card_id]) #need to pass back cardid
-        #//;
+        
         if @comments
             render "api/comments/index"
         else 
@@ -24,7 +19,6 @@ class Api::CommentsController < ApplicationController
     end
 
     def update
-        # //;
         @comment = Comment.find_by(id: params[:id])
         if @comment && @comment.update(comment_params)
             render "api/comments/show"

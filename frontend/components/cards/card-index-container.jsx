@@ -2,9 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchAllCards, deleteCard, createCard, updateCard, clearErrors } from '../../actions/card_actions';
 import { withRouter } from "react-router";
-import { openModal } from '../../actions/modal_action';
+import { openModal, openCardModal } from '../../actions/modal_action';
 import CreateCardCont from "./card-create-container";
 import CardIndexItem from "./card-index-item";
+import CardEditModal from "../modal/card_edit_modal";
 
 class CardIndex extends React.Component {
     constructor(props) {
@@ -35,12 +36,12 @@ class CardIndex extends React.Component {
         const sortedCards = cards.sort((a, b) => (a.id > b.id) ? 1 : -1);
         const nxtOrd = sortedCards.length + 1;
 
-        const cardItems = sortedCards.map((card, i) => {
+        const cardItems = cards.map((card) => {
             return (
                 <CardIndexItem card={card} 
                 deleteCard={this.props.deleteCard} 
-                key={`card-index-${i}`} 
-                openModal={this.props.openModal} />
+                key={`card-index-${card.id}`} 
+                openCardModal={this.props.openCardModal} />
             )
         });
 
@@ -48,6 +49,7 @@ class CardIndex extends React.Component {
             <div className="card-index-items">
                 {cardItems}
                 <CreateCardCont listId={this.props.listId} ord={nxtOrd} />
+                <CardEditModal> </CardEditModal>
             </div>)
     }
 
@@ -70,7 +72,7 @@ const mdtp = dispatch => {
         createCard: (listId, card) => dispatch(createCard(listId, card)),
         updateCard: (cardId) => dispatch(updateCard(cardId)),
         clearErrors: () => {return dispatch(clearErrors())},
-        openModal: (modal) => dispatch(openModal(modal))
+        openCardModal: (modal, card) => dispatch(openCardModal(modal, card))
     }
 };
 
