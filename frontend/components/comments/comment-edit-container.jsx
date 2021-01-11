@@ -46,24 +46,31 @@ class EditComment extends React.Component {
         );
     }
 
+    showEditandDelete() { //if i want to add edit and delete features
+        return (
+        <div>
+            <input type="text"
+                className="edit-comment-body"
+                value={this.state.body}
+                onChange={this.handleChange("body")} 
+                placeholder="Edit"
+                onBlur={this.handleUpdate}/>
+            <button onClick= {this.handleDelete}>Delete Comment</button>
+        </div>
+        )
+    }
+
 
     render() {
         if (!this.state) return null;
-        console.log("edit item", this.state)
+        //("edit item", this.state)
         return (
             <div className="edit-comment-container">
                 {/* {this.showErrors()} */}
 
+                <h3>{}</h3>
                 <p>{this.state.body}</p>
-                <div>
-                    <input type="text"
-                        className="edit-comment-body"
-                        value={this.state.body}
-                        onChange={this.handleChange("body")} 
-                        placeholder="Edit"
-                        onBlur={this.handleUpdate}/>
-                    <button onClick= {this.handleDelete}>Delete Comment</button>
-                </div>
+
 
             </div>
         );

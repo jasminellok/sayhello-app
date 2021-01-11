@@ -48,6 +48,7 @@ class EditCard extends React.Component {
 
     render() {
         if (!this.state) return null;
+        console.log("edit-card", this.props.card)
         return (
             <div className="edit-card-container">
                 {this.showErrors()}
@@ -62,13 +63,28 @@ class EditCard extends React.Component {
                         <div onClick={this.props.closeModal} className="edit-card-closex">x</div>
                     </section>
 
-                    <section className="edit-card-descp">
-                        <div className="edit-card-description"> Description </div>
-                        <textarea row="5"
-                            value={this.state.description}
-                            onChange={this.handleChange("description")} 
-                            onBlur={this.handleSubmit}/>
-                    </section>
+                    <div className="card-edit-form-info">
+                        <section className="edit-card-descp">
+                            <div className="edit-card-description"> Description </div>
+                            <textarea row="5"
+                                value={this.state.description}
+                                onChange={this.handleChange("description")} 
+                                onBlur={this.handleSubmit}/>
+                        </section>
+
+                        <section className="edit-card-side">
+                            <h2>ADD TO CARD</h2>
+                            <div className="edit-card-deadline"> 
+                                <h3>Deadline</h3>
+                                <input type="date" 
+                                    className="edit-card-deadline"
+                                    value={this.state.deadline}
+                                    onChange={this.handleChange("deadline")} 
+                                    placeholder={this.state.deadline}
+                                    onBlur={this.handleSubmit}/>
+                            </div>
+                        </section>
+                    </div>
                 </form>
                 
                 <section className="card-comment-index-ctn">

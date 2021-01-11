@@ -87,7 +87,7 @@
     background-color: rgb(244,245,247);
     font-weight: bold;
     font-size: 18px ;
-    width: 400px;
+    width: 300px;
 }
 
 .edit-card-title > input[type=text]:focus{
@@ -107,7 +107,7 @@
     border: none;
     font-size: 14px;
     height: 50px;
-    width: 400px;
+    width: 300px;
     font-family: sans-serif;
     background-color: rgb(244,245,247);
     resize: none;
@@ -115,5 +115,9 @@
 
 .edit-card-descp > textarea:focus{
   background-color:white;  
+}
+
+.card-edit-form-info{
+    display: flex;
 }
 

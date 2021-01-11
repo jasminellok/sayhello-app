@@ -18,7 +18,7 @@ export const fetchAllComments = (cardId) => {
 
 //PATCH  /api/comments/:id(.:format)                                api/comments#update {:format=>:json}
 export const updateComment = (comment) => {
-    //console.log("ajax -card id",card.id)
+    ////("ajax -card id",card.id)
     return $.ajax({
         method: "PATCH",
         url: `/api/comments/${comment.id}`,
