@@ -65,14 +65,14 @@ class EditComment extends React.Component {
         if (!this.state) return null;
         //("edit item", this.state)
         return (
-            <div className="edit-comment-container">
+            <li className="edit-comment-container">
                 {/* {this.showErrors()} */}
 
                 <h3>{}</h3>
-                <p>{this.state.body}</p>
+                <h4 id="comment-body">{this.state.body}</h4>
 
 
-            </div>
+            </li>
         );
     }
 }

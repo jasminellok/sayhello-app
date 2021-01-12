@@ -61,9 +61,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: auto;
     width: 600px;
-    min-height: 600px;
+    min-height: 630px;
     background-color: rgb(244,245,247);
     border-radius: 3px;
 }
@@ -80,6 +79,7 @@
     justify-content: space-between;
     align-content: center;
     margin-bottom: 5px;
+    width: 530px;
 }
 
 .edit-card-title > input{
@@ -106,27 +106,77 @@
     display: flex;
     justify-content: space-between;
     padding-right: 10px ;
+    width: 520px;
+}
 
+.edit-card-duedate{
+    font-size: 13px;
+    margin: 10px 10px 20px 10px;
+}
+
+.edit-card-duedate > .duedate {
+    margin: 5px 0 0 0;
+    padding: 6px 6px 6px 14px;
+    background-color: #ECEDF0;
+    width:115px;
+    border-radius: 3px;
+    font-size: 15px;
 }
 
 .edit-card-description {
+    margin-top: 10px;
     font-weight: bold;
 }
 
 .edit-card-descp > textarea {
     margin-top: 8px;
+    padding-top: 8px;
     padding-left: 8px;
     border: none;
     font-size: 14px;
     height: 80px;
-    width: 250px;
+    width: 330px;
     font-family: sans-serif;
     background-color: #ECEDF0;
     resize: none;
+    border-radius: 3px;
+}
+
+.edit-card-deadline{
+    width: 150px;
 }
 
 .edit-card-deadline > .deadline-title{
     font-size: 13px;
+    margin-bottom: 10px;
+    margin-top:10px;
+}
+
+.add-to-card-label {
+    margin-left: 3px;
+    margin-top: 6px;
+    padding: 6px;
+    background-color: #ECEDF0;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.card-deadline-form{
+    margin-top: 10px;
+    background-color: white;
+    width: 155px;
+    padding:10px;
+    border-radius: 3px;
+}
+
+.card-deadline-form > div{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 5px;
+}
+
+.change-dd {
+    font-size: 14px;
 }
 

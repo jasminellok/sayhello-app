@@ -52,10 +52,9 @@ class CreateComment extends React.Component {
                     <input type="text"
                         value={this.state.body}
                         onChange={this.handleChange('body')}
-                        placeholder="Write a comment"
+                        placeholder="Write a comment..."
                     />
                 </div>
-                <button type="submit"> Save </button>
             </form>
         </div>)
     }

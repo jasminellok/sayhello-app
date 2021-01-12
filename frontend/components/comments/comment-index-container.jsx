@@ -41,9 +41,12 @@ class CommentIndex extends React.Component {
         });
 
         return (
-            <div className="">
-                {commentItems}
+            <div className="comment-ctn">
                 <CreateCommentCont cardId={this.props.cardId} />
+                <section className="comment-index">
+                    {commentItems} 
+                </section>
+                
             </div>)
     }
 

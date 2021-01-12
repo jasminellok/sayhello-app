@@ -16,6 +16,7 @@ class EditCard extends React.Component {
             deadline: (this.props.card.deadline ? this.props.card.deadline : ""), //edit date
             list_id: this.props.card.listId,
             ord: this.props.card.ord,
+            dueDateOpen: "none"
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     };
@@ -23,6 +24,7 @@ class EditCard extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.updateCard(this.state)
+        this.setState({dueDateOpen: "none"})
     }
 
     handleChange(field) {
@@ -30,6 +32,16 @@ class EditCard extends React.Component {
             e.preventDefault()
             this.setState({ [field]: e.currentTarget.value })
         }
+    }
+
+    handleDueDateClick(e) {
+        e.preventDefault();
+        if (this.state.dueDateOpen === "") {
+            this.setState({dueDateOpen: "none"})
+        } else if ((this.state.dueDateOpen === "none")) {
+            this.setState({dueDateOpen: ""})
+        }
+        
     }
 
     // componentWillUnmount() {
@@ -57,6 +69,11 @@ class EditCard extends React.Component {
             dateTime = `${month} ${date}, ${year}`
         }
 
+        let showDate = <div className="edit-card-duedate">
+                    <h3>{ dateTime ? 'DUE DATE' : null}</h3>
+                    <h3 className="duedate">{ dateTime ? new Date(dateTime).toDateString() : null} </h3>        
+                </div>
+
         return (
             <div className="edit-card-container">
                 <form className="edit-card-form">
@@ -66,17 +83,14 @@ class EditCard extends React.Component {
                             value={this.state.title}
                             onChange={this.handleChange("title")} 
                             placeholder={this.state.title}
-                            onBlur={this.handleSubmit}/>
+                            onBlur={this.handleSubmit}
+                            onSubmit={this.handleSubmit}/>
                         <div onClick={this.props.closeModal} className="edit-card-closex">x</div>
                     </section>
 
                     <div className="card-edit-form-info">
                         <section className="edit-card-descp">
-                            <div>
-                                <h3>{ dateTime ? 'DUE DATE' : null}</h3>
-                                <h3>{ dateTime ? new Date(dateTime).toDateString() : null} </h3>        
-                            </div>
-                            
+                            {dateTime ? showDate : null}
                             <div className="edit-card-description"> Description </div>
                             <textarea row="5"
                                 value={this.state.description}
@@ -88,11 +102,16 @@ class EditCard extends React.Component {
                             <h2 className="deadline-title">ADD TO CARD</h2>
                             <div className="edit-card-deadline"> 
                                 
-                                <h4>Set new deadline:</h4>
-                                <input type="date" 
-                                    className="edit-card-deadline"
+                                <h4 className="add-to-card-label" onClick={(e) => this.handleDueDateClick(e)}>Due Date</h4>
+                                <div style={{display:`${this.state.dueDateOpen}`}} className="card-deadline-form">
+                                    <div><p className="change-dd">Change Due Date</p> 
+                                    <h4 onClick={(e) => this.handleDueDateClick(e)}>x</h4></div>
+
+                                    <input type="date" 
                                     onChange={this.handleChange("deadline")} 
                                     onBlur={this.handleSubmit}/>
+                                </div>
+
                             </div>
                         </section>
                     </div>

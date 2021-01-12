@@ -1,15 +1,45 @@
 .card-comment-index-ctn{
-    margin: 100px;
+    margin-top: 120px ;
     width: 500px;
     display: flex;
+    flex-direction: column;
 }
 
 .comment-headr{
     font-size: 16px;
     font-weight: bold;
+    margin-bottom: 10px;
 }
 
-.card-comment-index-ctn{
-    display: flex;
-    flex-direction: column;
+.comment-index{
+    height: 300px;
+    overflow: auto;
+}
+
+.create-comment-title > input {
+    width: 330px;
+    height: 20px;
+    font-size: 16px;
+}
+.edit-comment-container {
+    width: 300px;
+}
+
+#comment-body{
+    width: 100%;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid rgb(223,225,231);
+    word-break: break-all;
+}
+
+#comment-body:hover {
+    width: 100%;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid rgb(223,225,231);
 }
