@@ -1,10 +1,10 @@
 import * as ApiUtil from '../util/board_api_util';
 
-export const REC_BOARD = 'REC_BOARD';//boards
-export const REC_ALL_BOARDS = 'REC_ALL_BOARDS';//boards
-export const REMOVE_BOARD = 'REMOVE_BOARD';//boards
-export const RECEIVE_BOARD_ERRORS = 'RECEIVE_BOARD_ERRORS';//errors
-export const CLEAR_ERRORS = 'CLEAR_ERRORS';//errors
+export const REC_BOARD = 'REC_BOARD';
+export const REC_ALL_BOARDS = 'REC_ALL_BOARDS';
+export const REMOVE_BOARD = 'REMOVE_BOARD';
+export const RECEIVE_BOARD_ERRORS = 'RECEIVE_BOARD_ERRORS';
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 const recAllBoards = (boards) => {
     return {
@@ -40,7 +40,6 @@ export const clearErrors = () => {
     }
 }
 
-//thunk actions
 
 export const fetchAllBoards = () => dispatch => {
     return ApiUtil.fetchAllBoards()

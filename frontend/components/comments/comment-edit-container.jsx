@@ -1,4 +1,3 @@
-//
 import React from 'react';
 import { connect } from 'react-redux';
 import { updateComment, fetchComment, clearErrors, deleteComment } from '../../actions/comment_actions';
@@ -33,9 +32,6 @@ class EditComment extends React.Component {
         }
     }
 
-    // componentWillUnmount() {
-    //     this.props.clearErrors();
-    // }
 
     showErrors() {
         const liErrors = this.props.errors.map((error, i) => {
@@ -63,11 +59,9 @@ class EditComment extends React.Component {
 
     render() {
         if (!this.state) return null;
-        //("edit item", this.state)
         return (
             <li className="edit-comment-container">
                 {/* {this.showErrors()} */}
-
                 <h3>{}</h3>
                 <h4 id="comment-body">{this.state.body}</h4>
 

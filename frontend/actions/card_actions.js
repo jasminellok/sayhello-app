@@ -1,10 +1,10 @@
 import * as ApiUtil from '../util/card_api_util';
 
-export const REC_CARD = 'REC_CARD';//CARDs
-export const REC_ALL_CARDS = 'REC_ALL_CARDS';//CARDs
-export const REMOVE_CARD = 'REMOVE_CARD';//CARDs
-export const RECEIVE_CARD_ERRORS = 'RECEIVE_CARD_ERRORS';//errors
-export const CLEAR_ERRORS = 'CLEAR_ERRORS';//errors
+export const REC_CARD = 'REC_CARD';
+export const REC_ALL_CARDS = 'REC_ALL_CARDS';
+export const REMOVE_CARD = 'REMOVE_CARD';
+export const RECEIVE_CARD_ERRORS = 'RECEIVE_CARD_ERRORS';
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 const recAllCards = (cards) => {
     return {
@@ -40,7 +40,6 @@ export const clearErrors = () => {
     }
 }
 
-//thunk actions
 export const fetchCard = (cardId) => dispatch => {
     return ApiUtil.fetchCard(cardId)
         .then((card) => dispatch(recCard(card)),

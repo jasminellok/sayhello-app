@@ -1,4 +1,3 @@
-//
 import React from 'react';
 import { connect } from 'react-redux';
 import { updateCard, fetchCard, clearErrors } from '../../actions/card_actions';
@@ -44,18 +43,6 @@ class EditCard extends React.Component {
         
     }
 
-    // componentWillUnmount() {
-    //     this.props.clearErrors();
-    // }
-
-    // showErrors() {
-    //     const liErrors = this.props.errors.map((error, i) => {
-    //         return (<li key={`edit-card-errors${i}`}>{error}</li>)
-    //     })
-    //     return (
-    //         <ul className="edit-card-errors">{liErrors}</ul>
-    //     );
-    // }
 
 
     render() {

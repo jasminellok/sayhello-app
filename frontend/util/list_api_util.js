@@ -1,5 +1,4 @@
 
-// api_list GET / api / lists /: id(.: format)                             api / lists#show {: format =>: json }
 export const fetchList = (listId) => {
     return $.ajax({
         method: 'GET',
@@ -7,7 +6,6 @@ export const fetchList = (listId) => {
     })
 };
 
-// # api_board_lists GET / api / boards /: board_id / lists(.: format)                api / lists#index {: format =>: json } 
 export const fetchAllLists = (boardId) => {
     return $.ajax({
         method: 'GET',
@@ -16,7 +14,6 @@ export const fetchAllLists = (boardId) => {
 };
 
 
-// #PATCH / api / lists /: id(.: format)                             api / lists#update {: format =>: json }
 export const updateList = (list) => {
     return $.ajax({
         method: "PATCH",
@@ -25,7 +22,6 @@ export const updateList = (list) => {
     })
 }
 
-// POST / api / boards /: board_id / lists(.: format)                api / lists#create {: format =>: json }
 export const createList = (boardId, list) => {
     return $.ajax({
         method: "POST",
@@ -34,7 +30,6 @@ export const createList = (boardId, list) => {
     })
 }
 
-// # DELETE / api / lists /: id(.: format)                             api / lists#destroy {: format =>: json }
 export const deleteList = (listId) => {
     return $.ajax({
         method: "DELETE",

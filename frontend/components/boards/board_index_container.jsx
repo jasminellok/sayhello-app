@@ -4,9 +4,7 @@ import { openModal } from '../../actions/modal_action';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Modal from "../modal/modal";
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faUser } from '@fortawesome/free-solid-svg-icons';
-//const user = <FontAwesomeIcon icon={faUser} />
+
 
 const BoardIndexItem = props => {
     return (<li>

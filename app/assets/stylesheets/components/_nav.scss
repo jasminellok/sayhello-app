@@ -27,18 +27,28 @@
     50% { transform: translate(-2px, -2px) rotate(0deg); }
 }
 
-.nav-home-btn {
-    padding: 7px;
-    background-color: rgb(100, 165, 206);
-    border-radius: 5px;
-}
-
-.nav-home-btn:hover {
-    background-color: rgb(68, 137, 180);
-}
-
 .home-icon {
     color:rgb(227, 229, 236);
+}
+
+.nav-sides{
+    display: flex;
+    color: white;
+}
+
+.nav-sides a {
+    margin-right:3px;
+    width: 32px;
+    height: 32px;
+    background-color: rgb(100, 165, 206);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-sides a:hover {
+    background-color: rgb(68, 137, 180);
 }
 
 .profile-dropdown-btn {

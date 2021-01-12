@@ -9,7 +9,7 @@ class CreateCard extends React.Component {
         this.state = {
             title: "",
             description: "",
-            deadline: "", //add date
+            deadline: "", 
             ord: this.props.ord,
             list_id: this.props.listId
         }
@@ -71,7 +71,6 @@ const mstp = (state, props) => {
         listId: props.listId,
         cards: state.entities.cards,
         cardIds: Object.keys(state.entities.cards),
-        //cardIds: state.entities.lists[listId].cardIds
         errors: state.errors.card
     };
 };

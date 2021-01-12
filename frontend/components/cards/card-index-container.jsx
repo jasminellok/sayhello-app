@@ -61,7 +61,6 @@ const mstp = (state, props) => {
         listId: props.listId,
         cards: Object.values(state.entities.cards).filter(card => card.list_id === props.listId),
         cardIds: Object.keys(state.entities.cards)
-        //cardIds: state.entities.lists[listId].cardIds
     };
 };
 

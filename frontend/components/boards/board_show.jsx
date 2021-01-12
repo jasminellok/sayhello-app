@@ -11,7 +11,7 @@ class BoardShow extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            showShareForm: "", //change to none and add onClick if want to toggle
+            showShareForm: "", 
             email:""
         }
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,12 +23,7 @@ class BoardShow extends React.Component {
         let userEmail = this.state.email
         let boardId = this.props.boardId
         this.props.createBoardUser(boardId, userEmail)
-        // this.props.createBoardUser(boardId, userEmail).then((board) => { 
-        //     this.setState({
-        //         email:"",
-        //         showShareForm:"none"
-        //     })
-        // });
+
         
     }
 

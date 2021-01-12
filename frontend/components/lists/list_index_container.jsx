@@ -77,7 +77,6 @@ const mstp = (state, props) => {
         boardId: props.boardId,
         lists: state.entities.lists,
         listIds: Object.keys(state.entities.lists)
-        //listIds: state.entities.boards[props.boardId].listIds
     };
 };
 

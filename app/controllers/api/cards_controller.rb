@@ -8,7 +8,6 @@ class Api::CardsController < ApplicationController
     
     def index
         @cards = Card.all.includes(:list).where(list_id: params[:list_id])
-        #//;
         if @cards
             render "api/cards/index"
         else

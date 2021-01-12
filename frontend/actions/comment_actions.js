@@ -1,10 +1,10 @@
 import * as ApiUtil from '../util/comment_api_util';
 
-export const REC_COMMENT = 'REC_COMMENT';//COMMENTs
-export const REC_ALL_COMMENTS = 'REC_ALL_COMMENTS';//COMMENTs
-export const REMOVE_COMMENT = 'REMOVE_COMMENT';//COMMENTs
-export const RECEIVE_COMMENT_ERRORS = 'RECEIVE_COMMENT_ERRORS';//errors
-export const CLEAR_ERRORS = 'CLEAR_ERRORS';//errors
+export const REC_COMMENT = 'REC_COMMENT';
+export const REC_ALL_COMMENTS = 'REC_ALL_COMMENTS';
+export const REMOVE_COMMENT = 'REMOVE_COMMENT';
+export const RECEIVE_COMMENT_ERRORS = 'RECEIVE_COMMENT_ERRORS';
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 const recAllComments = (comments) => {
     return {
@@ -21,7 +21,6 @@ const recComment = (comment) => {
 }
 
 const removeComment = (commentId) => {
-    //;
     return {
         commentId,
         type: REMOVE_COMMENT
@@ -41,7 +40,7 @@ export const clearErrors = () => {
     }
 }
 
-//thunk actions
+
 export const fetchComment = (commentId) => dispatch => {
     return ApiUtil.fetchComment(commentId)
         .then((comment) => dispatch(recComment(comment)),
@@ -78,7 +77,6 @@ export const updateComment = (comment) => dispatch => {
 export const deleteComment = (commentId) => dispatch => {
     return ApiUtil.deleteComment(commentId)
         .then((comment) => {
-            //;
             dispatch(removeComment(comment.commentId))
         },
             error => {

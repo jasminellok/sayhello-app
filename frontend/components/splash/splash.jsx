@@ -15,7 +15,9 @@ class Splash extends React.Component{
     }
     
     render () {
-        const user = () => (<div id="splash-page">
+        const user = () => (
+        
+        <div id="splash-page">
             <nav className="splash-nav">
                 <div >
                     <Link to="/" className="go-to-splash">

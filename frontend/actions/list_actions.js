@@ -1,10 +1,10 @@
 import * as ApiUtil from '../util/list_api_util';
 
-export const REC_LIST = 'REC_LIST';//LISTs
-export const REC_ALL_LISTS = 'REC_ALL_LISTS';//LISTs
-export const REMOVE_LIST = 'REMOVE_LIST';//LISTs
-export const RECEIVE_LIST_ERRORS = 'RECEIVE_LIST_ERRORS';//errors
-export const CLEAR_ERRORS = 'CLEAR_ERRORS';//errors
+export const REC_LIST = 'REC_LIST';
+export const REC_ALL_LISTS = 'REC_ALL_LISTS';
+export const REMOVE_LIST = 'REMOVE_LIST';
+export const RECEIVE_LIST_ERRORS = 'RECEIVE_LIST_ERRORS';
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 const recAllLists = (lists) => {
     return {
@@ -40,7 +40,6 @@ export const clearErrors = () => {
     }
 }
 
-//thunk actions
 export const fetchList = (listId) => dispatch => {
     return ApiUtil.fetchList(listId)
         .then((list) => dispatch(recList(list)),

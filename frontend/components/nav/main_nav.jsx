@@ -1,9 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faUser} from '@fortawesome/free-solid-svg-icons';
+import { faGithub, faLinkedin, faAngellist } from '@fortawesome/free-brands-svg-icons';
+const user = <FontAwesomeIcon icon={faUser} />
 const home = <FontAwesomeIcon icon={faHome} />
-//  |home|BONUS:index dropdown/link|           |logo|          |BONUS:create modal|profile dropdown|
+const gh = <FontAwesomeIcon icon={faGithub} />
+const linkin = <FontAwesomeIcon icon={faLinkedin} />
+const alist = <FontAwesomeIcon icon={faAngellist} />
+
 
 class MainNavBar extends React.Component {
     constructor(props) {
@@ -59,10 +64,16 @@ class MainNavBar extends React.Component {
         const mainNav = () => (
             <nav className="main-nav">
 
-                <div className="nav-home-btn">
+                <div className="nav-sides">
                     <Link  to="/boards">
-                        <div className="home-icon">{home}</div>
+                        <div className="icon">{home}</div>
                     </Link>
+                    <a href="https://github.com/jasminellok" target="_blank">
+                        <div className="icon">{gh}</div>
+                    </a>
+                    <a href="https://jasminellok.github.io/" target="_blank">
+                        <div className="icon">{user}</div>
+                    </a>
                 </div>
 
                 <div className="logo-boards">
@@ -70,12 +81,20 @@ class MainNavBar extends React.Component {
                         <img src={window.logo} alt="sayHello" className="main-nav-logo" /> 
                     </Link>
                 </div>
-
-                <div className="profile-dropdown-btn" onClick={this.toggleDropdown("showProfile")}>
-                    <li className="profile-letter">
-                        <p>{this.props.currentUser.full_name[0]}</p>
-                    </li>
-                    {this.state.showProfile ? this.showProfile() : null}                    
+                
+                <div className="nav-sides">
+                    <a href="https://www.linkedin.com/in/jasminellok/" target="_blank">
+                        <div className="icon">{linkin}</div>
+                    </a>
+                    <a href="https://angel.co/u/jasminellok" target="_blank">
+                        <div className="icon">{alist}</div>
+                    </a>
+                    <div className="profile-dropdown-btn" onClick={this.toggleDropdown("showProfile")}>
+                        <li className="profile-letter">
+                            <p>{this.props.currentUser.full_name[0]}</p>
+                        </li>
+                        {this.state.showProfile ? this.showProfile() : null}                    
+                    </div>
                 </div>
 
             </nav>);
