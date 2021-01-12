@@ -52,6 +52,10 @@
     margin-left: 5px;
 }
 
+.session-links > button:hover {
+    cursor: pointer;
+}
+
 .splash-welcome {
     display: flex;
     flex-direction: row;
