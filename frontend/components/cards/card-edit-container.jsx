@@ -70,8 +70,8 @@ class EditCard extends React.Component {
         }
 
         let showDate = <div className="edit-card-duedate">
-                    <h3>{ dateTime ? 'DUE DATE' : null}</h3>
-                    <h3 className="duedate">{ dateTime ? new Date(dateTime).toDateString() : null} </h3>        
+                    <h3>DUE DATE</h3>
+                    <h3 className="duedate">{new Date(dateTime).toDateString()} </h3>        
                 </div>
 
         return (
@@ -111,7 +111,6 @@ class EditCard extends React.Component {
                                     onChange={this.handleChange("deadline")} 
                                     onBlur={this.handleSubmit}/>
                                 </div>
-
                             </div>
                         </section>
                     </div>
