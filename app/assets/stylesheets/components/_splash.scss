@@ -1,29 +1,43 @@
-#splash-page {
-    background-color: $midblue;
-    color: $white;
-    height: 100vh;
-    font-family: 'Ubuntu', sans-serif;
-    padding-bottom: 69px;
-    overflow: auto;
-}
-
 .splash-logo {
     width: 75px;
     height: 42px;
 }
 
-.splash-nav {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 10px 10px 10px;
+img {
+    border-radius: 10px;
+    width: 550px;
+    height: 380px;
 }
+
+html, body {
+  height: 100%;
+}
+
+#splash-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: $midblue;
+  color: $white;
+  overflow: auto;
+  font-family: 'Ubuntu', sans-serif;
+  padding-bottom: 69px;
+}
+
+.splash-content{
+  flex: 1 0 auto;
+}
+
+.splash-nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
 .go-to-splash {
     font-size: 43px;
     font-family:'Yellowtail', cursive;
     display: flex;
-    flex-direction: row;
     text-decoration: none;
 }
 
@@ -59,7 +73,6 @@
 
 .splash-welcome {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     margin-top: 20px;
     margin-left: 80px;
@@ -84,19 +97,19 @@
     height: 75px;
 }
 
-.splash-welcome > .splash-img {
-    padding-top: 10px;
-    padding-left: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+.splash-footer {
+  flex-shrink: 0;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  background: white;
+  color: rgb(138,148,165);
 }
 
-img {
-    border-radius: 10px;
-    width: 550px;
-    height: 380px;
-}
+
+
+
 
 
 

@@ -1,6 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser} from '@fortawesome/free-solid-svg-icons';
+import { faGithub, faLinkedin, faAngellist } from '@fortawesome/free-brands-svg-icons';
+const userI = <FontAwesomeIcon icon={faUser} />
+const gh = <FontAwesomeIcon icon={faGithub} />
+const linkin = <FontAwesomeIcon icon={faLinkedin} />
+const alist = <FontAwesomeIcon icon={faAngellist} />
 
 class Splash extends React.Component{
     constructor(props) {
@@ -33,12 +39,29 @@ class Splash extends React.Component{
                 </div>
             </nav>
 
-            <section className="splash-welcome">
-                <div className="splash-text">
-                    <h1 className="splash-title"> Say hello to your buddies and get work done together.</h1>
-                    <p className="splash-content"> Use our organizational boards, lists, and cards to finish work with your team like champs! Try out our demo for more information.</p>
+            <section className="splash-content">
+                <div className="splash-welcome">
+                    <div className="splash-text">
+                        <h1 className="splash-title"> Say hello to your buddies and get work done together.</h1>
+                        <p className="splash-content"> Use our organizational boards, lists, and cards to finish work with your team like champs! Try out our demo for more information.</p>
+                    </div>
+                    <div className="splash-img" ><img src={window.splash} alt="sayHello" /></div>
                 </div>
-                <div className="splash-img" ><img src={window.splash} alt="sayHello" /></div>
+            </section>
+
+            <section className="splash-footer">
+                <a href="https://github.com/jasminellok" target="_blank">
+                    Github
+                </a>
+                <a href="https://jasminellok.github.io/" target="_blank">
+                    <div className="icon">{userI}</div>
+                </a>
+                    <a href="https://www.linkedin.com/in/jasminellok/" target="_blank">
+                    <div className="icon">{linkin}</div>
+                </a>
+                <a href="https://angel.co/u/jasminellok" target="_blank">
+                    <div className="icon">{alist}</div>
+                </a>
             </section>
 
         </div>);

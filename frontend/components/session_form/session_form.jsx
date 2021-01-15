@@ -103,9 +103,6 @@ class SessionForm extends React.Component {
         <div className="session-foot-img">
           <img src={window.session} alt="sayHello"  />
         </div>
-        <div className="footer">
-
-        </div>
 
       </div>
     );
