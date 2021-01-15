@@ -77,12 +77,11 @@ export const deleteBoard = (boardId) => dispatch => {
         );
 }
 
-//Board users shares ... need testing and review 
+
 export const createBoardUser = (boardId, email) => dispatch => {
   return ApiUtil.postBoardUser(boardId, email)
-        .then((board) => dispatch(recBoard(board)),
-            error => dispatch(recBoardErrors(error.responseJSON))
-        );
+        .then(()=>{},
+        error => dispatch(recBoardErrors(error.responseJSON)));
 }
 
 // export const removeBoardUser = (boardId, userId) => dispatch => {
