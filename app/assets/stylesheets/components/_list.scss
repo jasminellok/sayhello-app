@@ -9,11 +9,11 @@
     height: 100%;
     display: flex;
     justify-content: space-between;
+    overflow: auto;
 }
 
 .list-area {
     display: flex;
-
 }
 
 .list-items {

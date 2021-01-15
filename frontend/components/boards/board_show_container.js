@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import BoardShow from './board_show';
-import { fetchBoard, deleteBoard, createBoardUser, removeBoardUser } from '../../actions/board_actions';
+import { fetchBoard, deleteBoard, createBoardUser, removeBoardUser, clearErrors } from '../../actions/board_actions';
 import { openModal, closeModal} from '../../actions/modal_action';
 
 
@@ -12,6 +12,7 @@ const mstp = (state, ownProps) => {
         boardId: id,
         currentUser: state.entities.users[state.session.id],
         listIds: boards[id] ? boards[id].listIds : [],
+        errors: state.errors.board
     }
 }
 
@@ -22,6 +23,9 @@ const mdtp = dispatch => {
         deleteBoard: (id) => dispatch(deleteBoard(id)),
         openModal: (modal) => dispatch(openModal(modal)),
         closeModal: () => dispatch(closeModal()),
+        clearErrors: () => {
+            return dispatch(clearErrors())
+        }
     }
 }
 
