@@ -13,6 +13,7 @@ const mstp = (state, ownProps) => {
 const mdtp = (dispatch, ownProps) => {
   return {
     processForm: (user) => dispatch(login(user)),
+    login: (user) => dispatch(login(user)),
     clearErrors: () => {
       return dispatch(clearErrors())
     }

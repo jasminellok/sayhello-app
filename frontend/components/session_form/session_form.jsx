@@ -22,8 +22,13 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const user = {...this.state}
-    this.props.processForm(user)
+    if (e.target.className === "demo-session") {
+      const user = { email: "demouser@example.com", password: "demouser" }
+      this.props.login(user)
+    } else {
+      const user = {...this.state}
+      this.props.processForm(user)
+    }
   }
 
   showErrors() {
@@ -60,7 +65,7 @@ class SessionForm extends React.Component {
     return (
       <div className="session-page">
 
-        <form onSubmit={this.handleSubmit} className="session-form">
+        <form className="session-form">
               <div className="session-logo">
                 <Link to="/" className="go-to-splash">
                   <img src={window.logo} alt="sayHello" />
@@ -90,7 +95,12 @@ class SessionForm extends React.Component {
                   </label>
                     <br />
                   <label id="session-submit">
-                    <button type="submit" >{this.props.formType}</button>
+                    <button type="submit" onClick={this.handleSubmit}>{this.props.formType}</button>
+                  </label>
+                  <br/>
+                  
+                  <label id="session-submit">
+                    <button type="submit" className="demo-session" onClick={this.handleSubmit}>Demo</button>
                   </label>
                   <br/>
 
