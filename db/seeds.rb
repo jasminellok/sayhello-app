@@ -23,25 +23,25 @@ user_2 = User.create(
 
 
 board_1 = Board.create(
-    title: "demo how to crying",
-    description: "crying all night long, thanks fullstack TT-TT",
+    title: "testing",
+    description: "testing",
     author_id: 1
 )
 
 board_2 = Board.create(
-    title: "jane needs help",
-    description: "plz help, medic medic!",
+    title: "jane fullstack project",
+    description: "jane's fullstack project",
     author_id: 2
 )
 
 List.create(
-    title: "cry doing",
+    title: "start",
     ord: 0,
     board_id: 1
 )
 
 List.create(
-    title: "finish crying",
+    title: "in progress",
     ord: 1,
     board_id: 1
 )
