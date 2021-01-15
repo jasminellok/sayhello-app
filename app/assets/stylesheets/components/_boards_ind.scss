@@ -1,26 +1,26 @@
 .board-index-page {
-    padding-top: 70px;
+    padding-top: 50px;
     height: 100vh;
     font-family: sans-serif;
+    background-color: rgb(250,251,252);
+    display: flex;
+    justify-content: center;
+}
+
+.board-ind-center{
     display: flex;
     flex-direction: column;
     align-content: center;
     flex-wrap: wrap;
-    background-color: rgb(250,251,252);
 }
 
-.board-index-page > h3 {
-    position: relative;
-    padding-bottom: 10px;
+.board-ind-center > h3 {
+    padding: 30px 0 10px 0;
     font-weight: bold;
 }
 
 .board-index {
-    position: relative;
     display: flex;
-    width: 60%;
-    justify-content: space-evenly;
-    align-content: center;
     flex-wrap: wrap;
     z-index: 0;
 }
@@ -31,7 +31,7 @@
     padding: 25px;
     background-color:rgb(4,105,166) ;
     color:rgb(250,251,252);
-    margin: 10px;
+    margin: 10px 15px 0 0;
     border-radius: 4px;
     cursor: pointer;
 }
@@ -43,22 +43,10 @@
 .board-index > .index-create-modal {
     background-color: rgb(241,243,245);
     color:rgb(23,43,77);
-    width: 120px;
-    height: 40px;
-    padding: 25px;
-    margin: 10px;
     border-radius: 4px;
-    cursor: pointer;
 }
 
 .board-index > li > a {
     text-decoration: none;
     cursor: pointer;
-}
-
-.create-board-form{
-    display:flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-
 }

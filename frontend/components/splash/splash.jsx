@@ -1,12 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser} from '@fortawesome/free-solid-svg-icons';
-import { faGithub, faLinkedin, faAngellist } from '@fortawesome/free-brands-svg-icons';
-const userI = <FontAwesomeIcon icon={faUser} />
-const gh = <FontAwesomeIcon icon={faGithub} />
-const linkin = <FontAwesomeIcon icon={faLinkedin} />
-const alist = <FontAwesomeIcon icon={faAngellist} />
+
 
 class Splash extends React.Component{
     constructor(props) {

@@ -1,14 +1,12 @@
 .session-page {
-    height: 100%;
-    // width: 80%;
+    height: 100vh;
     font-family: 'Ubuntu', sans-serif;
     background-color: rgb(249, 250, 252);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-content: center;
-    flex-wrap: wrap;
-    overflow: hidden;
+    overflow: auto;
 }
 
 
@@ -103,8 +101,23 @@ button:hover{
     color: white;
 }
 
-.session-inputs > label > button:hover {
+.session-inputs > label > .demo-session {
+    border: 2px solid white;
+    box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.2) ;
+    border-radius: 2px;
+    background-color:white;
+    color: $darkblue;
+    font-weight: bold;
+}
+
+.session-inputs > label > .session-submit:hover {
     cursor: pointer;
+    -webkit-filter: brightness(110%);
+}
+
+.session-inputs > label > .demo-session:hover {
+    cursor: pointer;
+    -webkit-filter: brightness(97%);
 }
 
 .session-inputs > .alt-link {

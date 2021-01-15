@@ -4,6 +4,11 @@ import { openModal } from '../../actions/modal_action';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Modal from "../modal/modal";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faUsers } from '@fortawesome/free-solid-svg-icons';
+const userI = <FontAwesomeIcon icon={faUser} />
+const users = <FontAwesomeIcon icon={faUsers} />
+
 
 
 const BoardIndexItem = props => {
@@ -23,20 +28,35 @@ class BoardIndex extends React.Component {
 
     render() {
         const boards = this.props.boards;
-        const boardItems = boards.map((board, i) => {
-            return (<BoardIndexItem board={board} key={`board-index-item${i}`} />)
+        const personalBoards = 
+            boards.filter(board=> board.author_id===this.props.currentUser.id)
+            .map((board) => {
+            return (<BoardIndexItem board={board} key={`board-index-item${board.id}`} />)
         });
+
+        const sharedBoard = 
+            boards.filter(board=> board.author_id !== this.props.currentUser.id)
+            .map((board) => {
+            return (<BoardIndexItem board={board} key={`board-index-item${board.id}`} />)
+        });
+
+
         return (<div className="board-index-page">
             <Modal />
-            <h3>Personal Boards
-                {/* <div className="user-icon">{user}</div> */}
-            </h3>
-            <ul className="board-index">
-                {boardItems}
-                <li className="index-create-modal" onClick={() => this.props.openModal('createBoard')}>
-                    <p>Create Board</p>
-                </li>
-            </ul>
+            <div className="board-ind-center">
+                <h3>{userI} {" "} Personal Board</h3>
+                <ul className="board-index">
+                    {personalBoards}
+                    <li className="index-create-modal" onClick={() => this.props.openModal('createBoard')}>
+                        <p>Create Board</p>
+                    </li>
+                </ul>
+                
+                <h3>{users} {" "} Other Shared Boards</h3>
+                <ul className="board-index">
+                    {sharedBoard}
+                </ul>
+            </div>
         </div>)
     }
 
