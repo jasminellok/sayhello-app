@@ -51,16 +51,16 @@ class Splash extends React.Component{
 
             <section className="splash-footer">
                 <a href="https://github.com/jasminellok" target="_blank">
-                    Github
+                    <div className="p-site">Github</div> 
                 </a>
                 <a href="https://jasminellok.github.io/" target="_blank">
-                    <div className="icon">{userI}</div>
+                    <div className="p-site" >Personal Site</div> 
                 </a>
                     <a href="https://www.linkedin.com/in/jasminellok/" target="_blank">
-                    <div className="icon">{linkin}</div>
+                    <div className="p-site">Linkedin</div> 
                 </a>
                 <a href="https://angel.co/u/jasminellok" target="_blank">
-                    <div className="icon">{alist}</div>
+                    <div className="p-site">AngelList</div> 
                 </a>
             </section>
 

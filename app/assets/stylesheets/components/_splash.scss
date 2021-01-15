@@ -103,8 +103,23 @@ html, body {
   height: 50px;
   display: flex;
   justify-content: center;
+  align-items: center;
   background: white;
   color: rgb(138,148,165);
+}
+
+
+.splash-footer > a {
+    padding-left: 15px;
+    text-decoration: none;
+}
+
+.p-site {
+    border-bottom: 1px solid  rgb(138,148,165);;
+}
+
+.p-site:hover {
+    color: $darkblue;
 }
 
 
