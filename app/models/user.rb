@@ -1,15 +1,3 @@
-    # t.string "email", null: false
-    # t.string "full_name", null: false
-    # t.string "password_digest", null: false
-    # t.string "session_token", null: false
-    # t.datetime "created_at", null: false
-    # t.datetime "updated_at", null: false
-    # t.index ["email"], name: "index_users_on_email", unique: true
-    # t.index ["full_name"], name: "index_users_on_full_name"
-    # t.index ["session_token"], name: "index_users_on_session_token", unique: true
-    #jane / jane@example.com / chicago 
-    #john / john@example.com / seattle
-
 class User < ApplicationRecord
     attr_reader :password
     validates :email, uniqueness: true

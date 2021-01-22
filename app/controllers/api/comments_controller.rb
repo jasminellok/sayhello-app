@@ -9,8 +9,7 @@ class Api::CommentsController < ApplicationController
     end
     
     def index
-        @comments = Comment.all.includes(:card).where(card_id: params[:card_id]) #need to pass back cardid
-        
+        @comments = Comment.all.includes(:card).where(card_id: params[:card_id]) 
         if @comments
             render "api/comments/index"
         else 

@@ -7,7 +7,7 @@ class Api::BoardSharesController < ApplicationController
             return
         end 
         @board_user.user_id = User.find_by(email: params[:email]).id
-        @board_user.board_id = params[:board_id] #check front end and what is sending back
+        @board_user.board_id = params[:board_id] 
         if  @board_user.save
             @board = @board_user.board
             @users = @board.users
@@ -18,7 +18,6 @@ class Api::BoardSharesController < ApplicationController
     end
 
     def destroy
-        #check front end and what is sending back
         @board_user = BoardUser.find_by(user_id: params[:user_id], board_id: params[:board_id])
         @board = @board_user.board
         @board_user.destroy

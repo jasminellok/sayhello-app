@@ -1,9 +1,3 @@
-    # t.integer "board_id", null: false
-    # t.integer "user_id", null: false
-    # t.datetime "created_at", null: false
-    # t.datetime "updated_at", null: false
-    # t.index ["board_id"], name: "index_board_users_on_board_id"
-    # t.index ["user_id"], name: "index_board_users_on_user_id"
 
 class BoardUser < ApplicationRecord
     validates :board_id, :user_id, presence:true

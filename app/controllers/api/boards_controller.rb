@@ -1,9 +1,3 @@
-# resources :boards, only: [:index, :create, :show, :update, :destroy]
-# from console
-# board_id = BoardUser.find(1).board_id
-# Board.find(board _id) ... shows the board with that id, demo how to cry
-#
-
 class Api::BoardsController < ApplicationController
     before_action :ensure_logged_in
 
