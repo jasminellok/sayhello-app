@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 class Splash extends React.Component{
@@ -16,9 +15,7 @@ class Splash extends React.Component{
     }
     
     render () {
-        const user = () => (
-        
-        <div id="splash-page">
+        return (<div id="splash-page">
             <nav className="splash-nav">
                 <div >
                     <Link to="/" className="go-to-splash">
@@ -60,8 +57,6 @@ class Splash extends React.Component{
             </section>
 
         </div>);
-
-        return user();
     }
 };
 
