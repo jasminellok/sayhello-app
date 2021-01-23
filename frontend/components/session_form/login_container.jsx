@@ -3,14 +3,14 @@ import React from 'react';
 import { login, clearErrors  } from '../../actions/session_actions';
 import SessionForm from './session_form';
 
-const mstp = (state, ownProps) => {
+const mstp = (state) => {
   return {
     errors: state.errors.session,
     formType: 'Log in'
   };
 };
 
-const mdtp = (dispatch, ownProps) => {
+const mdtp = (dispatch) => {
   return {
     processForm: (user) => dispatch(login(user)),
     login: (user) => dispatch(login(user)),
