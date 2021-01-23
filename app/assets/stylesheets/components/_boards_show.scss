@@ -19,18 +19,16 @@
     align-items: center;
     justify-content: space-evenly;
     flex-direction: row;
-    > .edit-board-button {
+    > li {
         padding: 7px;
         background-color: rgb(71,156,207);
-        margin-left: 2px;
+        margin-left: 3px;
         border-radius: 3px;
         font-size: 15px;
     }
     > .show-title {
         font-size: 18px;
         font-weight: bold;
-        background-color: transparent;
-        padding: 5px 15px;
     }
 
 }
@@ -67,11 +65,11 @@ li {
 
 .share-input{
     border: none;
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 15px;
     background-color: transparent;
     padding: 5px 15px;
-    width: 250px;
+    width: 290px;
+
     color: white;
 }
 

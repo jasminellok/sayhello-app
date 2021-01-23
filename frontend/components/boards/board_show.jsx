@@ -5,15 +5,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 const angleDown = <FontAwesomeIcon icon={faAngleDown} />
 
-
 class BoardShow extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             showShareForm: "", 
-            email:"",
+            addUserEmail:"",
         }
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.submitBoardUser = this.submitBoardUser.bind(this);
         this.handleClick = this.handleClick.bind(this);
     }
 
@@ -21,15 +20,15 @@ class BoardShow extends React.Component {
         this.props.clearErrors();
     }
 
-    handleSubmit(e) {
+    submitBoardUser(e) {
         e.preventDefault();
-        let userEmail = this.state.email
+        let userEmail = this.state.addUserEmail
         let boardId = this.props.boardId
         this.props.createBoardUser(boardId, userEmail).then(() => { 
-            this.setState({email:'Saved!'})
+            this.setState({addUserEmail:'Saved!'})
         })
         setTimeout(()=>{
-            this.setState({email:''}); 
+            this.setState({addUserEmail:''}); 
         }, 2000);
 
     }
@@ -56,9 +55,9 @@ class BoardShow extends React.Component {
         }
 
         if (this.props.errors !== prevProps.errors) {
-            this.setState({email:'Error! Invalid email'})
+            this.setState({addUserEmail:'Error! Invalid email'})
             setTimeout(()=>{
-                this.setState({email:''}); 
+                this.setState({addUserEmail:''}); 
             }, 2000);
         }
     }
@@ -73,13 +72,14 @@ class BoardShow extends React.Component {
 
         return (<>
             <div className="board-show-page">
+
                 <div className="board-show-bar">
                     <section className="board-show-left">
                         <li className="edit-board-button" onClick={() => this.props.openModal('editBoard')}> 
                             Board {angleDown}
                         </li>
-                        <div className="show-title">{this.props.board.title}</div>
-                        {/* <li onClick={() => this.handleDelete(this.props.board.id)}>Delete</li> */}
+                        <li className="show-title">{this.props.board.title}</li>
+                        <li onClick={() => this.handleDelete(this.props.board.id)}>Delete</li>
                         <div className="edit-modal-cont">
                             <EditModal board={this.props.board} />
                         </div>
@@ -88,23 +88,22 @@ class BoardShow extends React.Component {
                     <section className="board-show-right">
                         <li className="divider"></li>
                         <div className="share-ctn" style={{display:`${this.state.showShareForm}`}}>
-                            <form onSubmit={this.handleSubmit} className="share-form">
+                            <form onSubmit={this.submitBoardUser} className="share-form">
                                 <input type="text"
                                 className= "share-input"
-                                    value={this.state.email}
-                                    onChange={this.handleChange('email')}
-                                    placeholder= "Enter email to share board ..."
+                                    value={this.state.addUserEmail}
+                                    onChange={this.handleChange('addUserEmail')}
+                                    placeholder= "Enter user's email to share board with them"
                                 /> 
                                 
                             </form>
                         </div>
                     </section>
+
                 </div>
 
                 <div className="all-lists-container">
-                    <ListIndexContainer 
-                        boardId={this.props.boardId}
-                        />
+                    <ListIndexContainer boardId={this.props.boardId}/>
                 </div>
             </div>
         </>)
