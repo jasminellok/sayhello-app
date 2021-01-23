@@ -1,14 +1,13 @@
+import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { fetchAllBoards, createBoardUser, removeBoardUser } from '../../actions/board_actions';
 import { openModal } from '../../actions/modal_action';
-import React from 'react';
-import { Link } from 'react-router-dom';
 import Modal from "../modal/modal";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faUsers } from '@fortawesome/free-solid-svg-icons';
-const userI = <FontAwesomeIcon icon={faUser} />
-const users = <FontAwesomeIcon icon={faUsers} />
-
+const personalIcon = <FontAwesomeIcon icon={faUser} />
+const usersIcon = <FontAwesomeIcon icon={faUsers} />
 
 
 const BoardIndexItem = props => {
@@ -19,7 +18,7 @@ const BoardIndexItem = props => {
 
 class BoardIndex extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
     }
 
     componentDidMount() {
@@ -28,6 +27,7 @@ class BoardIndex extends React.Component {
 
     render() {
         const boards = this.props.boards;
+
         const personalBoards = 
             boards.filter(board=> board.author_id===this.props.currentUser.id)
             .map((board) => {
@@ -44,7 +44,7 @@ class BoardIndex extends React.Component {
         return (<div className="board-index-page">
             <Modal />
             <div className="board-ind-center">
-                <h3>{userI} {" "} Personal Board</h3>
+                <h3>{personalIcon} {" "} Personal Board</h3>
                 <ul className="board-index">
                     {personalBoards}
                     <li className="index-create-modal" onClick={() => this.props.openModal('createBoard')}>
@@ -52,13 +52,13 @@ class BoardIndex extends React.Component {
                     </li>
                 </ul>
                 
-                <h3>{users} {" "} Other Shared Boards</h3>
+                <h3>{usersIcon} {" "} Other Shared Boards</h3>
                 <ul className="board-index">
                     {sharedBoard}
                 </ul>
             </div>
-        </div>)
-    }
+        </div>);
+    };
 
 };
 
