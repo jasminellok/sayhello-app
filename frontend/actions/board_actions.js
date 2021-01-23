@@ -84,9 +84,4 @@ export const createBoardUser = (boardId, email) => dispatch => {
         error => dispatch(recBoardErrors(error.responseJSON)));
 }
 
-// export const removeBoardUser = (boardId, userId) => dispatch => {
-//   return ApiUtil.deleteBoardUsers(boardId, userId)
-//         .then((board) => dispatch(recBoard(board)),
-//             error => dispatch(recBoardErrors(error.responseJSON))
-//         );
-// }
+

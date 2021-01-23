@@ -35,6 +35,7 @@ export const deleteBoard = (boardId) => {
     })
 }
 
+// to add board_user
 export const postBoardUser = (boardId, email) => { 
     return $.ajax({ 
         method: 'POST',

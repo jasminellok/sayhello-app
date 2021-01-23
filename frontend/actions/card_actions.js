@@ -75,7 +75,7 @@ export const updateCard = (card) => dispatch => {
 
 export const deleteCard = (cardId) => dispatch => {
     return ApiUtil.deleteCard(cardId)
-        .then((response) => dispatch(removeCard(response.id)),
+        .then((card) => dispatch(removeCard(card.id)),
             error => dispatch(recCardErrors(error.responseJSON))
         );
 
