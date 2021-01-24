@@ -3,7 +3,7 @@ class Api::BoardSharesController < ApplicationController
     def create
         @board_user = BoardUser.new
         if !User.find_by(email: params[:email])
-            render json: ['Error, Invalid Email'], status: 404
+            render json: ['Error, invalid email!'], status: 404
             return
         end 
         @board_user.user_id = User.find_by(email: params[:email]).id

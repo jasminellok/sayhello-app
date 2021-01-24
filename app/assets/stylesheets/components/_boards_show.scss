@@ -22,11 +22,11 @@
     > li {
         padding: 7px;
         background-color: rgb(71,156,207);
-        margin-left: 3px;
         border-radius: 3px;
         font-size: 15px;
     }
     > .show-title {
+        margin: 0 10px 0 10px;
         font-size: 18px;
         font-weight: bold;
     }
@@ -43,17 +43,10 @@ li {
     align-content: center;
     align-items: center;
     justify-content: space-evenly;
-    flex-direction: row;
-
-    > li {
-        padding: 7px;
-        background-color: rgb(71,156,207);
-        margin-left: 5px;
-        border-radius: 3px;
-        font-size: 15px;
-    }   
+    flex-direction: row; 
     
     > .divider{
+        background-color: rgb(71,156,207);
         border-left: rgb(71,156,207);
         margin: 0 5px;
         padding: 10px 0px;

@@ -25,7 +25,7 @@ class BoardShow extends React.Component {
         let userEmail = this.state.addUserEmail
         let boardId = this.props.boardId
         this.props.createBoardUser(boardId, userEmail).then(() => { 
-            this.setState({addUserEmail:'Saved!'})
+            this.setState({addUserEmail:'Saved, board shared!'})
         })
         setTimeout(()=>{
             this.setState({addUserEmail:''}); 
@@ -54,11 +54,12 @@ class BoardShow extends React.Component {
             this.props.fetchBoard(this.props.boardId)
         }
 
-        if (this.props.errors !== prevProps.errors) {
+        if (this.props.errors.length !== prevProps.errors.length) {
             this.setState({addUserEmail:'Error! Invalid email'})
             setTimeout(()=>{
                 this.setState({addUserEmail:''}); 
             }, 2000);
+            this.props.clearErrors();
         }
     }
 
@@ -75,10 +76,10 @@ class BoardShow extends React.Component {
 
                 <div className="board-show-bar">
                     <section className="board-show-left">
-                        <li className="edit-board-button" onClick={() => this.props.openModal('editBoard')}> 
+                        <li onClick={() => this.props.openModal('editBoard')}> 
                             Board {angleDown}
                         </li>
-                        <li className="show-title">{this.props.board.title}</li>
+                        <p className="show-title">{this.props.board.title}</p>
                         <li onClick={() => this.handleDelete(this.props.board.id)}>Delete</li>
                         <div className="edit-modal-cont">
                             <EditModal board={this.props.board} />

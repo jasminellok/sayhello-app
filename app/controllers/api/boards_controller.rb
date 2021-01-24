@@ -38,6 +38,7 @@ class Api::BoardsController < ApplicationController
         @board = Board.find_by(id: params[:id])
         if @board.author_id != current_user.id
             render json: ['You are not the author and cannot delete board'], status: 422
+            return
         end 
         if @board
             @board.destroy
