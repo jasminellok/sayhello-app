@@ -9,7 +9,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
     align-content: center;
-    padding:5px;
+    padding:7px;
 }
 
 .board-show-left{
@@ -21,6 +21,7 @@
     flex-direction: row;
     > li {
         padding: 7px;
+        height: 17px;
         background-color: rgb(71,156,207);
         border-radius: 3px;
         font-size: 15px;
@@ -60,7 +61,7 @@ li {
     border: none;
     font-size: 15px;
     background-color: transparent;
-    padding: 5px 15px;
+    padding: 7px 10px;
     width: 290px;
 
     color: white;
