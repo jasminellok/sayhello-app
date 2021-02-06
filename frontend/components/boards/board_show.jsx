@@ -3,6 +3,7 @@ import EditModal from "../modal/edit-modal";
 import ListIndexContainer from '../lists/list_index_container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { DragDropContext } from 'react-beautiful-dnd';
 const angleDown = <FontAwesomeIcon icon={faAngleDown} />
 
 class BoardShow extends React.Component {
@@ -71,7 +72,7 @@ class BoardShow extends React.Component {
     render() { 
         if (!this.props.board) return null;
 
-        return (<>
+        return (
             <div className="board-show-page">
 
                 <div className="board-show-bar">
@@ -103,11 +104,19 @@ class BoardShow extends React.Component {
 
                 </div>
 
-                <div className="all-lists-container">
-                    <ListIndexContainer boardId={this.props.boardId}/>
-                </div>
+                <DragDropContext
+                onBeforeCapture={this.onBeforeCapture}
+                onBeforeDragStart={this.onBeforeDragStart}
+                onDragStart={this.onDragStart}
+                onDragUpdate={this.onDragUpdate}
+                onDragEnd={this.onDragEnd}> 
+                    <div className="all-lists-container">
+                        <ListIndexContainer boardId={this.props.boardId}/>
+                    </div>
+                </DragDropContext>
+
             </div>
-        </>)
+        )
     }
 }
 
